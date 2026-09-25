@@ -1,0 +1,21 @@
+# Mock: sponsors confirmed but no logo files delivered yet.
+sponsors:
+  - name: "Mountaineer Fiber Cooperative"
+    tier: presenting
+    url: example.coop
+  - name: "Kanawha Valley Makerspace"
+    tier: gold
+  - name: "Holler Hosting"
+    tier: gold
+  - name: "New River Data Works"
+    tier: silver
+  - name: "Two-Lane Technology"
+    tier: silver
+  - name: "Elk City Coffee"
+    tier: community
+  - name: "Ridgeline Print Shop"
+    tier: in-kind
+thanks:
+  - "Ada Example"
+  - "Grace Placeholder"
+  - "Sam Mockname"

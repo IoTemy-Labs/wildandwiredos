@@ -1,0 +1,95 @@
+:root{
+/* ---- Base ramp. Deep teal is the environment, not an accent. ---- */
+--teal-1000:#03252a; /* deepest well: page gutters, code blocks */
+--teal-900:#052e34;  /* sunken: inset fields, wells */
+--teal-800:#073e45;  /* BASE SURFACE, as supplied */
+--teal-700:#0a4f58;  /* elevated: cards, panels, raised blocks */
+--teal-600:#0d6068;  /* elevated hover / second lift */
+--teal-500:#12837b;  /* mid teal, as supplied. STRUCTURE ONLY, never text */
+--teal-400:#1a9d93;  /* structure hover, chart fill 2 */
+
+/* ---- Mint. The one accent. ---- */
+--mint-300:#8cefd0;  /* focus ring, chart fill 3 */
+--mint-400:#6ce8c4;  /* accent hover (lighter on dark) */
+--mint-500:#40dfaf;  /* PRIMARY ACCENT, as supplied. 6.94:1 on base */
+--mint-600:#2bbd92;  /* accent pressed */
+--mint-700:#1e9773;  /* accent disabled fill */
+
+/* ---- Text ramp on the dark base ---- */
+--ink-000:#ffffff;   /* max emphasis. 11.77:1. sparing use only */
+--ink-100:#d6e9e7;   /* body. 9.34:1 */
+--ink-300:#8fb3b2;   /* secondary. 5.19:1 */
+--ink-500:#5f8887;   /* disabled only. 3.02:1. never body copy */
+
+/* ---- Semantic surfaces ---- */
+--surface-well:var(--teal-1000);
+--surface-sunken:var(--teal-900);
+--surface-base:var(--teal-800);
+--surface-card:var(--teal-700);
+--surface-card-hover:var(--teal-600);
+--surface-accent:var(--mint-500);
+
+/* ---- Semantic text ---- */
+--text-max:var(--ink-000);
+--text-body:var(--ink-100);
+--text-muted:var(--ink-300);
+--text-disabled:var(--ink-500);
+--text-accent:var(--mint-500);
+--text-on-accent:var(--teal-800);
+--text-link:var(--mint-500);
+--text-link-hover:var(--mint-400);
+
+/* ---- Semantic structure. Mid teal lives here and only here. ---- */
+--border-subtle:#0f5f63;
+--border-default:var(--teal-500);
+--border-strong:var(--teal-400);
+--border-accent:var(--mint-500);
+--rule-ascii:var(--teal-500);
+--focus-ring:var(--mint-300);
+
+/* ---- Status. The palette contains no red, amber, or blue.
+       Positive states use mint. Neutral states use muted ink.
+       Destructive intent is carried by copy plus an outlined
+       max-emphasis treatment, never by hue. ---- */
+--status-ok-fg:var(--mint-500);
+--status-ok-bg:rgba(64,223,175,.12);
+--status-neutral-fg:var(--ink-300);
+--status-neutral-bg:rgba(143,179,178,.10);
+--status-attention-fg:var(--ink-000);
+--status-attention-bg:rgba(255,255,255,.10);
+--status-attention-border:var(--ink-000);
+
+/* ---- Chart ramp, structure hues only ---- */
+--chart-1:var(--mint-500);
+--chart-2:var(--teal-400);
+--chart-3:var(--mint-300);
+--chart-4:var(--teal-500);
+--chart-5:var(--ink-300);
+
+/* ---- Logo plate. The supplied lockup contains navy and mid-teal artwork
+       that fails on the dark base, so it sits on a light plate. ---- */
+--logo-plate:#f4faf9;
+}
+
+/* Optional, secondary. Derived from the same four colors, nothing new. */
+[data-theme="light"]{
+--surface-well:#e4f0ee;
+--surface-sunken:#eef6f5;
+--surface-base:#f7fbfa;
+--surface-card:#ffffff;
+--surface-card-hover:#f0f7f6;
+--text-max:#03252a;
+--text-body:#073e45;
+--text-muted:#3d6b6d;
+--text-disabled:#8fb3b2;
+--text-accent:#0d6b5a;
+--text-on-accent:#03252a;
+--text-link:#12837b;
+--text-link-hover:#0a4f58;
+--border-subtle:#cfe4e1;
+--border-default:#a9cfca;
+--border-strong:#12837b;
+--rule-ascii:#a9cfca;
+--focus-ring:#12837b;
+--logo-plate:#ffffff;
+}

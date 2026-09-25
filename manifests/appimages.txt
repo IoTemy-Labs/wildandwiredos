@@ -1,0 +1,5 @@
+# AppImages shipped on the image: none. Policy: the image ships AppImage
+# *support* (FUSE, an integration manager, ~/Applications, file association;
+# Phase 4), not AppImage apps. AppImages have no update channel we can
+# vouch for on day one; the Field Guide teaches downloading and integrating
+# one instead.

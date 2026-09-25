@@ -1,0 +1,43 @@
+# Package verification against the 26.04 archive
+# Generated 2026-08-21T22:22:17Z by verify-packages.sh
+
+== ADDITIONS ==
+STATUS    PACKAGE            VERSION                      INST_MiB     DL_MiB
+IN-BASE   htop               (already in base image)
+ok        btop               1.4.6-2                           1.7        0.6
+ok        tmux               3.6a-2ubuntu0.1                   1.2        0.5
+ok        tree               2.3.1-1                           0.1        0.1
+ok        ncdu               1.22-1build1                      0.1        0.0
+ok        micro              2.0.15-2                         14.3        4.5
+ok        timeshift          25.12.4-1                         4.2        0.8
+IN-BASE   partitionmanager   (already in base image)
+ok        filelight          4:25.12.3-0ubuntu1                1.8        0.8
+ok        isoimagewriter     25.12.3-0ubuntu1                  0.8        0.2
+ok        yakuake            25.12.3-0ubuntu1                  2.7        0.5
+ok        keepassxc          2.7.10+dfsg1-2ubuntu1             0.1        0.0
+ok        syncthing          1.29.5~ds1-3                     23.1        8.7
+ok        wireguard-tools    1.0.20250521-1ubuntu1             0.3        0.1
+ok        vlc                3.0.23-1                          0.2        0.0
+IN-BASE   skanpage           (already in base image)
+IN-BASE   orca               (already in base image)
+ok        podman             5.7.0+ds2-3build1                80.2       24.6
+ok        distrobox          1.8.2.4-1                         0.5        0.2
+TOTAL     (new packages)                                     131.2       41.4
+
+(Totals are package-only; apt dependency pull-in measured separately
+ by the dry-run below.)
+
+== DEPENDENCY DRY-RUN (full closure, new packages only) ==
+Inst xapp-sn-watcher (3.2.2-1 Ubuntu:26.04/resolute [amd64])
+Inst xclip (0.13-4build1 Ubuntu:26.04/resolute [amd64])
+Inst yakuake (25.12.3-0ubuntu1 Ubuntu:26.04/resolute [amd64])
+Inst inxi (3.3.40-1-1 Ubuntu:26.04/resolute [all])
+Inst syncthing (1.29.5~ds1-3 Ubuntu:26.04/resolute [amd64])
+
+== REMOVALS ==
+STATUS    PACKAGE                        INST_MiB
+present   plasma-workspace-wallpapers       217.1
+present   snapd                             140.0
+present   firefox                             0.1
+
+RESULT: all addition names verified.

@@ -1,0 +1,8 @@
+# Wild & Wired OS removals. Format: <package> # rationale
+# Savings measured by scripts/build/verify-packages.sh. The snapd line is
+# the Phase 3 decision: removing it also deletes /var/lib/snapd/seed
+# (1.7 GB of pre-compressed snaps that do not shrink in the squashfs).
+
+plasma-workspace-wallpapers  # 217 MiB; we ship our own wallpapers
+snapd                        # DECISION PENDING: 140 MiB pkg + 1724 MiB seed; Firefox re-ships per decision
+firefox                      # transition stub that installs the snap; replaced per snap decision

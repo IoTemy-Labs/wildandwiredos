@@ -1,0 +1,19 @@
+:root{
+/* Engineered, not decorated. Radii stay small. */
+--radius-0:0;
+--radius-1:2px;
+--radius-2:4px;
+--radius-3:6px;
+--radius-4:10px;
+--radius-pill:999px;
+
+--stroke-hair:1px;
+--stroke-1:1px;
+--stroke-2:2px;
+--stroke-marker:3px; /* left marker on quotes and terminal blocks */
+
+--border-hair:var(--stroke-hair) solid var(--border-subtle);
+--border-line:var(--stroke-1) solid var(--border-default);
+--border-live:var(--stroke-1) solid var(--border-accent);
+--border-dashed:var(--stroke-1) dashed var(--border-default);
+}

@@ -1,0 +1,16 @@
+:root{
+/* Elevated surfaces sit at 1.27:1 against the base. Hierarchy comes from
+   spacing and border color, not from pushing surface contrast. Shadows are
+   depth only. No glow, no bloom, no colored spread. */
+--shadow-0:none;
+--shadow-1:0 1px 0 rgba(3,37,42,.55);
+--shadow-2:0 2px 4px rgba(3,37,42,.45),0 0 0 1px rgba(18,131,123,.35);
+--shadow-3:0 8px 24px rgba(3,37,42,.55),0 0 0 1px rgba(18,131,123,.4);
+--shadow-4:0 24px 64px rgba(3,37,42,.65),0 0 0 1px rgba(18,131,123,.45);
+--inset-well:inset 0 1px 0 rgba(3,37,42,.5);
+--focus-shadow:0 0 0 2px var(--surface-base),0 0 0 4px var(--focus-ring);
+
+/* Scanline / monospace grid texture. Structure hue only, very low alpha. */
+--texture-scanline:repeating-linear-gradient(180deg,rgba(18,131,123,.08) 0 1px,transparent 1px 4px)/* @kind other */;
+--texture-grid:linear-gradient(90deg,rgba(18,131,123,.10) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(180deg,rgba(18,131,123,.10) 1px,transparent 1px) 0 0/24px 24px/* @kind other */;
+}

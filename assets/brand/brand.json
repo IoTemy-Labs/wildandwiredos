@@ -1,0 +1,111 @@
+{
+  "name": "Wild & Wired OS",
+  "version": "26.11",
+  "codename": "Seneca",
+  "event": {
+    "title": "Wild & Wired West Virginia",
+    "venue": "University of Charleston",
+    "url": "wildandwiredwv.com",
+    "date_prose": "November 14, 2026",
+    "date_mono": "nov 14 2026"
+  },
+  "legal_line": "Based on Ubuntu 26.04 LTS. Not affiliated with or endorsed by Canonical.",
+  "source": "frontend-design/design_handoff_wild_wired_os_shell (Claude Design, adopted 2026-08-21). Tokens mirror _ds/.../tokens/*.css; do not edit values here without editing the handoff record in DECISIONS.md.",
+  "voice": [
+    "Second person, always; never 'users'",
+    "Reassurance is structural, not cheerful: 'Nothing is written to disk.'",
+    "No em dashes, no exclamation marks, no emoji; mono sigils ($ # :: -> !! block) where a glyph is needed",
+    "Numerals always; dates 'November 14, 2026' in prose, 'nov 14 2026' in mono",
+    "Banned words: weird, hacker, cyber, wizard, guru, power user, just, simply, obviously"
+  ],
+  "palette": {
+    "well":          {"hex": "#03252a", "role": "deepest well: terminal blocks, panel bg, footers, sponsor board"},
+    "sunken":        {"hex": "#052e34", "role": "inset fields, middle ridge (1A)"},
+    "base":          {"hex": "#073e45", "role": "BASE SURFACE: desktop, window backgrounds"},
+    "card":          {"hex": "#0a4f58", "role": "elevated: cards, popups, panels"},
+    "card_hover":    {"hex": "#0d6068", "role": "elevated hover"},
+    "structure":     {"hex": "#12837b", "role": "borders, rules, separators, icon chrome. NEVER text"},
+    "structure_strong": {"hex": "#1a9d93", "role": "hover border"},
+    "border_subtle": {"hex": "#0f5f63", "role": "card and panel hairlines"},
+    "mint":          {"hex": "#40dfaf", "role": "THE accent: links, primary fill, active, focus. 6.94:1 on base"},
+    "mint_hover":    {"hex": "#6ce8c4", "role": "hover on mint"},
+    "mint_press":    {"hex": "#2bbd92", "role": "pressed"},
+    "focus_ring":    {"hex": "#8cefd0", "role": "outer focus ring"},
+    "ink_max":       {"hex": "#ffffff", "role": "max emphasis, attention/negative. sparing"},
+    "ink_body":      {"hex": "#d6e9e7", "role": "body text. 9.34:1 on base"},
+    "ink_muted":     {"hex": "#8fb3b2", "role": "secondary text. 5.19:1 on base"},
+    "ink_faint":     {"hex": "#5f8887", "role": "legal lines, disabled only"},
+    "logo_plate":    {"hex": "#f4faf9", "role": "light plate under every logo appearance"},
+    "plate_ink":     {"hex": "#3d6b6d", "role": "placeholder text inside a light plate"},
+    "light_base":    {"hex": "#f7fbfa", "role": "light theme base (print)"},
+    "light_well":    {"hex": "#e4f0ee", "role": "light theme well (print)"},
+    "light_border":  {"hex": "#cfe4e1", "role": "light theme hairline (print)"},
+    "light_body":    {"hex": "#073e45", "role": "light theme body text (print)"},
+    "light_muted":   {"hex": "#3d6b6d", "role": "light theme secondary (print)"}
+  },
+  "alpha": {
+    "active_wash":   [64, 223, 175, 31],
+    "active_hairline": [64, 223, 175, 89],
+    "attention_fill": [255, 255, 255, 26],
+    "backdrop":      [3, 37, 42, 217],
+    "footer_rail":   [3, 37, 42, 89],
+    "shadow_ring":   [18, 131, 123, 89],
+    "plate_hairline": [3, 37, 42, 46],
+    "grid_line":     [18, 131, 123, 26],
+    "scanline":      [18, 131, 123, 20]
+  },
+  "textures": {
+    "grid": "24px monospace grid, grid_line alpha. Hero and section fields, wallpaper only.",
+    "scanline": "1px line every 4px, scanline alpha. Terminal panels and poster fields.",
+    "rule": "Neither texture in window backgrounds. No gradients anywhere. No red, amber, or blue."
+  },
+  "wcag_pairs": [
+    {"fg": "ink_body",  "bg": "base",  "min": 7.0},
+    {"fg": "ink_body",  "bg": "well",  "min": 7.0},
+    {"fg": "ink_body",  "bg": "card",  "min": 7.0},
+    {"fg": "ink_muted", "bg": "base",  "min": 4.5},
+    {"fg": "ink_muted", "bg": "well",  "min": 4.5},
+    {"fg": "mint",      "bg": "base",  "min": 4.5},
+    {"fg": "mint",      "bg": "well",  "min": 4.5},
+    {"fg": "ink_max",   "bg": "base",  "min": 7.0},
+    {"fg": "light_body","bg": "light_base", "min": 7.0},
+    {"fg": "light_muted","bg": "light_base", "min": 4.5},
+    {"fg": "plate_ink", "bg": "logo_plate", "min": 4.5}
+  ],
+  "type": {
+    "display": {"family": "Archivo", "file": "Archivo-Variable.ttf", "weight": 600,
+                "why": "technical grotesque for headings, 600-700, tracking -0.01em"},
+    "ui":      {"family": "Source Sans 3", "file": "SourceSans3-Variable.ttf", "weight": 340,
+                "why": "humanist body at 340 on dark (Qt gets static 400; art keeps 340)"},
+    "mono":    {"family": "JetBrains Mono", "file": "JetBrainsMono-Variable.ttf", "weight": 500,
+                "why": "full system member: labels, metadata, commands. Labels tracked .14em uppercase"},
+    "brand_faces": {
+      "script": {"family": "Rebel Script", "usage": "the word 'Wild' only",
+                 "status": "LICENSE UNCONFIRMED. Not vendored, not rendered. Fallback: plated raster lockup."},
+      "circuit": {"family": "Circuit", "usage": "the word 'WIRED' + short machine labels, 15px floor",
+                  "status": "LICENSE UNCONFIRMED. Not vendored, not rendered. Fallback: JetBrains Mono tracked uppercase."}
+    },
+    "scale": {"display": 60, "h1": 44, "h2": 32, "h3": 24, "lede": 20, "body": 17, "small": 15, "label": 12, "micro": 11}
+  },
+  "logo": {
+    "lockup": "assets/brand/logo-lockup.png",
+    "os_front": "assets/brand/logo-os-front.png",
+    "stacked": "assets/brand/logo-stacked.png",
+    "icon": "assets/brand/logo-icon.png",
+    "plate_rule": "Every logo appearance sits on a logo_plate fill, 6px radius, plate_hairline stroke, 20x28px padding at 1x. The artwork contains navy and dies on the dark base bare.",
+    "icon_note": "Raster badge unreadable below 32px; the 16/22px mint glyph is Phase 2 artwork (missing).",
+    "min_px": 96
+  },
+  "sponsor_board": {
+    "plate_sizes_board": {"presenting": [640, 132], "gold": [420, 104], "silver": [260, 74], "community": [170, 56], "in-kind": [170, 56]},
+    "plate_sizes_login": {"presenting": [300, 88], "gold": [200, 72], "silver": [140, 56], "community": [120, 48], "in-kind": [120, 48]},
+    "tier_maxima": {"presenting": 1, "gold": 3, "silver": 6, "community": 8, "in-kind": 8},
+    "reflow": "Past a tier maximum the generator drops to the quiet strip layout and logs a warning."
+  },
+  "radii": {"badge": 2, "control": 4, "card": 6, "dialog": 10},
+  "direction": {
+    "picked": null,
+    "candidates": ["1A Ridge & Hollow", "1B Trunk Line", "1C Quartermaster"],
+    "note": "Panel geometry, wallpaper composition, and window decoration wait on the pick. Everything in this file is direction-independent."
+  }
+}

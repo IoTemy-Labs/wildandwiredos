@@ -1,0 +1,27 @@
+{
+ "source": "assets/sponsors/sponsors.yaml",
+ "files": {
+  "wallpapers/wall-1920x1080.png": "bdec5d25455505b8",
+  "wallpapers/strip-1920x1080.png": "d4f720403e5b8b3e",
+  "wallpapers/wall-2560x1440.png": "5c66a2f311d13329",
+  "wallpapers/strip-2560x1440.png": "1244e404a8509f6f",
+  "wallpapers/wall-3840x2160.png": "fd5939216e24540b",
+  "wallpapers/strip-3840x2160.png": "51a5d80f60b206ff",
+  "wallpapers/wall-1366x768.png": "9c329152de2d85c5",
+  "wallpapers/strip-1366x768.png": "d9ab1bd5d38559fc",
+  "wallpapers/wall-1920x1200.png": "7d7c2053f44e0df5",
+  "wallpapers/strip-1920x1200.png": "69848fc6665f346a",
+  "lockscreen/lock-1920x1080.png": "4ecd50d7504d5c37",
+  "sddm/background.png": "4ecd50d7504d5c37",
+  "slides/slide-01-welcome.png": "a155a8f1d9e9e5cc",
+  "print/thanks-sheet-a4.png": "878643031ea1a44a",
+  "print/disc-label.png": "dc5d95060fa2f414",
+  "print/sleeve-insert.png": "0af3eedacbbe9b34",
+  "boot/grub-bg.png": "7431b38be837fe42",
+  "boot/plymouth-bg.png": "2115dea9dff6a535",
+  "boot/plymouth-logo.png": "47d38c8287a3ef85",
+  "boot/plymouth-bar-bg.png": "a17b4f7f8a93e9a1",
+  "boot/plymouth-bar-fill.png": "3a04b34087598ff7",
+  "boot/about.png": "7653790ba821d74c"
+ }
+}

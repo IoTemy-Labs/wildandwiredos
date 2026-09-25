@@ -1,0 +1,37 @@
+# Mock: full sponsor list with logos. Logos are synthesized deterministic
+# placeholders — regenerate with: render-sponsors.py --make-mock-logos
+sponsors:
+  - name: "Mountaineer Fiber Cooperative"
+    tier: presenting
+    logo: assets/sponsors/mock/logos/mountaineer-fiber.png
+    url: example.coop
+    sort_order: 10
+  - name: "Kanawha Valley Makerspace"
+    tier: gold
+    logo: assets/sponsors/mock/logos/kv-makerspace.png
+  - name: "Holler Hosting"
+    tier: gold
+    logo: assets/sponsors/mock/logos/holler-hosting.png
+    display_name_override: "Holler Hosting LLC"
+  - name: "New River Data Works"
+    tier: silver
+    logo: assets/sponsors/mock/logos/new-river-data.png
+  - name: "Two-Lane Technology"
+    tier: silver
+  - name: "Appalachian Signal Supply"
+    tier: silver
+    logo: assets/sponsors/mock/logos/app-signal.png
+  - name: "Elk City Coffee"
+    tier: community
+    logo: assets/sponsors/mock/logos/elk-city-coffee.png
+  - name: "Front Porch Radio Club"
+    tier: community
+  - name: "Ridgeline Print Shop"
+    tier: in-kind
+    logo: assets/sponsors/mock/logos/ridgeline-print.png
+thanks:
+  - "Ada Example"
+  - "Grace Placeholder"
+  - "Sam Mockname"
+  - "Lee Testperson"
+  - "Jordan Sample"

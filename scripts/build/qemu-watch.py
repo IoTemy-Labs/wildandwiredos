@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+"""Watch a QEMU guest over QMP: screendump every 20 s, convert to PNG,
+report how much of the screen is non-black. Exits 0 if the final screenshot
+has meaningful content (>5% non-black pixels), 1 otherwise. The screenshots
+are the real deliverable — a human confirms the desktop looks right."""
+import json, os, socket, subprocess, sys, time
+
+sock_path, run_dir, timeout = sys.argv[1], sys.argv[2], int(sys.argv[3])
+INTERVAL = 20
+
+def qmp(cmds):
+    s = socket.socket(socket.AF_UNIX)
+    s.connect(sock_path)
+    f = s.makefile("rw")
+    f.readline()                                  # greeting
+    f.write(json.dumps({"execute": "qmp_capabilities"}) + "\n"); f.flush()
+    f.readline()
+    out = []
+    for c in cmds:
+        f.write(json.dumps(c) + "\n"); f.flush()
+        out.append(f.readline())
+    s.close()
+    return out
+
+def analyze(ppm):
+    try:
+        from PIL import Image
+        im = Image.open(ppm).convert("L")
+        px = list(im.getdata())
+        lit = sum(1 for p in px if p > 24)
+        frac = lit / len(px)
+        im2 = Image.open(ppm)
+        im2.save(ppm.replace(".ppm", ".png"))
+        os.unlink(ppm)
+        return frac
+    except Exception as e:
+        print(f"analyze failed: {e}", file=sys.stderr)
+        return -1.0
+
+start = time.time()
+n = 0
+last_frac = -1.0
+while time.time() - start < timeout:
+    time.sleep(INTERVAL)
+    n += 1
+    ppm = os.path.join(run_dir, f"shot-{n:02d}.ppm")
+    try:
+        qmp([{"execute": "screendump", "arguments": {"filename": ppm}}])
+    except Exception as e:
+        print(f"QMP failed (guest dead?): {e}", file=sys.stderr)
+        sys.exit(1)
+    time.sleep(1)
+    if os.path.exists(ppm):
+        last_frac = analyze(ppm)
+        print(f"[{int(time.time()-start):4d}s] shot-{n:02d}: {last_frac*100:.1f}% lit")
+
+print(f"final: {last_frac*100:.1f}% of pixels lit")
+sys.exit(0 if last_frac > 0.05 else 1)

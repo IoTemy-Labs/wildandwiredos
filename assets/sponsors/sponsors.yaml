@@ -1,0 +1,22 @@
+# Wild & Wired OS — sponsor & thanks data. THE single source for wallpapers,
+# lock screen, SDDM, installer slideshow, welcome app, print sheet, and disc
+# art. Edit this, run render-sponsors.py, repack with build.sh --from-stage
+# assets. See docs/ART-FREEZE.md for the freeze date.
+#
+# tier: presenting | gold | silver | community | in-kind
+# logo: path to PNG/SVG-exported-PNG, transparent background preferred,
+#       >= 400 px on the long edge. Omit to have the name typeset instead.
+# display_name_override: use when the legal name shouldn't be the shown name.
+# sort_order: lower sorts first within a tier (default 100).
+
+sponsors: []
+# Example:
+#  - name: "Example Fiber Cooperative"
+#    tier: gold
+#    logo: assets/sponsors/logos/example-fiber.png
+#    url: examplefiber.coop
+#    sort_order: 10
+
+thanks: []
+# Example:
+#  - "Firstname Lastname"

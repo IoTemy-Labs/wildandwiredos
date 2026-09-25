@@ -1,0 +1,51 @@
+:root{
+/* Families. Monospace is a full system member, not a code-block afterthought. */
+--font-display:"Archivo","Archivo Narrow",system-ui,sans-serif;
+--font-heading:"Archivo",system-ui,sans-serif;
+--font-body:"Source Sans 3",system-ui,sans-serif;
+--font-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+/* Weights. Light text on dark reads heavier, so body sits one step down. */
+--weight-body:340;
+--weight-body-strong:600;
+--weight-heading:600;
+--weight-display:700;
+--weight-mono:500;
+
+/* Size scale, 1rem = 16px */
+--size-3xs:0.6875rem; /* 11px, mono micro-labels only */
+--size-2xs:0.75rem;   /* 12px */
+--size-xs:0.8125rem;  /* 13px */
+--size-sm:0.9375rem;  /* 15px */
+--size-md:1.0625rem;  /* 17px, body default */
+--size-lg:1.25rem;    /* 20px, lede */
+--size-xl:1.5rem;     /* 24px */
+--size-2xl:2rem;      /* 32px */
+--size-3xl:2.75rem;   /* 44px */
+--size-4xl:3.75rem;   /* 60px */
+--size-5xl:5rem;      /* 80px */
+
+/* Line heights. Dark base gets a little more air than a light one. */
+--leading-tight:1.04;
+--leading-snug:1.18;
+--leading-body:1.68;
+--leading-mono:1.5;
+
+/* Tracking. Mono labels are the brand's voice, always tracked and upper. */
+--track-display:-0.02em;
+--track-heading:-0.01em;
+--track-body:0/* @kind other */;
+--track-label:0.14em;
+--track-mono:0.01em;
+
+/* Semantic roles */
+--type-display:var(--weight-display) var(--size-4xl)/var(--leading-tight) var(--font-display);
+--type-h1:var(--weight-heading) var(--size-3xl)/var(--leading-snug) var(--font-heading);
+--type-h2:var(--weight-heading) var(--size-2xl)/var(--leading-snug) var(--font-heading);
+--type-h3:var(--weight-heading) var(--size-xl)/var(--leading-snug) var(--font-heading);
+--type-lede:var(--weight-body) var(--size-lg)/var(--leading-body) var(--font-body);
+--type-body:var(--weight-body) var(--size-md)/var(--leading-body) var(--font-body);
+--type-small:var(--weight-body) var(--size-sm)/var(--leading-body) var(--font-body);
+--type-label:var(--weight-mono) var(--size-2xs)/1.2 var(--font-mono);
+--type-code:400 var(--size-sm)/var(--leading-mono) var(--font-mono);
+}

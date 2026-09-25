@@ -1,0 +1,44 @@
+# Wild & Wired OS deb additions. Format: <package> <group> # justification
+# Verified by scripts/build/verify-packages.sh against the 26.04 archive
+# (report: docs/PACKAGE-VERIFY.txt). Rule: debs are for base system,
+# drivers, and deep desktop integration; big sandboxable apps go Flatpak.
+
+# terminal quality of life
+htop            terminal   # familiar process viewer, guides reference it
+btop            terminal   # the pretty one, demo-friendly at a festival
+tmux            terminal   # standard multiplexer
+tree            terminal   # guides use it to explain the filesystem
+ncdu            terminal   # disk usage triage for cramped live sessions
+micro           terminal   # beginner-safe terminal editor, sane keybinds
+
+# system, disk, backup
+timeshift       system     # snapshot/restore, the "undo button" story
+partitionmanager system    # KDE partition manager for install prep
+filelight       system     # visual disk usage, pairs with ncdu story
+isoimagewriter  system     # KDE ISO writer: attendees can copy the OS at the event
+yakuake         system     # drop-down terminal, gentle terminal introduction
+
+# networking, privacy, sovereignty
+keepassxc       privacy    # offline password manager, sovereignty flagship
+syncthing       privacy    # peer-to-peer sync, no cloud
+wireguard-tools privacy    # modern VPN plumbing for the homelab-curious
+
+# audio and video
+vlc             media      # the player Windows switchers already know
+
+# photography and scanning
+skanpage        hardware   # KDE scanning app
+
+# accessibility
+orca            a11y       # screen reader
+
+# appimage plumbing
+libfuse2t64     appimage   # most AppImages still link libfuse2; VERIFY on next verifier run
+
+# flatpak plumbing (Option B)
+flatpak         flatpak    # the runtime itself
+plasma-discover-backend-flatpak flatpak # Discover integration; VERIFY on next verifier run
+
+# self hosting and homelab curiosity
+podman          homelab    # daemonless containers, rootless by default
+distrobox       homelab    # any distro in a box, homelab gateway drug

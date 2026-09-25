@@ -1,0 +1,32 @@
+# Flatpak verification against live Flathub
+# Generated 2026-08-21T22:22:20Z by verify-flatpaks.sh
+
+MODE        APP                                        DOWNLOAD   INSTALLED  RUNTIME
+preinstall  org.gimp.GIMP                              99.7?MB    268.4?MB   org.gnome.Platform/x86_64/50
+preinstall  org.mozilla.firefox                        125.6?MB   333.8?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    org.inkscape.Inkscape                      98.0?MB    309.5?MB   org.gnome.Platform/x86_64/50
+oneclick    org.kde.krita                              263.0?MB   634.3?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    org.kde.kdenlive                           106.0?MB   258.1?MB   org.kde.Platform/x86_64/6.10
+oneclick    org.audacityteam.Audacity                  23.7?MB    60.8?MB    org.gnome.Platform/x86_64/50
+oneclick    com.obsproject.Studio                      198.8?MB   528.5?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    org.kde.digikam                            363.7?MB   982.5?MB   org.kde.Platform/x86_64/6.10
+oneclick    org.mozilla.Thunderbird                    108.3?MB   299.5?MB   org.freedesktop.Platform/x86_64/24.08
+oneclick    org.signal.Signal                          163.4?MB   437.1?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    com.bitwarden.desktop                      187.6?MB   511.1?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    org.onionshare.OnionShare                  136.3?MB   391.7?MB   org.kde.Platform/x86_64/6.10
+oneclick    com.nextcloud.desktopclient.nextcloud      10.3?MB    29.0?MB    org.kde.Platform/x86_64/6.10
+oneclick    com.github.tchx84.Flatseal                 930.5?kB   1.4?MB     org.gnome.Platform/x86_64/50
+oneclick    com.vscodium.codium                        218.9?MB   643.1?MB   org.freedesktop.Sdk/x86_64/25.08
+oneclick    io.podman_desktop.PodmanDesktop            173.5?MB   509.2?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    net.supertuxkart.SuperTuxKart              740.4?MB   829.8?MB   org.freedesktop.Platform/x86_64/25.08
+oneclick    org.luanti.luanti                          15.4?MB    27.9?MB    org.freedesktop.Platform/x86_64/25.08
+
+== RUNTIMES the apps above pull in ==
+RUNTIME                                              DOWNLOAD   INSTALLED 
+org.freedesktop.Platform/x86_64/25.08                257.1?MB   659.9?MB  
+org.kde.Platform/x86_64/6.10                         387.3?MB   1.0?GB    
+org.freedesktop.Platform/x86_64/24.08                269.1?MB   690.9?MB  
+org.gnome.Platform/x86_64/50                         410.2?MB   1.1?GB    
+org.freedesktop.Sdk/x86_64/25.08                     606.7?MB   1.7?GB    
+
+RESULT: all app ids verified.

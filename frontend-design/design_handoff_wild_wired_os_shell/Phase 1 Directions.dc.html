@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/colors.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/typography.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/border.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/motion.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/tokens/base.css">
+<link rel="stylesheet" href="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/styles.css">
+<script src="_ds/root-access-wild-wired-wv-8d8536d2-de0e-4ab1-bfea-b32c67a8315b/_ds_bundle.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<style>
+@font-face{font-family:"Rebel Script";src:url("assets/fonts/Rebel.woff2") format("woff2"),url("assets/fonts/Rebel.woff") format("woff");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Circuit";src:url("assets/fonts/Circuit.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}
+:root{--font-script:"Rebel Script","Brush Script MT",cursive;--font-circuit:"Circuit","Archivo",system-ui,sans-serif;--track-circuit:0.06em}
+body{margin:0;background:#03252a}
+a{color:var(--mint-500);text-decoration:none;border-bottom:1px solid rgba(64,223,175,.4)}
+a:hover{color:var(--mint-400)}
+</style>
+</helmet>
+
+<div style="background:#03252a;padding:56px 64px 96px;font:var(--type-body);color:var(--text-body);min-width:3400px">
+
+<section style="display:flex;flex-direction:column;gap:40px">
+
+  <header style="display:flex;flex-direction:column;gap:20px;max-width:1200px">
+    <span style="font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)"><span style="color:var(--border-strong)">01 /</span> phase 1 <span style="color:var(--border-strong)">/</span> three directions</span>
+    <h1 style="margin:0;font:700 60px/1.04 var(--font-display);letter-spacing:-.02em;color:#fff">Wild &amp; Wired OS: three visual directions</h1>
+    <p style="margin:0;font:var(--type-lede);color:var(--text-muted);max-width:66ch">KDE Plasma 6.6, Wayland, Kubuntu 26.04 LTS base. Each direction below is the same palette, the same five type faces and the same voice, differing in personality and in structure. Every sheet shows the login screen, the desktop on the sponsor wall wallpaper, and the panel with the menu open at 1:1. Pick one and I build Phase 2 on it.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;padding-top:4px">
+      <x-import component-from-global-scope="RootAccessWildAmpWiredWV_8d8536.Badge" tone="outline" hint-size="auto,22px">1920 x 1080 artboards</x-import>
+      <x-import component-from-global-scope="RootAccessWildAmpWiredWV_8d8536.Badge" tone="outline" hint-size="auto,22px">dark scheme shown, light derived in phase 2</x-import>
+      <x-import component-from-global-scope="RootAccessWildAmpWiredWV_8d8536.Badge" tone="accent" hint-size="auto,22px">no ubuntu marks anywhere</x-import>
+    </div>
+  </header>
+
+  <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;max-width:1600px;background:#052e34;border:1px solid var(--border-subtle);border-radius:6px;padding:24px">
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">palette, as it landed</span>
+      <div style="display:flex;flex-direction:column;gap:6px;font:var(--type-small);color:var(--text-muted)">
+        <span><b style="color:var(--text-body);font-weight:600">#073e45</b> base surface, the environment</span>
+        <span><b style="color:var(--text-body);font-weight:600">#0a4f58</b> elevated, plus #03252a well</span>
+        <span><b style="color:var(--text-body);font-weight:600">#40dfaf</b> mint, the one accent</span>
+        <span><b style="color:var(--text-body);font-weight:600">#12837b</b> structure only, never text</span>
+        <span><b style="color:var(--text-body);font-weight:600">#d6e9e7</b> body text, not white</span>
+        <span>no red, no amber, no blue, no gradients</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">type</span>
+      <div style="display:flex;flex-direction:column;gap:6px;font:var(--type-small);color:var(--text-muted)">
+        <span><b style="color:var(--text-body);font-weight:600">Archivo</b> 600/700, headings, tight and tracked in</span>
+        <span><b style="color:var(--text-body);font-weight:600">Source Sans 3</b> 340, body, 17px on dark</span>
+        <span><b style="color:var(--text-body);font-weight:600">JetBrains Mono</b> 500, labels tracked .14em, uppercased</span>
+        <span>all three are OFL, so all three ship inside the ISO</span>
+        <span><b style="color:var(--text-body);font-weight:600">Rebel Script</b> sets the word Wild and single-word emphasis, one word at a time</span>
+        <span><b style="color:var(--text-body);font-weight:600">Circuit</b> sets the word WIRED and short uppercase machine labels, 15px floor</span>
+        <span>the two brand faces are display only. never body, never UI, never a sentence</span>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">voice</span>
+      <div style="display:flex;flex-direction:column;gap:6px;font:var(--type-small);color:var(--text-muted)">
+        <span>a competent friend at a workbench, second person</span>
+        <span>reassurance is structural: "nothing is written to disk"</span>
+        <span>sentence case prose, mono labels uppercased by the component</span>
+        <span>no em dashes, no exclamation marks, no emoji</span>
+        <span>never the words weird, hacker, cyber, guru, just, simply</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:16px;max-width:1600px;background:#03252a;border:1px solid rgba(255,255,255,.28);border-left:3px solid #fff;border-radius:6px;padding:24px 28px">
+    <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#fff">!! hard in plasma, and what I did about it</span>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 40px;font:var(--type-small);color:var(--text-muted)">
+      <span><b style="color:var(--text-body);font-weight:600">Body weight 340.</b> Source Sans 3 ships variable, but Plasma resolves UI fonts to a static family and Qt rounds to the nearest available weight. Ship the static Light (300) and Regular (400) instances and set UI text to 400 at 10pt; keep 340 for the Field Guide and Welcome apps, which are QML and can load the variable file.</span>
+      <span><b style="color:var(--text-body);font-weight:600">No red for negative states.</b> KDE's colour scheme has mandatory NegativeText and NegativeBackground roles, and Discover, System Settings and Calamares all use them. I map negative to max-emphasis white on a #03252a fill with an outline plus a `!!` sigil, and every negative state also states its meaning in copy. Flagged: any distro app that hardcodes red is out of our control.</span>
+      <span><b style="color:var(--text-body);font-weight:600">The 1.27:1 surface lift.</b> Plasma leans on surface contrast for panel, popup and card separation, and the brand deliberately does not. Hierarchy comes from the #0f5f63 hairline and from spacing, which means the Plasma SVG frames need real 1px strokes, not a soft shadow, and shadow use stays at shadow-2 or lower.</span>
+      <span><b style="color:var(--text-body);font-weight:600">#12837b carries no text.</b> Fine for us, but it must be the border and separator role only in the colour scheme. Any role Plasma will render text on gets an ink value, never structure teal.</span>
+      <span><b style="color:var(--text-body);font-weight:600">The logo needs a light plate.</b> The supplied lockups contain navy and white artwork that dies on the base. Every appearance sits on a #f4faf9 plate, so the GRUB, Plymouth, SDDM and KSplash marks are plated too. A single-colour mint glyph version of the badge is needed for the 16 and 22px icon sizes, since the raster badge is unreadable below 32px. That glyph is new artwork and I will draw it in Phase 2.</span>
+      <span><b style="color:var(--text-body);font-weight:600">The two brand faces are now real files.</b> Rebel Script and Circuit arrived as fonts, so Wild and WIRED are live type on the sheets below instead of cropped raster. That changes two things for the build. First, the boot chain can set them: GRUB renders PF2 fonts converted with <span style="font:400 13px/1 var(--font-mono);color:var(--text-body)">grub-mkfont</span>, Plymouth draws text through Pango, and SDDM and KSplash are QML, so all four can carry the real faces at display size. Second, they are the only two faces whose redistribution I cannot confirm. Send the license or the purchase record before the ISO ships. Fallback if it does not clear: the plated raster lockup, which is already how the mark appears here, and Archivo 700 for the version line.</span>
+      <span><b style="color:var(--text-body);font-weight:600">Neither brand face is a UI font.</b> Qt will happily set a menu in Circuit and it will be unreadable. Lock this at build time: the colour scheme and <span style="font:400 13px/1 var(--font-mono);color:var(--text-body)">kdeglobals</span> name Archivo, Source Sans 3 and JetBrains Mono only, and the brand faces appear solely in wallpapers, boot art, the login and lock headers, and the Welcome and Field Guide hero blocks. Circuit is uppercase with a 15px floor and needs a glyph coverage check for digits and punctuation before it sets any version string.</span>
+      <span><b style="color:var(--text-body);font-weight:600">Texture is gradient-implemented.</b> The 24px grid and 4px scanline are the only two permitted background treatments, and both are gradients under the hood. In Plasma they become tiling PNG or SVG patterns in the Plasma style, not live gradients. Keep them out of window backgrounds, where they fight text.</span>
+      <span><b style="color:var(--type-body);font-weight:600;color:var(--text-body)">No looping animation, except the block cursor.</b> Plymouth is script driven and Plasma's cursor blink is a system setting, so this is fine. It does mean the boot splash is a staged reveal, not a spinner loop.</span>
+      <span><b style="color:var(--text-body);font-weight:600">Body measure 66ch.</b> Meaningless in a file manager or settings window the user resizes. It survives only where we own the layout: Welcome, Field Guide, Calamares slideshow.</span>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:56px;padding-top:16px;flex-direction:{{ rowDir }}">
+
+    <div id="1a" style="display:flex;flex-direction:column;gap:20px;width:1000px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;color:var(--teal-800);background:var(--mint-500);padding:6px 10px;border-radius:2px">1A</span>
+          <h2 style="margin:0;font:700 40px/1.04 var(--font-display);letter-spacing:-.02em;color:#fff">Ridge &amp; Hollow</h2>
+        </div>
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--border-strong)">appalachian, hand built</span>
+        <p style="margin:0;font:var(--type-body);color:var(--text-muted);max-width:62ch">The machine as a made object. Ridgelines are drawn as flat silhouettes cut from the base ramp, never shaded, so the wallpaper is a horizon rather than a picture, and the sponsor wall sits on it like a board nailed to a porch post. Chrome is the most generous of the three: a 48px panel, 6px radii, 40px popup padding, and menu rows at 48px with 17px labels, because the person most likely to be frightened by this desktop is the person it is for. The hand built feeling comes from structure, not ornament: hairline contour rules, mono tier rails, and a deliberate asymmetry where the sponsor board hangs from the top of the field rather than centring in it. Warmest and slowest of the three, and the one that photographs best on a keepsake disc sleeve.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1A login">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">sddm login <span style="color:var(--border-strong)">/ 1920 x 1080 at 50%</span></span>
+        <div style="position:relative;width:960px;height:540px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px">
+          <div style="position:absolute;top:0;left:0;width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;background:#073e45">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(180deg,rgba(18,131,123,.08) 0 1px,transparent 1px 4px)"></div>
+            <div style="position: absolute; left: 0; right: 0; bottom: 0; height: 420px; clip-path: polygon(0 62%,14% 40%,26% 55%,38% 26%,52% 48%,64% 30%,78% 52%,90% 38%,100% 50%,100% 100%,0 100%); background-color: #0A4F58"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:340px;background:#052e34;clip-path:polygon(0 70%,10% 52%,22% 66%,36% 40%,48% 60%,60% 44%,72% 62%,86% 48%,100% 64%,100% 100%,0 100%)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:240px;background:#03252a;clip-path:polygon(0 74%,12% 58%,24% 72%,40% 52%,56% 70%,70% 56%,84% 70%,100% 60%,100% 100%,0 100%)"></div>
+            <div style="position:absolute;top:56px;left:0;right:0;display:flex;justify-content:center"><div style="display:flex;flex-direction:column;align-items:center;gap:10px"><div style="background:#f4faf9;padding:20px 28px;border-radius:6px;box-shadow:0 2px 4px rgba(3,37,42,.45)"><img src="assets/logo-os-front.png" alt="Wild and Wired West Virginia, West Virginia's Linux festival" style="width:420px;display:block"></div><span style="font:500 20px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">v2026</span></div></div>
+            <div style="position:absolute;top:424px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:24px">
+              <div style="width:104px;height:104px;border-radius:999px;background:#0a4f58;border:2px solid #12837b;display:flex;align-items:center;justify-content:center;font:700 40px/1 var(--font-display);color:#40dfaf">WW</div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+                <span style="font:600 34px/1.1 var(--font-heading);letter-spacing:-.01em;color:#fff">wildwired</span>
+                <span style="font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">live session</span>
+              </div>
+              <div style="width:480px;height:64px;background:#03252a;border:1px solid #12837b;border-radius:4px;box-shadow:inset 0 1px 0 rgba(3,37,42,.5);display:flex;align-items:center;padding:0 20px;gap:14px">
+                <i data-lucide="lock" style="width:22px;height:22px;color:#8fb3b2"></i>
+                <span style="font:340 22px/1 var(--font-body);color:#8fb3b2">Password</span>
+                <span style="margin-left:auto;font:500 15px/1 var(--font-mono);letter-spacing:.14em;color:#12837b">ENTER</span>
+              </div>
+              <span style="font:340 20px/1.5 var(--font-body);color:#d6e9e7">Nothing is written to disk. Press enter to explore.</span>
+            </div>
+            <div style="position:absolute;left:64px;bottom:104px;right:64px;display:flex;flex-direction:column;gap:18px">
+              <div style="display:flex;align-items:center;gap:16px"><span style="font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">sponsors</span><span style="flex:1;height:1px;background:#12837b"></span></div>
+              <div style="display:flex;align-items:center;gap:20px">
+                <div style="width:300px;height:88px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">presenting</div>
+                <div style="width:200px;height:72px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div>
+                <div style="width:200px;height:72px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div>
+                <div style="width:140px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div>
+                <div style="width:140px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div>
+              </div>
+            </div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:72px;background:#03252a;border-top:1px solid #0f5f63;display:flex;align-items:center;padding:0 32px;gap:28px">
+              <span style="font:500 16px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">wild &amp; wired wv 26.04 <span style="color:#12837b">/</span> live</span>
+              <span style="margin-left:auto;display:flex;align-items:center;gap:12px;font:500 16px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="monitor" style="width:20px;height:20px;color:#8fb3b2"></i> plasma (wayland)</span>
+              <span style="display:flex;align-items:center;gap:12px;font:500 16px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="accessibility" style="width:20px;height:20px;color:#8fb3b2"></i> access</span>
+              <span style="display:flex;align-items:center;gap:12px;font:500 16px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="power" style="width:20px;height:20px;color:#8fb3b2"></i> power</span>
+              <span style="font:500 16px/1 var(--font-mono);letter-spacing:.14em;color:#5f8887">EN</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Form column is centred and 480px wide, so it never enters the sponsor band at y=880 to y=1008.</span>
+            <span>Ridge silhouettes are three flat clip-path fills from the base ramp. No shading, no gradient, exported as one SVG for SDDM and one PNG for GRUB.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1A desktop sponsor wall">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">desktop, sponsor wall wallpaper <span style="color:var(--border-strong)">/ 1920 x 1080 at 50%</span></span>
+        <div style="position:relative;width:960px;height:540px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px">
+          <div style="position:absolute;top:0;left:0;width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;background:#073e45">
+            <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(180deg,rgba(18,131,123,.08) 0 1px,transparent 1px 4px)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:300px;background:#052e34;clip-path:polygon(0 64%,12% 44%,26% 60%,40% 34%,54% 56%,68% 38%,82% 58%,100% 44%,100% 100%,0 100%)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:#03252a;clip-path:polygon(0 70%,14% 52%,28% 68%,44% 46%,58% 66%,74% 50%,88% 66%,100% 54%,100% 100%,0 100%)"></div>
+
+            <div style="position:absolute;left:64px;top:32px;display:flex;flex-direction:column;gap:24px;width:180px">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><i data-lucide="hard-drive" style="width:48px;height:48px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7;text-align:center;text-shadow:0 1px 2px rgba(3,37,42,.9)">Install Wild &amp; Wired</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><i data-lucide="book-open" style="width:48px;height:48px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7;text-align:center;text-shadow:0 1px 2px rgba(3,37,42,.9)">Field Guide</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:10px"><i data-lucide="folder" style="width:48px;height:48px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7;text-align:center;text-shadow:0 1px 2px rgba(3,37,42,.9)">Home</span></div>
+            </div>
+
+            <div style="position:absolute;left:400px;top:56px;width:1120px;background:#03252a;border:1px solid #0f5f63;border-radius:6px;box-shadow:0 8px 24px rgba(3,37,42,.55);padding:24px 48px;display:flex;flex-direction:column;gap:20px">
+              <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:10px">
+                  <span style="font:400 22px/1.1 var(--font-circuit);letter-spacing:.06em;text-transform:uppercase;color:#40dfaf">the sponsor wall</span>
+                  <span style="white-space:nowrap;font:600 40px/1.2 var(--font-heading);letter-spacing:-.01em;color:#fff">Built by <span style="font:400 46px/1 var(--font-script);color:#40dfaf">these</span> people</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:14px"><span style="font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">v2026</span><div style="background:#f4faf9;padding:12px 14px;border-radius:4px"><img src="assets/logo-os-front.png" alt="Wild and Wired West Virginia, West Virginia's Linux festival" style="width:280px;display:block"></div></div>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;align-items:center;gap:16px"><span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">presenting</span><span style="flex:1;height:1px;background:#12837b"></span><span style="font:500 13px/1 var(--font-mono);color:#12837b">max 1 / 640 x 132</span></div>
+                  <div style="display:flex;gap:24px"><div style="width:640px;height:132px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 16px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">presenting 640 x 132</div></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;align-items:center;gap:16px"><span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">gold</span><span style="flex:1;height:1px;background:#12837b"></span><span style="font:500 13px/1 var(--font-mono);color:#12837b">max 3 / 420 x 104</span></div>
+                  <div style="display:flex;gap:24px"><div style="width:420px;height:104px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div><div style="width:420px;height:104px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <div style="display:flex;align-items:center;gap:16px"><span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">silver</span><span style="flex:1;height:1px;background:#12837b"></span><span style="font:500 13px/1 var(--font-mono);color:#12837b">max 6 / 260 x 74</span></div>
+                  <div style="display:flex;gap:20px"><div style="width:260px;height:74px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:260px;height:74px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:260px;height:74px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:260px;height:74px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div></div>
+                </div>
+                <div style="display:flex;gap:40px;align-items:flex-start">
+                  <div style="display:flex;flex-direction:column;gap:12px;flex:1">
+                    <div style="display:flex;align-items:center;gap:16px"><span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">community</span><span style="flex:1;height:1px;background:#12837b"></span><span style="font:500 13px/1 var(--font-mono);color:#12837b">max 8 / 170 x 56</span></div>
+                    <div style="display:flex;gap:16px;flex-wrap:wrap;width:700px"><div style="width:170px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:170px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:170px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:170px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div></div>
+                  </div>
+                  <div style="width:340px;display:flex;flex-direction:column;gap:12px;border-left:1px solid #0f5f63;padding-left:32px">
+                    <span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">special thanks</span>
+                    <p style="margin:0;font:340 19px/1.6 var(--font-body);color:#d6e9e7">Dana Whitlow, Marcus Ade, Priya Raman, Sam Okonjo, Lena Farrow, Teodor Vance, Ruth Ellery, Chris Boone</p>
+                  </div>
+                </div>
+              </div>
+              <span style="font:340 14px/1.4 var(--font-body);color:#5f8887">Based on Ubuntu 26.04 LTS. Not affiliated with or endorsed by Canonical.</span>
+            </div>
+
+            <div style="position:absolute;left:0;right:0;bottom:0;height:48px;background:#03252a;border-top:1px solid #0f5f63;display:flex;align-items:center;gap:8px;padding:0 8px">
+              <div style="width:56px;height:40px;border-radius:4px;background:rgba(64,223,175,.12);display:flex;align-items:center;justify-content:center"><img src="assets/logo-icon.png" alt="menu" style="width:28px;height:28px;display:block"></div>
+              <span style="width:1px;height:24px;background:#0f5f63"></span>
+              <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:4px;background:#0a4f58;border-bottom:2px solid #40dfaf"><i data-lucide="folder" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Home</span></div>
+              <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:4px"><i data-lucide="terminal" style="width:20px;height:20px;color:#8fb3b2"></i><span style="font:340 15px/1 var(--font-body);color:#8fb3b2">Konsole</span></div>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:16px;padding-right:8px">
+                <i data-lucide="chevron-up" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <i data-lucide="wifi" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <i data-lucide="volume-2" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <i data-lucide="usb" style="width:18px;height:18px;color:#40dfaf"></i>
+                <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1px"><span style="font:500 15px/1 var(--font-mono);color:#d6e9e7">11:04</span><span style="font:500 11px/1 var(--font-mono);letter-spacing:.1em;color:#8fb3b2">nov 14 2026</span></div>
+                <span style="width:6px;height:28px;background:rgba(18,131,123,.35);border-radius:2px"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Sponsor board occupies x=400 to x=1520, y=56 to y=992, which leaves 40px of clear canvas above the 48px panel. Desktop icon column keeps x=32 to x=280 clear at every tier count.</span>
+            <span>Tier maxima are what triggers reflow: 1 presenting, 3 gold, 6 silver, 8 community. Past that the script drops to the quiet strip layout and logs a warning.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1A panel and menu 1:1">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">panel and menu open <span style="color:var(--border-strong)">/ 1:1, actual pixels</span></span>
+        <div style="position:relative;width:960px;height:660px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px;background:#073e45">
+          <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(180deg,rgba(18,131,123,.08) 0 1px,transparent 1px 4px)"></div>
+          <div style="position:absolute;left:0;right:0;bottom:0;height:200px;background:#052e34;clip-path:polygon(0 60%,18% 38%,34% 58%,52% 32%,70% 56%,88% 40%,100% 54%,100% 100%,0 100%)"></div>
+
+          <div style="position:absolute;left:8px;bottom:56px;width:520px;height:572px;background:#0a4f58;border:1px solid #0f5f63;border-radius:6px;box-shadow:0 24px 64px rgba(3,37,42,.65);display:flex;flex-direction:column;overflow:hidden">
+            <div style="padding:16px;border-bottom:1px solid #0f5f63">
+              <div style="height:40px;background:#03252a;border:1px solid #12837b;border-radius:4px;box-shadow:inset 0 1px 0 rgba(3,37,42,.5);display:flex;align-items:center;gap:10px;padding:0 12px">
+                <i data-lucide="search" style="width:16px;height:16px;color:#8fb3b2"></i>
+                <span style="font:340 15px/1 var(--font-body);color:#8fb3b2">Search apps, files and settings</span>
+              </div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;padding:12px 8px;gap:2px">
+              <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding:8px 12px 10px">start here</span>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px;background:rgba(64,223,175,.12);border-left:3px solid #40dfaf"><i data-lucide="book-open" style="width:22px;height:22px;color:#d6e9e7"></i><div style="display:flex;flex-direction:column"><span style="font:340 15px/1.2 var(--font-body);color:#d6e9e7">Field Guide</span><span style="font:340 12px/1.2 var(--font-body);color:#8fb3b2">Start with your first week</span></div></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px"><i data-lucide="hard-drive" style="width:22px;height:22px;color:#d6e9e7"></i><div style="display:flex;flex-direction:column"><span style="font:340 15px/1.2 var(--font-body);color:#d6e9e7">Install Wild &amp; Wired</span><span style="font:340 12px/1.2 var(--font-body);color:#8fb3b2">Nothing is written until you confirm</span></div></div>
+              <div style="height:1px;background:#0f5f63;margin:10px 12px"></div>
+              <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding:0 12px 10px">everyday</span>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px"><i data-lucide="globe" style="width:22px;height:22px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Firefox</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px"><i data-lucide="file-text" style="width:22px;height:22px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">LibreOffice Writer</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px"><i data-lucide="folder" style="width:22px;height:22px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Files</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px"><i data-lucide="terminal" style="width:22px;height:22px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Konsole</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 12px;border-radius:4px"><i data-lucide="settings" style="width:22px;height:22px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">System Settings</span></div>
+            </div>
+            <div style="height:56px;border-top:1px solid #0f5f63;background:rgba(3,37,42,.35);display:flex;align-items:center;padding:0 12px;gap:8px">
+              <div style="display:flex;align-items:center;gap:10px;height:36px;padding:0 12px;border-radius:4px"><i data-lucide="user" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">live user</span></div>
+              <div style="margin-left:auto;display:flex;gap:4px">
+                <div style="width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center"><i data-lucide="lock" style="width:18px;height:18px;color:#8fb3b2"></i></div>
+                <div style="width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center"><i data-lucide="refresh-cw" style="width:18px;height:18px;color:#8fb3b2"></i></div>
+                <div style="width:36px;height:36px;border-radius:4px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.10);border:1px solid #fff"><i data-lucide="power" style="width:18px;height:18px;color:#fff"></i></div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:absolute;left:0;right:0;bottom:0;height:48px;background:#03252a;border-top:1px solid #0f5f63;display:flex;align-items:center;gap:8px;padding:0 8px">
+            <div style="width:56px;height:40px;border-radius:4px;background:rgba(64,223,175,.12);border:1px solid rgba(64,223,175,.35);display:flex;align-items:center;justify-content:center"><img src="assets/logo-icon.png" alt="menu" style="width:28px;height:28px;display:block"></div>
+            <span style="width:1px;height:24px;background:#0f5f63"></span>
+            <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:4px;background:#0a4f58;border-bottom:2px solid #40dfaf"><i data-lucide="folder" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Home</span></div>
+            <div style="display:flex;align-items:center;gap:8px;height:40px;padding:0 14px;border-radius:4px"><i data-lucide="terminal" style="width:20px;height:20px;color:#8fb3b2"></i><span style="font:340 15px/1 var(--font-body);color:#8fb3b2">Konsole</span></div>
+            <span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#12837b">crop ends here, panel runs to 1920 ╌╌</span>
+          </div>
+
+          <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <div style="position:absolute;right:16px;bottom:48px;width:1px;height:96px;background:#40dfaf"></div>
+              <div style="position:absolute;right:24px;bottom:100px;font:500 11px/1.3 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">panel 48px<br>menu 520 x 572<br>gap 8px</div>
+              <div style="position:absolute;left:8px;bottom:4px;width:56px;height:40px;border:1px dashed #40dfaf;border-radius:4px;pointer-events:none"></div>
+              <div style="position:absolute;left:544px;bottom:56px;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf;background:#03252a;padding:4px 6px;border:1px solid rgba(64,223,175,.35)">kickoff 56 x 40, dashed at left</div>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Widget order, left to right: kickoff, separator, icons-and-text task manager, spacer, system tray, digital clock (two line), peek at 6px.</span>
+            <span>Panel 48px, menu popup 520 x 572, popup radius 6px, popup padding 16px, row height 48px, icons 22px in menu and 20px in task manager, 18px in tray.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;background:#052e34;border:1px solid var(--border-subtle);border-radius:6px;padding:20px 24px">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">build notes, 1A</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font:var(--type-small);color:var(--text-muted)">
+          <span><b style="color:var(--text-body);font-weight:600">Plasma style:</b> 6px frame radius, 1px #0f5f63 strokes, shadow-3 on popups. All within an SVG Plasma theme.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Window decoration:</b> 40px title bar, 6px top corners, 1px border, focused border #12837b and unfocused #0f5f63.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Cost:</b> the ridge SVG is one asset reused across GRUB, Plymouth, SDDM, lock and installer. Cheapest of the three to produce.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Risk:</b> at 1366x768 the sponsor board must shrink to 1000px wide and drop the thanks column below the tiers. Verified layout, not a stretch.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Brand faces:</b> Rebel Script carries one word inside the board heading, and Circuit sets the tier kicker. Both are wallpaper art, baked into the exported PNG, so nothing depends on the fonts being installed.</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="1b" style="display:flex;flex-direction:column;gap:20px;width:1000px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;color:var(--teal-800);background:var(--mint-500);padding:6px 10px;border-radius:2px">1B</span>
+          <h2 style="margin:0;font:700 40px/1.04 var(--font-display);letter-spacing:-.02em;color:#fff">Trunk Line</h2>
+        </div>
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--border-strong)">wired, infrastructural</span>
+        <p style="margin:0;font:var(--type-body);color:var(--text-muted);max-width:62ch">The desktop as a wiring diagram you are allowed to read. Everything sits on the 24px monospace grid, and the sponsor zones are boards on a trunk line, joined by 1px traces with square nodes, so the tier hierarchy is legible as topology before you read a single label. Chrome is tightened to 40px panel, square and 2px corners, and mono metadata is promoted: the login screen states the hostname, kernel and session, the way a machine that respects you states its own configuration. Densest and most confident of the three. It flatters the sysadmins in the room and stays legible for the switchers because the grid gives every element an obvious place, but it is the direction where a careless Phase 2 could drift toward the Matrix cliché, so the trace work stays in structure teal and never mint.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1B login">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">sddm login <span style="color:var(--border-strong)">/ 1920 x 1080 at 50%</span></span>
+        <div style="position:relative;width:960px;height:540px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px">
+          <div style="position:absolute;top:0;left:0;width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;background:#073e45">
+            <div style="position:absolute;left:0;top:0;bottom:0;width:720px;background:#03252a;border-right:1px solid #12837b"></div>
+            <div style="position:absolute;left:720px;top:0;right:0;bottom:0;background-color:#073e45;background-image:linear-gradient(90deg,rgba(18,131,123,.10) 1px,transparent 1px),linear-gradient(180deg,rgba(18,131,123,.10) 1px,transparent 1px);background-size:24px 24px,24px 24px"></div>
+
+            <div style="position:absolute;left:80px;top:80px;width:560px;display:flex;flex-direction:column;gap:56px">
+              <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px"><div style="background:#f4faf9;padding:16px 20px"><img src="assets/logo-os-front.png" alt="Wild and Wired West Virginia, West Virginia's Linux festival" style="width:500px;display:block"></div><span style="font:500 18px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">v2026</span></div>
+              <div style="display:flex;flex-direction:column;gap:14px;font:500 15px/1.9 var(--font-mono);letter-spacing:.02em;color:#8fb3b2">
+                <span><span style="color:#12837b">host</span>  wildwired-live</span>
+                <span><span style="color:#12837b">base</span>  kubuntu 26.04 lts <span style="color:#5f8887">/ plasma 6.6 / wayland</span></span>
+                <span><span style="color:#12837b">disk</span>  <span style="color:#40dfaf">untouched</span></span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:20px">
+                <span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">sign in</span>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <span style="font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">user</span>
+                  <div style="width:560px;height:56px;background:#052e34;border:1px solid #12837b;display:flex;align-items:center;padding:0 18px;font:340 22px/1 var(--font-body);color:#d6e9e7">wildwired</div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                  <span style="font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">password</span>
+                  <div style="width:560px;height:56px;background:#052e34;border:1px solid #40dfaf;box-shadow:0 0 0 2px #03252a,0 0 0 4px #8cefd0;display:flex;align-items:center;padding:0 18px;gap:14px">
+                    <span style="font:500 20px/1 var(--font-mono);color:#d6e9e7">▮</span>
+                    <span style="margin-left:auto;font:500 14px/1 var(--font-mono);letter-spacing:.14em;color:#12837b">RETURN</span>
+                  </div>
+                </div>
+                <span style="font:340 19px/1.6 var(--font-body);color:#d6e9e7">The live session has no password. Press enter to explore.</span>
+              </div>
+            </div>
+
+            <div style="position:absolute;left:816px;top:96px;right:96px;display:flex;flex-direction:column;gap:16px">
+              <div style="display:flex;align-items:center;gap:16px"><span style="font:400 20px/1.1 var(--font-circuit);letter-spacing:.06em;text-transform:uppercase;color:#40dfaf">sponsor trunk</span><span style="flex:1;height:1px;background:#12837b"></span></div>
+              <div style="display:flex;flex-direction:column;gap:0">
+                <div style="display:flex;align-items:center;gap:0">
+                  <span style="width:8px;height:8px;background:#12837b"></span><span style="width:40px;height:1px;background:#12837b"></span>
+                  <div style="width:560px;height:180px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">presenting 560 x 180</div>
+                </div>
+                <div style="display:flex"><span style="margin-left:3px;width:1px;height:32px;background:#12837b"></span></div>
+                <div style="display:flex;align-items:center;gap:0">
+                  <span style="width:8px;height:8px;background:#12837b"></span><span style="width:40px;height:1px;background:#12837b"></span>
+                  <div style="display:flex;gap:16px"><div style="width:272px;height:120px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div><div style="width:272px;height:120px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div></div>
+                </div>
+                <div style="display:flex"><span style="margin-left:3px;width:1px;height:32px;background:#12837b"></span></div>
+                <div style="display:flex;align-items:center;gap:0">
+                  <span style="width:8px;height:8px;background:#12837b"></span><span style="width:40px;height:1px;background:#12837b"></span>
+                  <div style="display:flex;gap:16px"><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div></div>
+                </div>
+              </div>
+              <p style="margin:16px 0 0;font:340 17px/1.6 var(--font-body);color:#8fb3b2;max-width:52ch"><span style="font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">special thanks</span><br>Dana Whitlow, Marcus Ade, Priya Raman, Sam Okonjo, Lena Farrow, Teodor Vance, Ruth Ellery, Chris Boone, Ada Simms, Joel Pruitt</p>
+            </div>
+
+            <div style="position:absolute;left:0;right:0;bottom:0;height:64px;background:#03252a;border-top:1px solid #12837b;display:flex;align-items:center;padding:0 32px;gap:32px">
+              <span style="display:flex;align-items:center;gap:10px;font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="monitor" style="width:18px;height:18px;color:#8fb3b2"></i> plasma (wayland) <span style="color:#12837b">▾</span></span>
+              <span style="display:flex;align-items:center;gap:10px;font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="accessibility" style="width:18px;height:18px;color:#8fb3b2"></i> access <span style="color:#12837b">▾</span></span>
+              <span style="display:flex;align-items:center;gap:10px;font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="globe" style="width:18px;height:18px;color:#8fb3b2"></i> en-us <span style="color:#12837b">▾</span></span>
+              <span style="margin-left:auto;display:flex;align-items:center;gap:10px;font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2"><i data-lucide="power" style="width:18px;height:18px;color:#8fb3b2"></i> power <span style="color:#12837b">▾</span></span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Form well is a hard 720px column, so sponsor art and login controls can never overlap at any resolution. Below 1400px wide the trunk collapses to a bottom strip.</span>
+            <span>Focus is the two-ring #8cefd0 treatment, shown on the password field. Tab order: user, password, session, access, language, power.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1B desktop sponsor wall">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">desktop, sponsor wall wallpaper <span style="color:var(--border-strong)">/ 1920 x 1080 at 50%</span></span>
+        <div style="position:relative;width:960px;height:540px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px">
+          <div style="position:absolute;top:0;left:0;width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;background-color:#073e45;background-image:linear-gradient(90deg,rgba(18,131,123,.10) 1px,transparent 1px),linear-gradient(180deg,rgba(18,131,123,.10) 1px,transparent 1px);background-size:24px 24px,24px 24px">
+
+            <div style="position:absolute;left:0;top:0;right:0;height:24px;display:flex;align-items:flex-end;font:500 11px/1 var(--font-mono);letter-spacing:.1em;color:rgba(18,131,123,.9)">
+              <span style="position:absolute;left:336px">x336</span><span style="position:absolute;left:960px">x960</span><span style="position:absolute;left:1584px">x1584</span>
+            </div>
+
+            <div style="position:absolute;left:32px;top:48px;display:flex;flex-direction:column;gap:20px;width:200px">
+              <div style="display:flex;align-items:center;gap:12px"><i data-lucide="hard-drive" style="width:32px;height:32px;color:#d6e9e7"></i><span style="font:340 16px/1.3 var(--font-body);color:#d6e9e7">Install Wild &amp; Wired</span></div>
+              <div style="display:flex;align-items:center;gap:12px"><i data-lucide="book-open" style="width:32px;height:32px;color:#d6e9e7"></i><span style="font:340 16px/1.3 var(--font-body);color:#d6e9e7">Field Guide</span></div>
+              <div style="display:flex;align-items:center;gap:12px"><i data-lucide="folder" style="width:32px;height:32px;color:#d6e9e7"></i><span style="font:340 16px/1.3 var(--font-body);color:#d6e9e7">Home</span></div>
+            </div>
+
+            <div style="position:absolute;left:336px;top:96px;width:1248px;display:flex;flex-direction:column;gap:0">
+              <div style="display:flex;align-items:flex-end;justify-content:space-between;padding-bottom:20px;border-bottom:1px solid #12837b">
+                <div style="display:flex;flex-direction:column;gap:8px">
+                  <span style="font:400 20px/1.1 var(--font-circuit);letter-spacing:.06em;text-transform:uppercase;color:#40dfaf">wild &amp; wired wv <span style="color:#12837b">/</span> nov 14 2026 <span style="color:#12837b">/</span> sponsor trunk</span>
+                  <span style="font:600 36px/1.1 var(--font-heading);letter-spacing:-.01em;color:#fff">This machine was paid for by</span>
+                </div>
+                <div style="display:flex;align-items:center;gap:12px"><span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">v2026</span><div style="background:#f4faf9;padding:10px 12px;border-radius:2px"><img src="assets/logo-os-front.png" alt="Wild and Wired West Virginia, West Virginia's Linux festival" style="width:220px;display:block"></div></div>
+              </div>
+
+              <div style="display:flex;gap:0;padding-top:32px">
+                <div style="width:120px;display:flex;flex-direction:column;gap:0;padding-top:6px">
+                  <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">presenting</span>
+                  <span style="width:1px;height:200px;background:#12837b;margin-left:3px;margin-top:12px"></span>
+                  <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding-top:12px">gold</span>
+                  <span style="width:1px;height:140px;background:#12837b;margin-left:3px;margin-top:12px"></span>
+                  <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding-top:12px">silver</span>
+                  <span style="width:1px;height:104px;background:#12837b;margin-left:3px;margin-top:12px"></span>
+                  <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding-top:12px">community</span>
+                </div>
+                <div style="flex:1;display:flex;flex-direction:column;gap:16px">
+                  <div style="display:flex;align-items:center;gap:0"><span style="width:8px;height:8px;background:#12837b"></span><span style="width:24px;height:1px;background:#12837b"></span><div style="width:600px;height:160px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">presenting 600 x 160</div></div>
+                  <div style="display:flex;align-items:center;gap:0"><span style="width:8px;height:8px;background:#12837b"></span><span style="width:24px;height:1px;background:#12837b"></span><div style="display:flex;gap:24px"><div style="width:384px;height:112px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold 384 x 112</div><div style="width:384px;height:112px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div><div style="width:384px;height:112px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div></div></div>
+                  <div style="display:flex;align-items:center;gap:0"><span style="width:8px;height:8px;background:#12837b"></span><span style="width:24px;height:1px;background:#12837b"></span><div style="display:flex;gap:24px"><div style="width:240px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver 240 x 80</div><div style="width:240px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:240px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:240px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div></div></div>
+                  <div style="display:flex;align-items:center;gap:0"><span style="width:8px;height:8px;background:#12837b"></span><span style="width:24px;height:1px;background:#12837b"></span><div style="display:flex;gap:24px"><div style="width:168px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:168px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:168px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:168px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:168px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:168px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">community</div></div></div>
+                </div>
+              </div>
+
+              <div style="display:flex;gap:24px;padding-top:24px;margin-top:24px;border-top:1px solid #12837b">
+                <span style="font:500 12px/1.6 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;width:120px">special<br>thanks</span>
+                <p style="margin:0;font:340 18px/1.7 var(--font-body);color:#d6e9e7;max-width:60ch">Dana Whitlow, Marcus Ade, Priya Raman, Sam Okonjo, Lena Farrow, Teodor Vance, Ruth Ellery, Chris Boone, Ada Simms, Joel Pruitt, Nadia Cort, Bill Hensley, Renee Tso, Omar Little, Grace Vandal</p>
+                <span style="margin-left:auto;align-self:flex-end;font:340 13px/1.4 var(--font-body);color:#5f8887;max-width:26ch">Based on Ubuntu 26.04 LTS. Not affiliated with or endorsed by Canonical.</span>
+              </div>
+            </div>
+
+            <div style="position:absolute;left:0;right:0;bottom:0;height:40px;background:#03252a;border-top:1px solid #12837b;display:flex;align-items:center;gap:6px;padding:0 6px">
+              <div style="width:52px;height:32px;background:rgba(64,223,175,.12);display:flex;align-items:center;justify-content:center"><img src="assets/logo-icon.png" alt="menu" style="width:24px;height:24px;display:block"></div>
+              <span style="width:1px;height:20px;background:#12837b"></span>
+              <div style="display:flex;align-items:center;gap:8px;height:32px;padding:0 12px;background:#0a4f58;border:1px solid #12837b;border-radius:2px"><i data-lucide="folder" style="width:16px;height:16px;color:#d6e9e7"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">Home</span></div>
+              <div style="display:flex;align-items:center;gap:8px;height:32px;padding:0 12px;border-radius:2px"><i data-lucide="terminal" style="width:16px;height:16px;color:#8fb3b2"></i><span style="font:340 14px/1 var(--font-body);color:#8fb3b2">Konsole</span></div>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:14px;padding-right:6px">
+                <i data-lucide="chevron-up" style="width:16px;height:16px;color:#8fb3b2"></i>
+                <i data-lucide="wifi" style="width:16px;height:16px;color:#8fb3b2"></i>
+                <i data-lucide="volume-2" style="width:16px;height:16px;color:#8fb3b2"></i>
+                <i data-lucide="usb" style="width:16px;height:16px;color:#40dfaf"></i>
+                <span style="font:500 14px/1 var(--font-mono);letter-spacing:.02em;color:#d6e9e7">11:04 <span style="color:#8fb3b2">nov 14</span></span>
+                <span style="width:4px;height:22px;background:rgba(18,131,123,.35)"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Every zone origin is a multiple of 24. Trunk column at x=336, boards start x=480, tier rail labels at x=336. Desktop icons own x=32 to x=288.</span>
+            <span>Board sizes are 600x160, 384x112, 240x80, 168x56, all divisible by 8, so a script can lay logos out with 24px clear space on every side and no fractional pixels at 200% scaling.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1B panel and menu 1:1">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">panel and menu open <span style="color:var(--border-strong)">/ 1:1, actual pixels</span></span>
+        <div style="position:relative;width:960px;height:660px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px;background-color:#073e45;background-image:linear-gradient(90deg,rgba(18,131,123,.10) 1px,transparent 1px),linear-gradient(180deg,rgba(18,131,123,.10) 1px,transparent 1px);background-size:24px 24px,24px 24px">
+
+          <div style="position:absolute;left:6px;bottom:44px;width:600px;height:552px;background:#0a4f58;border:1px solid #12837b;border-radius:2px;box-shadow:0 24px 64px rgba(3,37,42,.65);display:flex;flex-direction:column;overflow:hidden">
+            <div style="padding:12px;border-bottom:1px solid #0f5f63;background:rgba(3,37,42,.35)">
+              <div style="height:36px;background:#03252a;border:1px solid #12837b;border-radius:2px;box-shadow:inset 0 1px 0 rgba(3,37,42,.5);display:flex;align-items:center;gap:10px;padding:0 10px">
+                <span style="font:500 14px/1 var(--font-mono);color:#40dfaf">$</span>
+                <span style="font:340 14px/1 var(--font-body);color:#d6e9e7">writ</span><span style="font:500 14px/1 var(--font-mono);color:#40dfaf">▮</span>
+                <span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#12837b">6 results</span>
+              </div>
+            </div>
+            <div style="flex:1;display:flex">
+              <div style="width:56px;border-right:1px solid #0f5f63;display:flex;flex-direction:column;align-items:center;padding:8px 0;gap:4px">
+                <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;background:rgba(64,223,175,.12);border-radius:2px"><i data-lucide="search" style="width:18px;height:18px;color:#40dfaf"></i></div>
+                <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i data-lucide="star" style="width:18px;height:18px;color:#8fb3b2"></i></div>
+                <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i data-lucide="grid-2x2" style="width:18px;height:18px;color:#8fb3b2"></i></div>
+                <div style="width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i data-lucide="clock" style="width:18px;height:18px;color:#8fb3b2"></i></div>
+                <div style="margin-top:auto;width:40px;height:40px;display:flex;align-items:center;justify-content:center"><i data-lucide="power" style="width:18px;height:18px;color:#8fb3b2"></i></div>
+              </div>
+              <div style="flex:1;display:flex;flex-direction:column;padding:8px 6px;gap:1px">
+                <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding:6px 10px 8px">applications</span>
+                <div style="height:40px;display:flex;align-items:center;gap:12px;padding:0 10px;background:rgba(64,223,175,.12);border-radius:2px"><i data-lucide="file-text" style="width:18px;height:18px;color:#d6e9e7"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">LibreOffice <b style="color:#40dfaf;font-weight:600">Writ</b>er</span><span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;color:#12837b">ENTER</span></div>
+                <div style="height:40px;display:flex;align-items:center;gap:12px;padding:0 10px"><i data-lucide="pen-line" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">Kate text editor</span></div>
+                <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding:14px 10px 8px">field guide</span>
+                <div style="height:40px;display:flex;align-items:center;gap:12px;padding:0 10px"><i data-lucide="book-open" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">Writing your first shell script</span></div>
+                <div style="height:40px;display:flex;align-items:center;gap:12px;padding:0 10px"><i data-lucide="book-open" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">Documents that open anywhere</span></div>
+                <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding:14px 10px 8px">install</span>
+                <div style="height:40px;display:flex;align-items:center;gap:12px;padding:0 10px"><i data-lucide="package" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">writer-perfect <span style="color:#8fb3b2">in Discover</span></span></div>
+                <div style="margin-top:auto;display:flex;align-items:center;gap:10px;padding:10px;border-top:1px solid #0f5f63">
+                  <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">tab</span><span style="font:340 13px/1 var(--font-body);color:#8fb3b2">next group</span>
+                  <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding-left:12px">esc</span><span style="font:340 13px/1 var(--font-body);color:#8fb3b2">close</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="position:absolute;left:0;right:0;bottom:0;height:40px;background:#03252a;border-top:1px solid #12837b;display:flex;align-items:center;gap:6px;padding:0 6px">
+            <div style="width:52px;height:32px;background:rgba(64,223,175,.12);border:1px solid rgba(64,223,175,.35);display:flex;align-items:center;justify-content:center"><img src="assets/logo-icon.png" alt="menu" style="width:24px;height:24px;display:block"></div>
+            <span style="width:1px;height:20px;background:#12837b"></span>
+            <div style="display:flex;align-items:center;gap:8px;height:32px;padding:0 12px;background:#0a4f58;border:1px solid #12837b;border-radius:2px"><i data-lucide="folder" style="width:16px;height:16px;color:#d6e9e7"></i><span style="font:340 14px/1 var(--font-body);color:#d6e9e7">Home</span></div>
+            <div style="display:flex;align-items:center;gap:8px;height:32px;padding:0 12px"><i data-lucide="terminal" style="width:16px;height:16px;color:#8fb3b2"></i><span style="font:340 14px/1 var(--font-body);color:#8fb3b2">Konsole</span></div>
+            <span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#12837b">crop ends here ╌╌</span>
+          </div>
+
+          <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <div style="position:absolute;right:16px;bottom:40px;width:1px;height:80px;background:#40dfaf"></div>
+              <div style="position:absolute;right:24px;bottom:92px;font:500 11px/1.3 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">panel 40px<br>menu 600 x 552<br>gap 4px</div>
+              <div style="position:absolute;left:6px;bottom:4px;width:52px;height:32px;border:1px dashed #40dfaf;pointer-events:none"></div>
+              <div style="position:absolute;left:622px;bottom:44px;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf;background:#03252a;padding:4px 6px;border:1px solid rgba(64,223,175,.35)">kickoff 52 x 32, dashed at left</div>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Search first: the field is focused on open, and results group by applications, Field Guide articles and installable packages. Keyboard hints sit on the footer rail.</span>
+            <span>Panel 40px, radius 2px, popup padding 12px, row height 40px, icons 18px in menu and 16px in panel and tray. Tray runs 16px monochrome overrides.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;background:#052e34;border:1px solid var(--border-subtle);border-radius:6px;padding:20px 24px">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">build notes, 1B</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font:var(--type-small);color:var(--text-muted)">
+          <span><b style="color:var(--text-body);font-weight:600">Plasma style:</b> 2px frames, 1px #12837b strokes, no radius on panel or tray popups. Grid texture is a 24px tile, wallpaper only.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Window decoration:</b> 36px title bar, square corners, focused 1px #12837b with a 2px mint underline on the title bar bottom edge, unfocused plain #0f5f63.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Cost:</b> highest. The trace and node work has to be regenerated per resolution, so the sponsor wall needs a generator script rather than four static PNGs.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Risk:</b> 40px panel with 14px labels is tight at 1366x768. Fallback is 44px with the task manager set to icons only.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Brand faces:</b> Circuit only, as the machine label above each trunk. It suits this direction best, which is also the risk: keep it to one line per screen or the desktop starts shouting.</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="1c" style="display:flex;flex-direction:column;gap:20px;width:1000px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;color:var(--teal-800);background:var(--mint-500);padding:6px 10px;border-radius:2px">1C</span>
+          <h2 style="margin:0;font:700 40px/1.04 var(--font-display);letter-spacing:-.02em;color:#fff">Quartermaster</h2>
+        </div>
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--border-strong)">sovereign, utilitarian</span>
+        <p style="margin:0;font:var(--type-body);color:var(--text-muted);max-width:62ch">Issued equipment, not a product. The wallpaper is a specification plate: a hairline frame, a mark, and a typographic block that says what this machine is, who paid for it and what it will not do to your disk, with the sponsor tiers set as a plain table because a table is honest about rank in a way a collage is not. Every control is labelled and every list row carries its keyboard shortcut, so the desktop teaches its own operation. No texture anywhere except inside the plate. This is the most legible of the three at 1366x768 and by far the calmest under stress, which matters most on the partitioning screen, and it is the direction that ages best because there is nothing in it to go out of fashion. The trade is charm: it is a deliberately plain object, and the Appalachian half of the brand survives only in the mark and in the voice.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1C login">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">sddm login <span style="color:var(--border-strong)">/ 1920 x 1080 at 50%</span></span>
+        <div style="position:relative;width:960px;height:540px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px">
+          <div style="position:absolute;top:0;left:0;width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;background:#052e34">
+            <div style="position:absolute;left:96px;top:72px;right:96px;bottom:168px;border:1px solid #12837b;display:flex">
+              <div style="width:840px;border-right:1px solid #12837b;padding:56px 64px;display:flex;flex-direction:column;gap:32px">
+                <div style="display:flex;flex-direction:column;align-items:flex-start;gap:10px"><div style="background:#f4faf9;padding:16px 20px;border-radius:4px"><img src="assets/logo-os-front.png" alt="Wild and Wired West Virginia, West Virginia's Linux festival" style="width:380px;display:block"></div><span style="font:500 18px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">v2026</span></div>
+                <div style="display:flex;flex-direction:column;gap:16px">
+                  <span style="font:600 44px/1.1 var(--font-heading);letter-spacing:-.01em;color:#fff">Sign in</span>
+                  <span style="font:340 21px/1.6 var(--font-body);color:#d6e9e7;max-width:44ch">This is the live session. Nothing is written to disk until you choose to install.</span>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:28px">
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">user</span>
+                    <div style="width:600px;height:60px;background:#03252a;border:1px solid #12837b;border-radius:4px;display:flex;align-items:center;justify-content:space-between;padding:0 20px"><span style="font:340 22px/1 var(--font-body);color:#d6e9e7">wildwired</span><span style="font:500 15px/1 var(--font-mono);color:#12837b">▾</span></div>
+                  </div>
+                  <div style="display:flex;flex-direction:column;gap:10px">
+                    <span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">password</span>
+                    <div style="width:600px;height:60px;background:#03252a;border:1px solid #12837b;border-radius:4px;display:flex;align-items:center;padding:0 20px;gap:16px"><i data-lucide="lock" style="width:22px;height:22px;color:#8fb3b2"></i><span style="font:340 22px/1 var(--font-body);color:#8fb3b2">Leave empty for the live session</span></div>
+                  </div>
+                  <div style="display:flex;align-items:center;gap:20px">
+                    <div style="height:56px;padding:0 32px;background:#40dfaf;border-radius:4px;display:flex;align-items:center;font:500 16px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#073e45">press enter to explore</div>
+                    <span style="font:340 18px/1.5 var(--font-body);color:#8fb3b2">or tab to the buttons below</span>
+                  </div>
+                </div>
+              </div>
+              <div style="flex:1;padding:64px 48px;display:flex;flex-direction:column;gap:28px">
+                <span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">sponsors <span style="color:#12837b">/ tiered</span></span>
+                <div style="display:flex;flex-direction:column;gap:20px">
+                  <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">presenting</span><div style="width:504px;height:152px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">presenting 504 x 152</div></div>
+                  <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">gold</span><div style="display:flex;gap:16px"><div style="width:244px;height:104px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div><div style="width:244px;height:104px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 13px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div></div></div>
+                  <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">silver</span><div style="display:flex;gap:16px;flex-wrap:wrap;width:504px"><div style="width:157px;height:72px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:157px;height:72px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:157px;height:72px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div></div></div>
+                </div>
+                <div style="margin-top:auto;display:flex;flex-direction:column;gap:8px">
+                  <span style="font:500 12px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">special thanks</span>
+                  <p style="margin:0;font:340 17px/1.6 var(--font-body);color:#d6e9e7">Dana Whitlow, Marcus Ade, Priya Raman, Sam Okonjo, Lena Farrow, Teodor Vance</p>
+                </div>
+              </div>
+            </div>
+            <div style="position:absolute;left:96px;right:96px;bottom:72px;height:64px;display:flex;align-items:center;gap:16px">
+              <div style="height:48px;padding:0 20px;border:1px solid #12837b;border-radius:4px;display:flex;align-items:center;gap:12px"><i data-lucide="monitor" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">session: plasma wayland</span></div>
+              <div style="height:48px;padding:0 20px;border:1px solid #12837b;border-radius:4px;display:flex;align-items:center;gap:12px"><i data-lucide="accessibility" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">accessibility</span></div>
+              <div style="height:48px;padding:0 20px;border:1px solid #12837b;border-radius:4px;display:flex;align-items:center;gap:12px"><i data-lucide="globe" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">keyboard: en-us</span></div>
+              <div style="margin-left:auto;height:48px;padding:0 20px;border:1px solid #12837b;border-radius:4px;display:flex;align-items:center;gap:12px"><i data-lucide="power" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:500 15px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">power</span></div>
+              <span style="font:340 15px/1.4 var(--font-body);color:#5f8887;max-width:30ch">Based on Ubuntu 26.04 LTS. Not affiliated with or endorsed by Canonical.</span>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>Two hard columns inside one hairline frame: form 840px, sponsors 792px. The divider is the collision guarantee, so no logo can ever land near the password field.</span>
+            <span>Every control is a labelled button with a 48px hit height, so the whole screen is reachable and readable by keyboard with no hidden hover targets.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1C desktop sponsor wall">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">desktop, sponsor wall wallpaper <span style="color:var(--border-strong)">/ 1920 x 1080 at 50%</span></span>
+        <div style="position:relative;width:960px;height:540px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px">
+          <div style="position:absolute;top:0;left:0;width:1920px;height:1080px;transform:scale(.5);transform-origin:top left;background:#052e34">
+            <div style="position:absolute;left:336px;top:64px;width:1248px;bottom:152px;border:1px solid #12837b;background-color:#073e45;background-image:repeating-linear-gradient(180deg,rgba(18,131,123,.08) 0 1px,transparent 1px 4px);display:flex;flex-direction:column">
+              <div style="display:flex;align-items:center;gap:24px;padding:28px 40px;border-bottom:1px solid #12837b">
+                <div style="display:flex;align-items:center;gap:14px"><div style="background:#f4faf9;padding:10px 14px;border-radius:4px"><img src="assets/logo-os-front.png" alt="Wild and Wired West Virginia, West Virginia's Linux festival" style="width:280px;display:block"></div><span style="font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">v2026</span></div>
+                <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:6px">
+                  <span style="font:600 30px/1.1 var(--font-heading);letter-spacing:-.01em;color:#d6e9e7">West Virginia 26.04</span>
+                  <span style="white-space:nowrap;font:500 14px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">issued nov 14 2026 <span style="color:#12837b">/</span> live usb</span>
+                </div>
+                <div style="margin-left:auto;display:flex;flex-direction:column;gap:6px;text-align:right">
+                  <span style="font:600 22px/1.1 var(--font-heading);letter-spacing:-.01em;color:#d6e9e7">Software you <span style="font:400 30px/0.8 var(--font-script);color:#40dfaf">control</span></span>
+                  <span style="font:600 22px/1.1 var(--font-heading);letter-spacing:-.01em;color:#d6e9e7">is software you own</span>
+                </div>
+              </div>
+              <div style="flex:1;display:flex">
+                <div style="flex:1;display:flex;flex-direction:column">
+                  <div style="display:flex;align-items:center;border-bottom:1px solid #0f5f63;min-height:168px">
+                    <span style="width:180px;padding:0 40px;font:500 13px/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">presenting<br><span style="color:#12837b">max 1</span></span>
+                    <div style="width:560px;height:136px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 15px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">presenting 560 x 136</div>
+                  </div>
+                  <div style="display:flex;align-items:center;border-bottom:1px solid #0f5f63;min-height:132px">
+                    <span style="width:180px;padding:0 40px;font:500 13px/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">gold<br><span style="color:#12837b">max 3</span></span>
+                    <div style="display:flex;gap:16px"><div style="width:272px;height:100px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold 272 x 100</div><div style="width:272px;height:100px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 14px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">gold</div></div>
+                  </div>
+                  <div style="display:flex;align-items:center;border-bottom:1px solid #0f5f63;min-height:112px">
+                    <span style="width:180px;padding:0 40px;font:500 13px/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">silver<br><span style="color:#12837b">max 6</span></span>
+                    <div style="display:flex;gap:16px"><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div><div style="width:176px;height:80px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 12px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#3d6b6d">silver</div></div>
+                  </div>
+                  <div style="display:flex;align-items:center;min-height:96px">
+                    <span style="width:180px;padding:0 40px;font:500 13px/1.4 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">community<br><span style="color:#12837b">max 8</span></span>
+                    <div style="display:flex;gap:16px;flex-wrap:wrap;width:824px"><div style="width:128px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:128px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:128px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:128px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:#3d6b6d">community</div><div style="width:128px;height:56px;background:#f4faf9;border:1px solid rgba(3,37,42,.18);border-radius:4px;display:flex;align-items:center;justify-content:center;font:500 11px/1.2 var(--font-mono);letter-spacing:.1em;text-transform:uppercase;color:#3d6b6d">community</div></div>
+                  </div>
+                </div>
+                <div style="width:300px;border-left:1px solid #12837b;padding:32px 40px;display:flex;flex-direction:column;gap:12px">
+                  <span style="font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">special thanks</span>
+                  <p style="margin:0;font:340 17px/1.7 var(--font-body);color:#d6e9e7">Dana Whitlow<br>Marcus Ade<br>Priya Raman<br>Sam Okonjo<br>Lena Farrow<br>Teodor Vance<br>Ruth Ellery<br>Chris Boone<br>Ada Simms<br>Joel Pruitt</p>
+                  <span style="margin-top:auto;font:340 13px/1.5 var(--font-body);color:#5f8887">Based on Ubuntu 26.04 LTS. Not affiliated with or endorsed by Canonical.</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="position:absolute;left:48px;top:64px;display:flex;flex-direction:column;gap:16px;width:232px">
+              <div style="display:flex;align-items:center;gap:14px;padding:10px;border:1px solid transparent"><i data-lucide="hard-drive" style="width:36px;height:36px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7">Install Wild &amp; Wired</span></div>
+              <div style="display:flex;align-items:center;gap:14px;padding:10px;border:1px solid transparent"><i data-lucide="book-open" style="width:36px;height:36px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7">Field Guide</span></div>
+              <div style="display:flex;align-items:center;gap:14px;padding:10px;border:1px solid transparent"><i data-lucide="folder" style="width:36px;height:36px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7">Home</span></div>
+              <div style="display:flex;align-items:center;gap:14px;padding:10px;border:1px solid transparent"><i data-lucide="terminal" style="width:36px;height:36px;color:#d6e9e7"></i><span style="font:340 17px/1.3 var(--font-body);color:#d6e9e7">Konsole</span></div>
+            </div>
+
+            <div style="position:absolute;left:0;right:0;bottom:0;height:44px;background:#03252a;border-top:1px solid #0f5f63;display:flex;align-items:center;gap:8px;padding:0 8px">
+              <div style="height:36px;padding:0 12px;border-radius:4px;background:rgba(64,223,175,.12);display:flex;align-items:center;gap:10px"><img src="assets/logo-icon.png" alt="" style="width:24px;height:24px;display:block"><span style="font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">menu</span></div>
+              <span style="width:1px;height:22px;background:#0f5f63"></span>
+              <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:4px;background:#0a4f58;border:1px solid #12837b"><i data-lucide="folder" style="width:18px;height:18px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Home</span></div>
+              <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:4px"><i data-lucide="terminal" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:340 15px/1 var(--font-body);color:#8fb3b2">Konsole</span></div>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:16px;padding-right:8px">
+                <i data-lucide="chevron-up" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <i data-lucide="wifi" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <i data-lucide="volume-2" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <i data-lucide="usb" style="width:18px;height:18px;color:#40dfaf"></i>
+                <span style="font:500 15px/1 var(--font-mono);color:#d6e9e7">11:04</span>
+                <span style="font:500 12px/1 var(--font-mono);letter-spacing:.1em;color:#8fb3b2">nov 14 2026</span>
+                <span style="width:6px;height:24px;background:rgba(18,131,123,.35);border-radius:2px"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>The plate is x=336 to x=1584, y=64 to y=928, and the tier rail is a fixed 180px column, so a script fills rows top to bottom and never reflows the labels.</span>
+            <span>Zero sponsor state: the tier rows collapse and the plate holds only the header, the thesis line and the thanks column. It reads as a nameplate, which is why it looks finished on day one.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:8px" data-screen-label="1C panel and menu 1:1">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">panel and menu open <span style="color:var(--border-strong)">/ 1:1, actual pixels</span></span>
+        <div style="position:relative;width:960px;height:660px;overflow:hidden;border:1px solid var(--border-subtle);border-radius:6px;background:#052e34">
+          <div style="position:absolute;left:8px;bottom:52px;width:560px;height:580px;background:#0a4f58;border:1px solid #12837b;border-radius:6px;box-shadow:0 24px 64px rgba(3,37,42,.65);display:flex;flex-direction:column;overflow:hidden">
+            <div style="padding:16px 16px 14px;display:flex;flex-direction:column;gap:12px;border-bottom:1px solid #0f5f63">
+              <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2">type to search, or pick a heading</span>
+              <div style="height:44px;background:#03252a;border:1px solid #12837b;border-radius:4px;box-shadow:inset 0 1px 0 rgba(3,37,42,.5);display:flex;align-items:center;gap:12px;padding:0 14px">
+                <i data-lucide="search" style="width:18px;height:18px;color:#8fb3b2"></i>
+                <span style="font:340 15px/1 var(--font-body);color:#8fb3b2">Search</span>
+                <span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;color:#8fb3b2;border:1px solid #12837b;border-radius:2px;padding:3px 6px">CTRL SPACE</span>
+              </div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;padding:10px 8px;gap:2px">
+              <div style="height:56px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px;background:rgba(64,223,175,.12);border:1px solid rgba(64,223,175,.35)"><i data-lucide="book-open" style="width:20px;height:20px;color:#d6e9e7"></i><div style="display:flex;flex-direction:column;gap:2px"><span style="font:340 15px/1.2 var(--font-body);color:#d6e9e7">Field Guide</span><span style="font:340 12px/1.2 var(--font-body);color:#8fb3b2">Start here if this is your first Linux</span></div><span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;color:#8fb3b2;border:1px solid #12837b;border-radius:2px;padding:3px 6px">F1</span></div>
+              <div style="height:56px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px"><i data-lucide="hard-drive" style="width:20px;height:20px;color:#d6e9e7"></i><div style="display:flex;flex-direction:column;gap:2px"><span style="font:340 15px/1.2 var(--font-body);color:#d6e9e7">Install Wild &amp; Wired</span><span style="font:340 12px/1.2 var(--font-body);color:#8fb3b2">Nothing is written until you confirm</span></div></div>
+              <div style="height:1px;background:#0f5f63;margin:8px 14px"></div>
+              <span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#8fb3b2;padding:6px 14px 8px">applications</span>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px"><i data-lucide="globe" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Web browser</span><span style="margin-left:auto;font:340 13px/1 var(--font-body);color:#8fb3b2">Firefox</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px"><i data-lucide="file-text" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Documents</span><span style="margin-left:auto;font:340 13px/1 var(--font-body);color:#8fb3b2">LibreOffice</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px"><i data-lucide="folder" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Files</span><span style="margin-left:auto;font:340 13px/1 var(--font-body);color:#8fb3b2">Dolphin</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px"><i data-lucide="package" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Get software</span><span style="margin-left:auto;font:340 13px/1 var(--font-body);color:#8fb3b2">Discover</span></div>
+              <div style="height:48px;display:flex;align-items:center;gap:14px;padding:0 14px;border-radius:4px"><i data-lucide="settings" style="width:20px;height:20px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Settings</span><span style="margin-left:auto;font:340 13px/1 var(--font-body);color:#8fb3b2">System Settings</span></div>
+            </div>
+            <div style="height:60px;border-top:1px solid #0f5f63;background:rgba(3,37,42,.35);display:flex;align-items:center;padding:0 12px;gap:8px">
+              <div style="display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:4px;border:1px solid #12837b"><i data-lucide="lock" style="width:18px;height:18px;color:#d6e9e7"></i><span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">lock</span></div>
+              <div style="display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:4px;border:1px solid #12837b"><i data-lucide="log-out" style="width:18px;height:18px;color:#d6e9e7"></i><span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">log out</span></div>
+              <div style="margin-left:auto;display:flex;align-items:center;gap:12px;height:40px;padding:0 12px;border-radius:4px;border:1px solid #fff;background:rgba(255,255,255,.10)"><i data-lucide="power" style="width:18px;height:18px;color:#fff"></i><span style="font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#fff">shut down</span></div>
+            </div>
+          </div>
+
+          <div style="position:absolute;left:0;right:0;bottom:0;height:44px;background:#03252a;border-top:1px solid #0f5f63;display:flex;align-items:center;gap:8px;padding:0 8px">
+            <div style="height:36px;padding:0 12px;border-radius:4px;background:rgba(64,223,175,.12);border:1px solid rgba(64,223,175,.35);display:flex;align-items:center;gap:10px"><img src="assets/logo-icon.png" alt="" style="width:24px;height:24px;display:block"><span style="font:500 13px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#d6e9e7">menu</span></div>
+            <span style="width:1px;height:22px;background:#0f5f63"></span>
+            <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:4px;background:#0a4f58;border:1px solid #12837b"><i data-lucide="folder" style="width:18px;height:18px;color:#d6e9e7"></i><span style="font:340 15px/1 var(--font-body);color:#d6e9e7">Home</span></div>
+            <div style="display:flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:4px"><i data-lucide="terminal" style="width:18px;height:18px;color:#8fb3b2"></i><span style="font:340 15px/1 var(--font-body);color:#8fb3b2">Konsole</span></div>
+            <span style="margin-left:auto;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#12837b">crop ends here ╌╌</span>
+          </div>
+
+          <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+            <div>
+              <div style="position:absolute;right:16px;bottom:44px;width:1px;height:88px;background:#40dfaf"></div>
+              <div style="position:absolute;right:24px;bottom:96px;font:500 11px/1.3 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf">panel 44px<br>menu 560 x 580<br>gap 8px</div>
+              <div style="position:absolute;left:8px;bottom:4px;width:118px;height:36px;border:1px dashed #40dfaf;border-radius:4px;pointer-events:none"></div>
+              <div style="position:absolute;left:584px;bottom:52px;font:500 11px/1 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#40dfaf;background:#03252a;padding:4px 6px;border:1px solid rgba(64,223,175,.35)">kickoff 118 x 36, dashed at left</div>
+            </div>
+          </sc-if>
+        </div>
+        <sc-if value="{{ showNotes }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;gap:4px;font:var(--type-small);color:var(--text-muted)">
+            <span>The menu button carries the word MENU, because a switcher looking for Start looks for a word. Rows are 48 to 56px, every power action is labelled, and shortcuts show on the right.</span>
+            <span>Panel 44px, menu popup 560 x 580, radius 4px, popup padding 16px, icons 20px in menu and 18px in panel and tray. Clock is time plus date on one line at 1920, stacked at 1366.</span>
+          </div>
+        </sc-if>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;background:#052e34;border:1px solid var(--border-subtle);border-radius:6px;padding:20px 24px">
+        <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">build notes, 1C</span>
+        <div style="display:flex;flex-direction:column;gap:8px;font:var(--type-small);color:var(--text-muted)">
+          <span><b style="color:var(--text-body);font-weight:600">Plasma style:</b> 4px frames, 1px #12837b strokes, no texture in chrome. Closest of the three to stock Breeze geometry, so the least likely to break in an app we do not theme.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Window decoration:</b> 40px title bar, 4px top corners, focused #12837b border, unfocused #0f5f63 with the title at #8fb3b2.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Cost:</b> low. The wallpaper is type and hairlines, so all four resolutions are one SVG with a text layer.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Risk:</b> labelled buttons are wider, so the panel needs the task manager to fall back to icons only below 1440px wide. Also the plainest, so it needs the mark used generously to stay branded.</span>
+          <span><b style="color:var(--text-body);font-weight:600">Brand faces:</b> the full wordmark set in live type in the plate header, which is the only place two brand faces are allowed in one phrase, plus one script word in the thesis line. Because the plate is type and hairlines, this direction is the one that most needs the license cleared.</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:12px;max-width:1600px;background:#052e34;border:1px solid var(--border-subtle);border-radius:6px;padding:24px 28px">
+    <span style="font:500 11px/1.2 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mint-500)">what is shared across all three</span>
+    <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 40px;font:var(--type-small);color:var(--text-muted)">
+      <span>Panel at the bottom, menu button bottom left, clock bottom right, tray where a Windows switcher expects it. No dock in any direction.</span>
+      <span>Sponsor logo boxes sit on a #f4faf9 plate, because logos arrive in unpredictable colours and a near white plate accepts a dark wordmark cleanly. Any logo delivered white only gets the dark plate variant, #03252a, flagged per record in the data file.</span>
+      <span>Placeholder boxes are neutral, labelled with tier and dimensions, and no invented sponsor brands appear anywhere.</span>
+      <span>The front lockup is the supplied OS logo at one size per surface, on the #f4faf9 plate its own artwork requires, with a mono version slot under it. The slot takes the release year, so v2026 becomes v2027 with a string change and no new art.</span>
+      <span>Quiet strip wallpaper, zero sponsor state, lock screen and installer slideshow reuse the same tier boxes at the same dimensions. Phase 2 draws all of them.</span>
+      <span>Five faces ship: Archivo, Source Sans 3 and JetBrains Mono as the UI system under OFL, and Rebel Script and Circuit as display art, pending the license confirmation flagged above.</span>
+    </div>
+  </div>
+
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showNotes&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sheet&quot;},&quot;layout&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;side by side&quot;,&quot;stacked&quot;],&quot;default&quot;:&quot;side by side&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Sheet&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() { this.icons(); this.t = setTimeout(() => this.icons(), 600); }
+  componentDidUpdate() { this.icons(); }
+  componentWillUnmount() { clearTimeout(this.t); }
+  icons() {
+    if (window.lucide && window.lucide.createIcons) {
+      try { window.lucide.createIcons({ attrs: { "stroke-width": 1.75 } }); } catch (e) { void e; }
+    }
+  }
+  renderVals() {
+    return {
+      showNotes: this.props.showNotes ?? true,
+      rowDir: (this.props.layout ?? "side by side") === "stacked" ? "column" : "row"
+    };
+  }
+}
+</script>
+</body>
+</html>

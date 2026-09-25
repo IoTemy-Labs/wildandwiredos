@@ -1,0 +1,25 @@
+# Wild & Wired OS Flatpaks. Format: <preinstall|oneclick> <app-id> # why
+# preinstall = shipped installed in the image (runtime cost counts).
+# oneclick   = curated tile in the welcome app; installs from Flathub at home.
+# Verified by scripts/build/verify-flatpaks.sh (report: docs/FLATPAK-VERIFY.txt).
+
+preinstall org.mozilla.firefox               # the browser; proves Flatpak works offline on day one
+preinstall it.mijorus.gearlever              # AppImage manager (DECISIONS.md Phase 4); brings GNOME 50 runtime
+
+oneclick   org.gimp.GIMP                     # image editing (GNOME 50 runtime too heavy to preinstall)
+oneclick   org.inkscape.Inkscape             # vector design
+oneclick   org.kde.krita                     # painting
+oneclick   org.kde.kdenlive                  # video editing
+oneclick   org.audacityteam.Audacity         # audio editing
+oneclick   com.obsproject.Studio             # streaming/recording
+oneclick   org.kde.digikam                   # photo management
+oneclick   org.mozilla.Thunderbird           # email
+oneclick   org.signal.Signal                 # private messaging
+oneclick   com.bitwarden.desktop             # hosted password manager option
+oneclick   org.onionshare.OnionShare         # anonymous file sharing
+oneclick   com.nextcloud.desktopclient.nextcloud  # self-hosted cloud client
+oneclick   com.github.tchx84.Flatseal        # Flatpak permission manager, teaches sandboxing
+oneclick   com.vscodium.codium               # telemetry-free VS Code
+oneclick   io.podman_desktop.PodmanDesktop   # container GUI for the homelab-curious
+oneclick   net.supertuxkart.SuperTuxKart     # games: the crowd-pleaser
+oneclick   org.luanti.luanti                 # games: open Minecraft-alike
