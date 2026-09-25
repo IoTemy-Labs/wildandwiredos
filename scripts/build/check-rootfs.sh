@@ -62,6 +62,23 @@ gm="$(chroot "$R" sh /tmp/grub-mkconfig)"; rm -f "$R/tmp/grub-mkconfig"
 [ "$gm" = "Wild & Wired OS" ] && ok "grub-mkconfig sees '$gm'" || bad "grub-mkconfig sees '$gm'"
 ird="$(ls -1 "$R"/boot/initrd.img-* | sort -V | tail -1)"
 chroot "$R" lsinitramfs "${ird#$R}" | grep -q 'plymouth/themes/wildwired/' && ok "initrd carries wildwired splash" || bad "initrd splash not ours"
+echo "== shell checks (Phase 5 step 3, direction 1A) =="
+[ -s "$R/usr/share/color-schemes/WildWired.colors" ] && ok "WildWired colour scheme installed" || bad "colour scheme missing"
+grep -q '^ColorScheme=WildWired' "$R/usr/share/plasma/look-and-feel/org.wildwired.desktop/contents/defaults" \
+  && ok "look-and-feel selects WildWired colours" || bad "look-and-feel colour scheme not WildWired"
+[ -s "$R/usr/share/plasma/desktoptheme/wildwired/widgets/panel-background.svg" ] && ok "1A panel background" || bad "panel SVG missing"
+[ -s "$R/usr/share/plasma/desktoptheme/wildwired/translucent/dialogs/background.svgz" ] && ok "opaque popups" || bad "popup SVG missing"
+for fam in "Archivo" "Source Sans 3" "JetBrains Mono"; do
+  chroot "$R" fc-list ":family=$fam" family | grep -q . && ok "font visible: $fam" || bad "font missing: $fam"
+done
+chroot "$R" fc-list | grep -qi -E 'rebel|circuit' && bad "brand face installed system-wide" || ok "brand faces not system fonts"
+grep -q 'wobblywindowsEnabled=false' "$R/etc/xdg/kwinrc" && ok "wobbly windows off" || bad "wobbly windows still on"
+grep -q 'panel.height = 48' "$R/usr/share/plasma/look-and-feel/org.wildwired.desktop/contents/layouts/org.kde.plasma.desktop-layout.js" \
+  && ok "1A panel layout" || bad "panel layout not 1A"
+grep -q '^Prepend=kubuntu-calamares.desktop' "$R/etc/xdg/kicker-extra-favoritesrc" && ok "menu favourites" || bad "menu favourites not ours"
+cmp -s "$R/etc/skel/.face" "$R/usr/share/wildwired/face.png" && ok "default user picture is ours" || bad "skel .face not ours"
+[ -e "$R/usr/share/plasma/avatars/kubuntu-bug.png" ] && bad "Kubuntu avatar in picker" || ok "no Kubuntu avatar"
+grep -q '—' "$R/usr/share/applications/kubuntu-calamares.desktop" && bad "installer launcher text has an em dash" || ok "installer launcher copy clean"
 echo "== general =="
 [ -s "$R/etc/machine-id" ] && bad "machine-id not empty" || ok "machine-id empty"
 ls "$R"/etc/ssh/ssh_host_* >/dev/null 2>&1 && bad "ssh host keys present" || ok "no ssh host keys"

@@ -60,6 +60,18 @@ def plated_badge(size: int) -> Image.Image:
     return canvas
 
 
+def face(size: int) -> Image.Image:
+    """Default user picture: the badge on a round light plate. Plasma crops
+    avatars to a circle, so the plate is a circle too."""
+    canvas = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    ImageDraw.Draw(canvas).ellipse([0, 0, size - 1, size - 1], fill=PLATE, outline=PLATE_LINE, width=1)
+    inner = round(size * 0.86)
+    badge = Image.open(BRAND / "logo-icon.png").convert("RGBA").resize((inner, inner), Image.LANCZOS)
+    off = (size - inner) // 2
+    canvas.alpha_composite(badge, (off, off))
+    return canvas
+
+
 def fit(img: Image.Image, w: int) -> Image.Image:
     h = round(img.height * w / img.width)
     return img.resize((w, h), Image.LANCZOS)
@@ -84,6 +96,7 @@ def desktop_surfaces(root: Path) -> None:
     copy(GEN / "boot/about.png", out(root, f"{share}/about.png"))
     copy(BRAND / "logo-lockup.png", out(root, f"{share}/logo-lockup.png"))
     save(plated_badge(256), out(root, f"{share}/logo-plated-256.png"))
+    save(face(256), out(root, f"{share}/face.png"))
 
     lnf = "usr/share/plasma/look-and-feel/org.wildwired.desktop/contents/previews"
     wall = Image.open(GEN / "wallpapers/wall-1920x1080.png")
@@ -149,6 +162,24 @@ def installer(root: Path) -> None:
     p.chmod(0o644)
 
 
+WORKING_FONTS = ["archivo", "sourcesans3", "jetbrainsmono"]
+
+
+def fonts(root: Path) -> None:
+    """The handoff's three OFL working faces, each with its license. The
+    brand faces (Rebel Script, Circuit) are deliberately not installed
+    system-wide: they must never be selectable as UI fonts."""
+    for fam in WORKING_FONTS:
+        src = REPO / "assets/fonts" / fam
+        files = sorted(src.glob("*.ttf"))
+        if not files or not (src / "OFL.txt").is_file():
+            sys.exit(f"install-art: {fam} fonts or OFL.txt missing in {src}")
+        for f in files + [src / "OFL.txt"]:
+            dst = out(root, f"usr/share/fonts/truetype/wildwired/{fam}/{f.name}")
+            dst.write_bytes(f.read_bytes())
+            dst.chmod(0o644)
+
+
 def main() -> None:
     if len(sys.argv) != 3:
         sys.exit(__doc__)
@@ -162,6 +193,7 @@ def main() -> None:
     icons(root)
     plymouth(root)
     installer(root)
+    fonts(root)
     print("install-art: done")
 
 

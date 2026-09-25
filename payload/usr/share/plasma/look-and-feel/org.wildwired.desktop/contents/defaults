@@ -2,13 +2,21 @@
 widgetStyle=Breeze
 
 [kdeglobals][General]
-ColorScheme=BreezeDark
+ColorScheme=WildWired
+font=Source Sans 3,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Source Sans 3,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Source Sans 3,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Source Sans 3,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+fixed=JetBrains Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+[kdeglobals][WM]
+activeFont=Archivo,10,-1,5,600,0,0,0,0,0,0,0,0,0,0,1
 
 [kdeglobals][Icons]
 Theme=breeze-dark
 
 [plasmarc][Theme]
-name=breeze-dark
+name=wildwired
 
 [Wallpaper]
 Image=WildWired

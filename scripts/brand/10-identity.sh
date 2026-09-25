@@ -155,7 +155,9 @@ D=/usr/share/applications/kubuntu-calamares.desktop
 divert_edit "$D"
 sed -i -e '/^\(Name\|GenericName\|Comment\|Keywords\)\[/d' \
        -e "s/^Name=.*/Name=Install ${DISTRO_NAME//&/\\&}/" \
-       -e "s/Kubuntu [0-9.]*/${DISTRO_NAME//&/\\&}/g; s/Kubuntu/${DISTRO_NAME//&/\\&}/g" "$D"
+       -e "s/Kubuntu [0-9.]*/${DISTRO_NAME//&/\\&}/g; s/Kubuntu/${DISTRO_NAME//&/\\&}/g" \
+       -e "s/^GenericName=.*/GenericName=System installer/" \
+       -e "s/^Comment=.*/Comment=Copy ${DISTRO_NAME//&/\\&} onto this computer's disk/" "$D"
 
 # --- Boot splash --------------------------------------------------------------
 T=/usr/share/plymouth/themes

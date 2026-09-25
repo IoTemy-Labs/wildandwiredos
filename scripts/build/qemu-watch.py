@@ -2,10 +2,21 @@
 """Watch a QEMU guest over QMP: screendump every 20 s, convert to PNG,
 report how much of the screen is non-black. Exits 0 if the final screenshot
 has meaningful content (>5% non-black pixels), 1 otherwise. The screenshots
-are the real deliverable — a human confirms the desktop looks right."""
+are the real deliverable — a human confirms the desktop looks right.
+
+Optional 4th argument: a key schedule, "SECONDS=KEYS,..." where KEYS is
+QEMU qcodes joined by "+", pressed together. Example:
+"90=alt+f4,110=meta_l" closes the welcome window, then opens the menu.
+Each key combo fires just before the first screenshot at or after its time."""
 import json, os, socket, subprocess, sys, time
 
 sock_path, run_dir, timeout = sys.argv[1], sys.argv[2], int(sys.argv[3])
+schedule = []
+if len(sys.argv) > 4 and sys.argv[4]:
+    for item in sys.argv[4].split(","):
+        at, combo = item.split("=", 1)
+        schedule.append((int(at), combo))
+    schedule.sort()
 INTERVAL = 20
 
 def qmp(cmds):
@@ -43,6 +54,15 @@ last_frac = -1.0
 while time.time() - start < timeout:
     time.sleep(INTERVAL)
     n += 1
+    while schedule and time.time() - start >= schedule[0][0]:
+        at, combo = schedule.pop(0)
+        keys = [{"type": "qcode", "data": k} for k in combo.split("+")]
+        try:
+            qmp([{"execute": "send-key", "arguments": {"keys": keys}}])
+            print(f"[{int(time.time()-start):4d}s] sent keys: {combo}")
+        except Exception as e:
+            print(f"send-key failed: {e}", file=sys.stderr)
+        time.sleep(3)
     ppm = os.path.join(run_dir, f"shot-{n:02d}.ppm")
     try:
         qmp([{"execute": "screendump", "arguments": {"filename": ppm}}])

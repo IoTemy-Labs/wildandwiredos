@@ -1,11 +1,24 @@
 # Wild & Wired OS system defaults. /etc/xdg is searched before Kubuntu's
 # kf5-settings directory, so each key here overrides Kubuntu's value.
+# Fonts: the handoff's three working faces only. Rebel Script and Circuit
+# are never UI fonts and are not installed system-wide.
 [General]
 BrowserApplication=org.mozilla.firefox.desktop
-ColorScheme=BreezeDark
+ColorScheme=WildWired
+font=Source Sans 3,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Source Sans 3,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Source Sans 3,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Source Sans 3,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+fixed=JetBrains Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+[Icons]
+Theme=breeze-dark
 
 [KDE]
 LookAndFeelPackage=org.wildwired.desktop
 DefaultLightLookAndFeel=org.wildwired.desktop
 DefaultDarkLookAndFeel=org.wildwired.desktop
 AutomaticLookAndFeel=false
+
+[WM]
+activeFont=Archivo,10,-1,5,600,0,0,0,0,0,0,0,0,0,0,1

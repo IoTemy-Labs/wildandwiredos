@@ -2,6 +2,38 @@
 
 Format: date, decision, rationale, alternatives rejected. Newest first.
 
+## 2026-09-25 — Phase 5 step 3: direction 1A shell (colours, fonts, panel, menu)
+**Built:** `WildWired.colors` and a `wildwired` Plasma style generated from
+the handoff token table; the 1A panel (48px, `#03252a`, 1px `#0f5f63` top
+hairline, kickoff / separator / icons-and-text tasks / spacer / tray /
+two-line JetBrains Mono clock / show-desktop); opaque popups and tooltips;
+Archivo, Source Sans 3 and JetBrains Mono as the only system fonts; menu
+favourites as two-line list rows; our badge as the default user picture;
+wobbly windows and translucent moves off.
+**Deliberate deviations (assistant, flagged for review):**
+1. **Secondary ink on raised surfaces is `#9dbebd`, not `#8fb3b2`.** The
+   token only reaches 4.07:1 on `#0a4f58` (handoff rated it on the base
+   only). The lift is the smallest that holds WCAG AA 4.5:1. Every text
+   pair in both colour files now measures at least 4.64:1.
+2. **Variable fonts, no static instances.** The handoff asks for static
+   Source Sans 3 Light/Regular because Qt cannot render weight 340. UI text
+   uses 400, a named instance fontconfig exposes from the variable file,
+   so no new downloads were needed. 340 stays reserved for the QML apps.
+3. **Kickoff popup size is Breeze's**, not 520 x 572: Plasma 6.6 Kickoff has
+   no size setting. Groups are Kickoff's Favorites/categories, not the
+   mock's "start here / everyday" headings.
+4. **Window decoration is Breeze** with large buttons (about 40px) and a
+   high-intensity outline, recoloured by the scheme's `[WM]` colours. An
+   Aurorae theme with the exact 6px corners and `#12837b` border is not built.
+5. **Icons are Breeze Dark.** The recoloured Breeze-derived icon theme and
+   the 16/22px mint badge glyph are still open handoff items.
+6. **Task manager active state is Breeze's** (mint-tinted fill, top line),
+   not the mock's `#0a4f58` fill with a 2px mint bottom border.
+**Also fixed:** the installer launcher's subtitle "Calamares — System
+Installer" broke the no-em-dash copy rule; it now reads "Copy Wild & Wired
+OS onto this computer's disk". Kubuntu's logo was every new user's
+`~/.face` and a picker avatar; both replaced.
+
 ## 2026-09-25 — Phase 5 step 1: Kubuntu identity removed (build decisions)
 **Decisions (assistant, reversible, flagged for review):**
 1. **Display names change; machine identity stays Ubuntu.** os-release

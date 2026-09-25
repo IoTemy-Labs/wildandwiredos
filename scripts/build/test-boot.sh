@@ -2,6 +2,7 @@
 # Boot an ISO in QEMU and capture evidence.
 #
 #   test-boot.sh <iso> --mode uefi-sb|uefi|bios [--timeout 300] [--ram 4096]
+#                [--keys "90=alt+f4,110=meta_l"]   (see qemu-watch.py)
 #
 # Headless: serial goes to <run>/serial.log, and a screenshot is taken via
 # QMP every 20 s into <run>/shot-*.png (plus a final one), so a human (or a
@@ -13,12 +14,13 @@ set -euo pipefail
 source "$(dirname "$0")/env.sh"
 
 ISO="${1:?usage: test-boot.sh <iso> --mode uefi-sb|uefi|bios}"; shift
-MODE="uefi-sb"; TIMEOUT=300; RAM=4096
+MODE="uefi-sb"; TIMEOUT=300; RAM=4096; KEYS=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --mode) MODE="$2"; shift 2;;
     --timeout) TIMEOUT="$2"; shift 2;;
     --ram) RAM="$2"; shift 2;;
+    --keys) KEYS="$2"; shift 2;;
     *) die "Unknown flag: $1";;
   esac
 done
@@ -59,7 +61,7 @@ qemu-system-x86_64 \
   -pidfile "$RUN/qemu.pid" -daemonize
 
 RC=0
-python3 "$(dirname "$0")/qemu-watch.py" "$QMP_SOCK" "$RUN" "$TIMEOUT" || RC=$?
+python3 "$(dirname "$0")/qemu-watch.py" "$QMP_SOCK" "$RUN" "$TIMEOUT" "$KEYS" || RC=$?
 
 kill "$(cat "$RUN/qemu.pid")" 2>/dev/null || true
 log "boot-test($MODE): artifacts in $RUN"

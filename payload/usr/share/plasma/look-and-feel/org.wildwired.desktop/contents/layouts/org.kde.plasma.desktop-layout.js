@@ -1,19 +1,49 @@
-// Wild & Wired OS default desktop layout.
-// Interim: reuse Kubuntu's panel template, then swap the Kubuntu start
-// icon and wallpaper for ours. The direction 1A panel replaces this in
-// Phase 5.
-/* global loadTemplate, desktopsForActivity, currentActivity, panels */
+// Wild & Wired OS default desktop layout: direction 1A, Ridge & Hollow.
+// Handoff panel: 48px, #03252a (Plasma style SVG), widget order left to
+// right: kickoff, separator, icons-and-text task manager, spacer, system
+// tray, two-line clock, peek handle (show desktop).
+/* global Panel, desktopsForActivity, currentActivity */
 
-loadTemplate('org.kubuntu.desktop.defaultPanel');
+const panel = new Panel;
+panel.location = 'bottom';
+panel.floating = 0;
+panel.hiding = 'none';
+panel.height = 48;
 
-const allPanels = panels();
-for (let p = 0; p < allPanels.length; p++) {
-  const kickoffs = allPanels[p].widgets('org.kde.plasma.kickoff');
-  for (let k = 0; k < kickoffs.length; k++) {
-    kickoffs[k].currentConfigGroup = ['General'];
-    kickoffs[k].writeConfig('icon', 'wildwired-logo');
-  }
-}
+const kickoff = panel.addWidget('org.kde.plasma.kickoff');
+kickoff.currentConfigGroup = ['Shortcuts'];
+kickoff.writeConfig('global', 'Alt+F1');
+kickoff.currentConfigGroup = ['General'];
+kickoff.writeConfig('icon', 'wildwired-logo');
+kickoff.writeConfig('showActionButtonCaptions', true);
+kickoff.writeConfig('favoritesDisplay', 1);      // list rows, not a grid (handoff 48px rows)
+
+panel.addWidget('org.kde.plasma.marginsseparator');
+
+const tasks = panel.addWidget('org.kde.plasma.taskmanager');
+tasks.currentConfigGroup = ['General'];
+tasks.writeConfig('launchers', [
+  'applications:org.kde.dolphin.desktop',
+  'applications:org.mozilla.firefox.desktop',
+  'applications:org.kde.discover.desktop'
+]);
+
+panel.addWidget('org.kde.plasma.panelspacer');
+panel.addWidget('org.kde.plasma.systemtray');
+
+// Two-line clock in the mono face: time over date.
+const clock = panel.addWidget('org.kde.plasma.digitalclock');
+clock.currentConfigGroup = ['Appearance'];
+clock.writeConfig('showDate', true);
+clock.writeConfig('dateDisplayFormat', 2);        // BelowTime
+clock.writeConfig('dateFormat', 'custom');
+clock.writeConfig('customDateFormat', 'MMM d yyyy');
+clock.writeConfig('autoFontAndSize', false);
+clock.writeConfig('fontFamily', 'JetBrains Mono');
+clock.writeConfig('fontWeight', 500);
+clock.writeConfig('fontSize', 11);
+
+panel.addWidget('org.kde.plasma.showdesktop');
 
 const desktops = desktopsForActivity(currentActivity());
 for (let d = 0; d < desktops.length; d++) {

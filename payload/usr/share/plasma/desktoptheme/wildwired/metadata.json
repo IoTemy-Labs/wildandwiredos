@@ -1,0 +1,14 @@
+{
+    "KPlugin": {
+        "Authors": [ { "Name": "Wild & Wired WV" } ],
+        "Category": "",
+        "Description": "Wild & Wired OS Ridge & Hollow Plasma style. Breeze geometry, handoff colours, opaque panel and popups.",
+        "EnabledByDefault": true,
+        "Id": "wildwired",
+        "License": "LGPL",
+        "Name": "Wild & Wired",
+        "Version": "26.11",
+        "Website": "https://wildandwiredwv.com/"
+    },
+    "X-Plasma-API": "5.0"
+}

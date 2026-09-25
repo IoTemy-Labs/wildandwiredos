@@ -1,0 +1,5 @@
+# Handoff motion rules: mechanical, no bounce, no overshoot. Kubuntu turns
+# on wobbly windows and translucent moves; both go.
+[Plugins]
+wobblywindowsEnabled=false
+translucencyEnabled=false

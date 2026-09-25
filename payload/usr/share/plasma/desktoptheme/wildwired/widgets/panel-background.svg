@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Wild & Wired 1A panel: #03252a well with a 1px #0f5f63 top hairline.
+     A bottom panel disables its left, right and bottom edges, so only the
+     top hairline shows. Margins: 8px horizontal, 4px vertical (48px panel,
+     40px widgets). No shadow, no mask: the panel is opaque. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <rect id="topleft"     x="0"  y="0"  width="1"  height="1"  fill="#0f5f63"/>
+  <rect id="top"         x="1"  y="0"  width="38" height="1"  fill="#0f5f63"/>
+  <rect id="topright"    x="39" y="0"  width="1"  height="1"  fill="#0f5f63"/>
+  <rect id="left"        x="0"  y="1"  width="1"  height="38" fill="#03252a"/>
+  <rect id="center"      x="1"  y="1"  width="38" height="38" fill="#03252a"/>
+  <rect id="right"       x="39" y="1"  width="1"  height="38" fill="#03252a"/>
+  <rect id="bottomleft"  x="0"  y="39" width="1"  height="1"  fill="#03252a"/>
+  <rect id="bottom"      x="1"  y="39" width="38" height="1"  fill="#03252a"/>
+  <rect id="bottomright" x="39" y="39" width="1"  height="1"  fill="#03252a"/>
+  <rect id="hint-top-margin"    x="50" y="0"  width="1" height="4" fill="none"/>
+  <rect id="hint-bottom-margin" x="52" y="0"  width="1" height="4" fill="none"/>
+  <rect id="hint-left-margin"   x="54" y="0"  width="8" height="1" fill="none"/>
+  <rect id="hint-right-margin"  x="54" y="2"  width="8" height="1" fill="none"/>
+</svg>

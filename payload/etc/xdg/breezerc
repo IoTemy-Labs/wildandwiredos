@@ -1,0 +1,10 @@
+# 1A window decoration on Breeze: large title bar (about 40px), visible
+# 1px outline, no separator line under the title.
+[Common]
+OutlineIntensity=OutlineHigh
+
+[Windeco]
+DrawTitleBarSeparator=false
+
+[Windows]
+ButtonSize=ButtonLarge

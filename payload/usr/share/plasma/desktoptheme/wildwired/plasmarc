@@ -1,0 +1,6 @@
+# Handoff: opaque surfaces, no blur tint, no adaptive panel transparency.
+[ContrastEffect]
+enabled=false
+
+[AdaptiveTransparency]
+enabled=false
