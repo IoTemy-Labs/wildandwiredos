@@ -7,6 +7,8 @@ are the real deliverable — a human confirms the desktop looks right.
 Optional 4th argument: a key schedule, "SECONDS=KEYS,..." where KEYS is
 QEMU qcodes joined by "+", pressed together. Example:
 "90=alt+f4,110=meta_l" closes the welcome window, then opens the menu.
+KEYS may also be "type:TEXT" to type TEXT one character at a time
+(letters, digits, space and - . / _ : = only).
 Each key combo fires just before the first screenshot at or after its time."""
 import json, os, socket, subprocess, sys, time
 
@@ -17,7 +19,7 @@ if len(sys.argv) > 4 and sys.argv[4]:
         at, combo = item.split("=", 1)
         schedule.append((int(at), combo))
     schedule.sort()
-INTERVAL = 20
+INTERVAL = int(os.environ.get("WWWV_SHOT_INTERVAL", "20"))  # seconds between screenshots
 
 def qmp(cmds):
     s = socket.socket(socket.AF_UNIX)
@@ -32,6 +34,28 @@ def qmp(cmds):
         out.append(f.readline())
     s.close()
     return out
+
+QCODE = {" ": "spc", "-": "minus", ".": "dot", "/": "slash", "=": "equal",
+         ";": "semicolon"}
+SHIFTED = {"_": "minus", ":": "semicolon"}
+
+def text_to_combos(text):
+    combos = []
+    for ch in text:
+        if ch.isalpha():
+            combos.append(["shift", ch.lower()] if ch.isupper() else [ch])
+        elif ch.isdigit():
+            combos.append([ch])
+        elif ch in QCODE:
+            combos.append([QCODE[ch]])
+        elif ch in SHIFTED:
+            combos.append(["shift", SHIFTED[ch]])
+        else:
+            raise SystemExit(f"cannot type {ch!r}")
+    return combos
+
+def send_combo(keys):
+    qmp([{"execute": "send-key", "arguments": {"keys": [{"type": "qcode", "data": k} for k in keys]}}])
 
 def analyze(ppm):
     try:
@@ -56,9 +80,12 @@ while time.time() - start < timeout:
     n += 1
     while schedule and time.time() - start >= schedule[0][0]:
         at, combo = schedule.pop(0)
-        keys = [{"type": "qcode", "data": k} for k in combo.split("+")]
         try:
-            qmp([{"execute": "send-key", "arguments": {"keys": keys}}])
+            if combo.startswith("type:"):
+                for keys in text_to_combos(combo[5:]):
+                    send_combo(keys); time.sleep(0.12)
+            else:
+                send_combo(combo.split("+"))
             print(f"[{int(time.time()-start):4d}s] sent keys: {combo}")
         except Exception as e:
             print(f"send-key failed: {e}", file=sys.stderr)

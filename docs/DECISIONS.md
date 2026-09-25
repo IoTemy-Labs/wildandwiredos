@@ -2,6 +2,39 @@
 
 Format: date, decision, rationale, alternatives rejected. Newest first.
 
+## 2026-09-25 — Phase 5 step 4: login screen and boot menu
+**Built:** a `wildwired` SDDM theme (Qt 6 QML) to the handoff login spec:
+plated lockup, `V26.11`, initials avatar, name, session label, 480x64
+well password field with a two-ring focus state, attention state with a
+`!!` sigil and white outline (never red), footer bar with product/host,
+session and keyboard switches, RESTART and SHUT DOWN (attention style).
+A graphical GRUB theme for the ISO: rendered background, well-coloured
+menu box, mint wash with a 3px mint left marker on the active row, mono
+hint line, PF2 fonts generated at build time and name-checked.
+Verified in QEMU: the themed menu under Secure Boot, UEFI and BIOS; the
+login screen after disabling live autologin; Enter logs back in.
+**Also fixed, found while testing:**
+- casper named the live user after the first word of `.disk/info`
+  (`wild@wild`), ignoring our casper.conf. `FLAVOUR` is now set, so the
+  live session is `live@wildwired` as intended.
+- The text console showed Ubuntu help, Landscape and Ubuntu Pro links and
+  Ubuntu's legal notice. Those motd scripts are diverted away and
+  `/etc/legal` now names Wild & Wired OS, built from Ubuntu 26.04 LTS.
+**Known limits (flagged for review):**
+1. **Under Secure Boot the GRUB menu uses GRUB's built-in font.** Ubuntu's
+   signed GRUB refuses font files from disk in lockdown (post CVE-2022-2601
+   hardening). Layout, colours and art still apply. Fixing it would mean
+   re-signing GRUB, which we will not do.
+2. **The live user shows "Password" on the login screen** after a logout.
+   casper gives it an empty-string password hash, so SDDM reports that a
+   password is needed. Pressing Enter with the field empty works.
+3. **The ENTER hint uses secondary ink**, not the handoff's `#12837b`, which
+   would break the handoff's own rule that structure teal never carries text.
+4. **Not built yet:** a KScreenLocker QML theme (the lock screen is Breeze
+   over our lock art) and a GRUB theme for installed systems (their menu is
+   hidden unless dual booting). Konsole keeps Breeze's terminal palette,
+   including red and green ANSI colours, which terminal output relies on.
+
 ## 2026-09-25 — Phase 5 step 3: direction 1A shell (colours, fonts, panel, menu)
 **Built:** `WildWired.colors` and a `wildwired` Plasma style generated from
 the handoff token table; the 1A panel (48px, `#03252a`, 1px `#0f5f63` top

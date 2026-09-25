@@ -1,0 +1,47 @@
+# Wild & Wired OS boot menu, direction 1A. Background, box images and PF2
+# fonts are generated at build time (install-art.py, scripts/brand/30-boot-theme.sh).
+# Active row: mint wash with a 3px mint left marker, as in the shell menu.
+title-text: ""
+desktop-image: "background.png"
+desktop-image-scale-method: "crop"
+desktop-color: "#073e45"
+terminal-font: "JetBrains Mono Regular 16"
+terminal-box: "menu_*.png"
+
++ boot_menu {
+    left = 50%-300
+    top = 34%
+    width = 600
+    height = 30%
+    menu_pixmap_style = "menu_*.png"
+    item_font = "Source Sans 3 Regular 22"
+    selected_item_font = "Source Sans 3 Regular 22"
+    item_color = "#d6e9e7"
+    selected_item_color = "#ffffff"
+    item_height = 44
+    item_padding = 16
+    item_spacing = 6
+    selected_item_pixmap_style = "select_*.png"
+    scrollbar = false
+}
+
++ label {
+    id = "__timeout__"
+    left = 50%-400
+    top = 67%
+    width = 800
+    align = "center"
+    font = "Source Sans 3 Regular 18"
+    color = "#8fb3b2"
+    text = "Starting in %d seconds. Press enter to start now."
+}
+
++ label {
+    left = 50%-400
+    top = 67%+36
+    width = 800
+    align = "center"
+    font = "JetBrains Mono Regular 16"
+    color = "#8fb3b2"
+    text = "UP AND DOWN TO CHOOSE  ::  ENTER TO START"
+}

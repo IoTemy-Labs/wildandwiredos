@@ -97,6 +97,7 @@ def desktop_surfaces(root: Path) -> None:
     copy(BRAND / "logo-lockup.png", out(root, f"{share}/logo-lockup.png"))
     save(plated_badge(256), out(root, f"{share}/logo-plated-256.png"))
     save(face(256), out(root, f"{share}/face.png"))
+    copy(GEN / "boot/plymouth-logo.png", out(root, f"{share}/login-lockup.png"))  # plated lockup
 
     lnf = "usr/share/plasma/look-and-feel/org.wildwired.desktop/contents/previews"
     wall = Image.open(GEN / "wallpapers/wall-1920x1080.png")
@@ -162,6 +163,24 @@ def installer(root: Path) -> None:
     p.chmod(0o644)
 
 
+def grub_theme(iso: Path) -> None:
+    """ISO boot menu art: background plus 9-slice boxes. The menu box is the
+    well (#03252a) with a #0f5f63 hairline; the active row is a mint wash
+    with a 3px mint left marker. PF2 fonts come from 30-boot-theme.sh."""
+    t = "boot/grub/themes/wildwired"
+    copy(GEN / "boot/grub-bg.png", out(iso, f"{t}/background.png"))
+    well, line = (0x03, 0x25, 0x2A, 255), (0x0F, 0x5F, 0x63, 255)
+    wash, mint = (0x0E, 0x51, 0x52, 255), (0x40, 0xDF, 0xAF, 255)
+    solid = lambda c, w=1, h=1: Image.new("RGBA", (w, h), c)
+    for part in ("nw", "n", "ne", "w", "e", "sw", "s", "se"):
+        save(solid(line), out(iso, f"{t}/menu_{part}.png"))
+    save(solid(well), out(iso, f"{t}/menu_c.png"))
+    for part in ("n", "ne", "c", "e", "s", "se"):
+        save(solid(wash), out(iso, f"{t}/select_{part}.png"))
+    for part in ("nw", "w", "sw"):
+        save(solid(mint, 3, 1), out(iso, f"{t}/select_{part}.png"))
+
+
 WORKING_FONTS = ["archivo", "sourcesans3", "jetbrainsmono"]
 
 
@@ -194,6 +213,7 @@ def main() -> None:
     plymouth(root)
     installer(root)
     fonts(root)
+    grub_theme(iso)
     print("install-art: done")
 
 

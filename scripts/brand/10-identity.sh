@@ -69,6 +69,24 @@ printf '%s %s \\n \\l\n\n' "$DISTRO_NAME" "$DISTRO_VERSION" > /etc/issue
 divert_replace /etc/issue.net
 printf '%s %s\n' "$DISTRO_NAME" "$DISTRO_VERSION" > /etc/issue.net
 
+# Text console login (tty, ssh): no Ubuntu help links, Canonical news feed,
+# or Ubuntu Pro adverts. 00-header already prints our lsb description.
+for f in /etc/update-motd.d/10-help-text /etc/update-motd.d/50-motd-news \
+         /etc/update-motd.d/91-contract-ua-esm-status; do
+  divert_away "$f"
+done
+divert_replace /etc/legal
+cat > /etc/legal <<EOF
+
+$DISTRO_NAME is built from Ubuntu 26.04 LTS. The programs included are
+free software; the exact distribution terms for each program are
+described in the individual files in /usr/share/doc/*/copyright.
+
+$DISTRO_NAME comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+EOF
+
 # KDE "About this System".
 divert_replace /etc/xdg/kcm-about-distrorc
 cat > /etc/xdg/kcm-about-distrorc <<EOF
@@ -90,6 +108,9 @@ export USERNAME="live"
 export USERFULLNAME="Live user"
 export HOST="wildwired"
 export BUILD_SYSTEM="Ubuntu"
+# Non-empty FLAVOUR stops casper from renaming the user and host after the
+# first word of .disk/info ("Wild & Wired OS ..." would give wild@wild).
+export FLAVOUR="wildwired"
 EOF
 
 # Skip Kubuntu's compiled "Try or Install Kubuntu" prompt. casper's

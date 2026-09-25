@@ -1,0 +1,12 @@
+[SddmGreeterTheme]
+Name=Wild & Wired
+Description=Wild & Wired OS login screen, direction 1A
+Author=Wild & Wired WV
+Type=sddm-theme
+Version=26.11
+Website=https://wildandwiredwv.com/
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=wildwired
+Theme-API=2.0
+QtVersion=6

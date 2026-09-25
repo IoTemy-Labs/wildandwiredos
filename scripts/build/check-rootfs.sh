@@ -41,7 +41,7 @@ grep -q '^DISTRIB_ID=Ubuntu' "$R/etc/lsb-release" && ok "lsb-release ID stays Ub
 grep -q 'Wild & Wired' "$R/etc/xdg/kcm-about-distrorc" && ok "About this System is ours" || bad "kcm-about-distrorc not ours"
 [ -e "$R/usr/share/wayland-sessions/kubuntu-live-environment.desktop" ] \
   && bad "Kubuntu live prompt session still present" || ok "Kubuntu live prompt session diverted away"
-grep -q 'USERNAME="live"' "$R/etc/casper.conf" && ok "casper user is live@wildwired" || bad "casper.conf not ours"
+grep -q 'USERNAME="live"' "$R/etc/casper.conf" && grep -q '^export FLAVOUR=' "$R/etc/casper.conf" && ok "casper user is live@wildwired" || bad "casper.conf not ours"
 [ "$(readlink "$R/etc/alternatives/default.plymouth")" = /usr/share/plymouth/themes/wildwired/wildwired.plymouth ] \
   && ok "Plymouth default is wildwired" || bad "Plymouth default is $(readlink "$R/etc/alternatives/default.plymouth")"
 grep -q '^branding: wildwired' "$R/etc/calamares/settings.conf" && ok "Calamares branding" || bad "Calamares branding not ours"
@@ -79,6 +79,15 @@ grep -q '^Prepend=kubuntu-calamares.desktop' "$R/etc/xdg/kicker-extra-favoritesr
 cmp -s "$R/etc/skel/.face" "$R/usr/share/wildwired/face.png" && ok "default user picture is ours" || bad "skel .face not ours"
 [ -e "$R/usr/share/plasma/avatars/kubuntu-bug.png" ] && bad "Kubuntu avatar in picker" || ok "no Kubuntu avatar"
 grep -q '—' "$R/usr/share/applications/kubuntu-calamares.desktop" && bad "installer launcher text has an em dash" || ok "installer launcher copy clean"
+echo "== login and boot menu checks (Phase 5 step 4) =="
+grep -q '^Current=wildwired' "$R/etc/sddm.conf.d/30-wildwired.conf" && ok "SDDM uses the wildwired theme" || bad "SDDM theme not wildwired"
+for f in Main.qml metadata.desktop theme.conf; do
+  [ -s "$R/usr/share/sddm/themes/wildwired/$f" ] && ok "SDDM theme file: $f" || bad "SDDM theme missing $f"
+done
+[ -s "$R/usr/share/wildwired/login-lockup.png" ] && ok "login lockup art" || bad "login lockup missing"
+ls "$R"/usr/share/wildwired/grub/*.pf2 >/dev/null 2>&1 && ok "GRUB PF2 fonts built" || bad "GRUB PF2 fonts missing"
+ls "$R"/etc/update-motd.d/10-help-text "$R"/etc/update-motd.d/50-motd-news >/dev/null 2>&1   && bad "Ubuntu console login messages still present" || ok "console login messages clean"
+grep -qi ubuntu "$R/etc/legal" && grep -q "Wild & Wired" "$R/etc/legal" && ok "legal notice is ours" || bad "legal notice not ours"
 echo "== general =="
 [ -s "$R/etc/machine-id" ] && bad "machine-id not empty" || ok "machine-id empty"
 ls "$R"/etc/ssh/ssh_host_* >/dev/null 2>&1 && bad "ssh host keys present" || ok "no ssh host keys"

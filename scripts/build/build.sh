@@ -164,6 +164,8 @@ stage_assets() {
   [ -f "$initrd" ] || die "No initrd in $ROOTFS/boot after brand stage."
   cp "$initrd" "$ISO_TREE/casper/initrd"
   log "assets: casper/initrd <- $(basename "$initrd") ($(stat -c%s "$initrd") bytes)"
+  # GRUB theme fonts, converted to PF2 inside the chroot.
+  install -m 0644 "$ROOTFS"/usr/share/wildwired/grub/*.pf2 "$ISO_TREE/boot/grub/themes/wildwired/"
   # casper boots only from a medium whose UUID matches the initrd's.
   [ -s "$ROOTFS/boot/.wwwv-casper-uuid" ] || die "brand stage left no casper UUID."
   cp "$ROOTFS/boot/.wwwv-casper-uuid" "$ISO_TREE/.disk/casper-uuid-generic"
@@ -243,6 +245,9 @@ stage_verify() {
   if grep -rqs "Kubuntu 26.04 amd64" "$ISO_TREE/boot/grub"; then
     die "grub.cfg still references the base volume label — fix before shipping."
   fi
+  for f in theme.txt background.png sans-22.pf2 sans-18.pf2 mono-16.pf2; do
+    [ -s "$ISO_TREE/boot/grub/themes/wildwired/$f" ] || die "GRUB theme file missing from ISO tree: $f"
+  done
   if grep -qsi "kubuntu" "$ISO_TREE"/boot/grub/*.cfg; then
     die "A GRUB menu in the ISO tree still says Kubuntu — check branding/iso/."
   fi
