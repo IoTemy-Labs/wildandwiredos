@@ -1,0 +1,4 @@
+[Greeter][Wallpaper][org.kde.image][General]
+DynamicMode=0
+Image=file:///usr/share/wildwired/lockscreen.png
+PreviewImage=file:///usr/share/wildwired/lockscreen.png

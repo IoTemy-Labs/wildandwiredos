@@ -9,7 +9,9 @@
 #
 # Stage order: extract unsquash chroot assets clean metadata squash iso verify
 # Late sponsor art = `--from-stage assets` (assets→squash→iso→verify), no
-# re-extract, no re-chroot. Every stage logs and times itself into
+# re-extract, no re-chroot. The assets stage also applies scripts/brand/
+# and regenerates the initrd (about a minute), because the live splash and
+# casper identity live there. Every stage logs and times itself into
 # $WORK_ROOT/build.log and writes $WORK_DIR/stamps/<stage>.done.
 set -euo pipefail
 source "$(dirname "$0")/env.sh"
@@ -83,12 +85,15 @@ chroot_umount() {
 }
 trap chroot_umount EXIT
 
-stage_chroot() {
+# Run every *.sh in $1 inside the rootfs, in sort order, with networking,
+# service starts blocked, and the product identity in the environment.
+run_chroot_scripts() {
+  local src="$1" label="$2"
   shopt -s nullglob
-  local scripts=("$REPO_ROOT"/scripts/chroot/*.sh)
+  local scripts=("$src"/*.sh)
   shopt -u nullglob
   if [ "${#scripts[@]}" -eq 0 ]; then
-    log "chroot: no customization scripts — no-op (null build)"
+    log "$label: no scripts in $src — no-op"
     return 0
   fi
   chroot_mount
@@ -113,9 +118,11 @@ stage_chroot() {
   cp -r "$REPO_ROOT/manifests" "$ROOTFS/tmp/wwwv-chroot/manifests"
   local rc=0 s
   for s in $(ls "$ROOTFS/tmp/wwwv-chroot" | grep '\.sh$' | sort); do
-    log "chroot: running $s"
+    log "$label: running $s"
     chroot "$ROOTFS" env DEBIAN_FRONTEND=noninteractive LC_ALL=C.UTF-8 \
       WWWV_SNAP="$WWWV_SNAP" \
+      DISTRO_NAME="$DISTRO_NAME" DISTRO_VERSION="$DISTRO_VERSION" \
+      DISTRO_BUILD="$DISTRO_BUILD" DISTRO_CODENAME="$DISTRO_CODENAME" \
       bash -e "/tmp/wwwv-chroot/$s" >>"$LOG_FILE" 2>&1 || { rc=$?; break; }
   done
   rm -rf "$ROOTFS/tmp/wwwv-chroot" "$ROOTFS/usr/sbin/policy-rc.d"
@@ -125,20 +132,43 @@ stage_chroot() {
     mv "$ROOTFS/etc/resolv.conf.wwwv-orig" "$ROOTFS/etc/resolv.conf"
   fi
   chroot_umount
-  [ "$rc" -eq 0 ] || die "chroot script failed (rc=$rc) — see $LOG_FILE"
+  [ "$rc" -eq 0 ] || die "$label script failed (rc=$rc) — see $LOG_FILE"
 }
 
+stage_chroot() {
+  run_chroot_scripts "$REPO_ROOT/scripts/chroot" chroot
+}
+
+# Repo files come from a Windows checkout: force root ownership and sane
+# modes instead of trusting whatever the tarball carried.
+overlay() { rsync -rlt --chmod=D0755,F0644 --chown=root:root "$1" "$2"; }
+
 stage_assets() {
-  # payload/ mirrors / and lands in the rootfs; assets/generated/iso/
-  # (Phase 2) mirrors the ISO tree for art that lives outside the squashfs.
+  # 1. payload/ mirrors / and lands in the rootfs (static files only).
   if [ -d "$REPO_ROOT/payload" ] && [ -n "$(ls -A "$REPO_ROOT/payload" 2>/dev/null)" ]; then
-    rsync -a "$REPO_ROOT/payload/" "$ROOTFS/"
+    overlay "$REPO_ROOT/payload/" "$ROOTFS/"
   else
-    log "assets: payload/ empty — no rootfs overlay (null build)"
+    log "assets: payload/ empty — no rootfs overlay"
   fi
-  if [ -d "$REPO_ROOT/assets/generated/iso" ]; then
-    rsync -a "$REPO_ROOT/assets/generated/iso/" "$ISO_TREE/"
-  fi
+  # 2. Generated art (wallpapers, lock, SDDM, Plymouth, installer, icons).
+  python3 "$REPO_ROOT/scripts/build/install-art.py" "$ROOTFS" "$ISO_TREE" >>"$LOG_FILE" 2>&1 \
+    || die "install-art.py failed — see $LOG_FILE"
+  # 3. ISO-tree files: GRUB menus now, GRUB theme art later.
+  [ -d "$REPO_ROOT/branding/iso" ] && overlay "$REPO_ROOT/branding/iso/" "$ISO_TREE/"
+  [ -d "$REPO_ROOT/assets/generated/iso" ] && overlay "$REPO_ROOT/assets/generated/iso/" "$ISO_TREE/"
+  # 4. Diversions, alternatives, identity, then a fresh initrd.
+  run_chroot_scripts "$REPO_ROOT/scripts/brand" brand
+  # 5. The live splash and casper user live in the initrd: ship the new one.
+  local initrd
+  initrd="$(ls -1 "$ROOTFS"/boot/initrd.img-* | sort -V | tail -1)"
+  [ -f "$initrd" ] || die "No initrd in $ROOTFS/boot after brand stage."
+  cp "$initrd" "$ISO_TREE/casper/initrd"
+  log "assets: casper/initrd <- $(basename "$initrd") ($(stat -c%s "$initrd") bytes)"
+  # casper boots only from a medium whose UUID matches the initrd's.
+  [ -s "$ROOTFS/boot/.wwwv-casper-uuid" ] || die "brand stage left no casper UUID."
+  cp "$ROOTFS/boot/.wwwv-casper-uuid" "$ISO_TREE/.disk/casper-uuid-generic"
+  rm -f "$ROOTFS/boot/.wwwv-casper-uuid"
+  log "assets: .disk/casper-uuid-generic <- $(cat "$ISO_TREE/.disk/casper-uuid-generic")"
 }
 
 stage_clean() {
@@ -212,6 +242,9 @@ stage_verify() {
   # grub.cfg must not reference a label we no longer carry.
   if grep -rqs "Kubuntu 26.04 amd64" "$ISO_TREE/boot/grub"; then
     die "grub.cfg still references the base volume label — fix before shipping."
+  fi
+  if grep -qsi "kubuntu" "$ISO_TREE"/boot/grub/*.cfg; then
+    die "A GRUB menu in the ISO tree still says Kubuntu — check branding/iso/."
   fi
   awk -v g="$gib" 'BEGIN{ if (g>8) { print "HARD STOP: ISO exceeds 8 GiB — justify before continuing."; exit 1 }
                           else if (g>6) print "WARNING: ISO above the 6 GiB soft target." }' || exit 1

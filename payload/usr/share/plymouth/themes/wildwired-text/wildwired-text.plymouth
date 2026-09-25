@@ -1,0 +1,11 @@
+[Plymouth Theme]
+Name=Wild & Wired Text
+Description=Text-mode fallback for Wild & Wired OS
+ModuleName=ubuntu-text
+
+[ubuntu-text]
+title=Wild & Wired OS 26.11
+black=0x03252a
+white=0xd6e9e7
+brown=0x40dfaf
+blue=0x12837b

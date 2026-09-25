@@ -1,7 +1,6 @@
 # Build pipeline
 
-Status: Phase 0 (recon). The staged pipeline itself (`build.sh`) is a
-Phase 1 deliverable; this page records the architecture it will follow.
+Status: Phases 0 to 4 done; Phase 5 (shell branding) in progress.
 
 ## Environment
 
@@ -23,11 +22,23 @@ Phase 1 deliverable; this page records the architecture it will follow.
 | `03-size-report.sh` | Baseline sizes + 40 largest packages into `docs/SIZE-BASELINE.md`. |
 | `verify-facts.sh` | Run the VERIFY list against the real base image. |
 
-## Phase 1 stages (planned)
+## Stages (`build.sh`)
 
 `extract → unsquash → chroot → assets → clean → metadata → squash → iso →
 verify`, each checkpointed, skippable, resumable (`--stage`, `--from-stage`,
 `--clean`), timed, logged to `$WORK_ROOT/build.log`. The `assets` stage
-re-runs standalone so late sponsor art is a repack, not a rebuild. The `iso`
+re-runs standalone so late sponsor art is a repack, not a rebuild.
+
+The `assets` stage does five things, in order:
+
+1. Overlays `payload/` onto the rootfs (static files, forced to root:root).
+2. Runs `install-art.py`, which places generated art from `assets/generated/`.
+3. Overlays `branding/iso/` onto the ISO tree (GRUB menus).
+4. Runs `scripts/brand/*.sh` in the chroot: dpkg diversions for every
+   package-owned branding file, Plymouth alternatives, then a fresh initrd.
+5. Copies that initrd to `casper/initrd`, since the live splash and the
+   casper user live there.
+
+Verify branding after a build with `scripts/build/check-rootfs.sh`. The `iso`
 stage replays `docs/BOOT-ARGS.md` verbatim (volume label and output path are
 the only changes) to preserve the Secure Boot chain.

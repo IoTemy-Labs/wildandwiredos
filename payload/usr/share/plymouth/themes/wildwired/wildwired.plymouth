@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Wild & Wired
+Description=Wild & Wired OS boot splash: plated lockup and a progress rail. No looping animation.
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/wildwired
+ScriptFile=/usr/share/plymouth/themes/wildwired/wildwired.script

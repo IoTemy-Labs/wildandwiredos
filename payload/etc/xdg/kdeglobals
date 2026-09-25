@@ -1,0 +1,11 @@
+# Wild & Wired OS system defaults. /etc/xdg is searched before Kubuntu's
+# kf5-settings directory, so each key here overrides Kubuntu's value.
+[General]
+BrowserApplication=org.mozilla.firefox.desktop
+ColorScheme=BreezeDark
+
+[KDE]
+LookAndFeelPackage=org.wildwired.desktop
+DefaultLightLookAndFeel=org.wildwired.desktop
+DefaultDarkLookAndFeel=org.wildwired.desktop
+AutomaticLookAndFeel=false

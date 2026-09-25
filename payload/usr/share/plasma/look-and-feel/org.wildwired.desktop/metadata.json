@@ -1,0 +1,14 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [ { "Name": "Wild & Wired WV" } ],
+        "Category": "",
+        "Description": "Wild & Wired OS 26.11 desktop defaults",
+        "Id": "org.wildwired.desktop",
+        "License": "GPLv2+",
+        "Name": "Wild & Wired",
+        "Version": "26.11",
+        "Website": "https://wildandwiredwv.com/"
+    },
+    "X-Plasma-APIVersion": "2"
+}

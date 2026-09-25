@@ -34,6 +34,35 @@ grep -q 'application/vnd.appimage=' "$R/etc/xdg/mimeapps.list" 2>/dev/null \
   && ok "first-boot repair service enabled" || bad "first-boot service not enabled"
 [ -f "$R/etc/xdg/menus/applications-merged/wildwired-get-software.menu" ] \
   && ok "Get Software menu category" || bad "menu category missing"
+echo "== branding checks (Phase 5) =="
+grep -q '^NAME="Wild & Wired OS"' "$R/usr/lib/os-release" && ok "os-release NAME" || bad "os-release NAME not ours"
+grep -q '^ID=ubuntu' "$R/usr/lib/os-release" && ok "os-release ID stays ubuntu (compat)" || bad "os-release ID changed"
+grep -q '^DISTRIB_ID=Ubuntu' "$R/etc/lsb-release" && ok "lsb-release ID stays Ubuntu (compat)" || bad "lsb-release ID changed"
+grep -q 'Wild & Wired' "$R/etc/xdg/kcm-about-distrorc" && ok "About this System is ours" || bad "kcm-about-distrorc not ours"
+[ -e "$R/usr/share/wayland-sessions/kubuntu-live-environment.desktop" ] \
+  && bad "Kubuntu live prompt session still present" || ok "Kubuntu live prompt session diverted away"
+grep -q 'USERNAME="live"' "$R/etc/casper.conf" && ok "casper user is live@wildwired" || bad "casper.conf not ours"
+[ "$(readlink "$R/etc/alternatives/default.plymouth")" = /usr/share/plymouth/themes/wildwired/wildwired.plymouth ] \
+  && ok "Plymouth default is wildwired" || bad "Plymouth default is $(readlink "$R/etc/alternatives/default.plymouth")"
+grep -q '^branding: wildwired' "$R/etc/calamares/settings.conf" && ok "Calamares branding" || bad "Calamares branding not ours"
+grep -q '^keepDistributor: true' "$R/etc/calamares/modules/grubcfg.conf" && ok "Calamares keeps GRUB_DISTRIBUTOR" || bad "grubcfg keepDistributor"
+grep -q '^Name=Install Wild & Wired OS' "$R/usr/share/applications/kubuntu-calamares.desktop" \
+  && ok "installer launcher renamed" || bad "installer launcher still Kubuntu"
+ls "$R"/etc/skel/Desktop/*kubuntu* "$R"/etc/skel/Desktop/*kfocus* >/dev/null 2>&1 \
+  && bad "Kubuntu links in /etc/skel/Desktop" || ok "no Kubuntu links in skel"
+grep -rqs --exclude='*.distrib' 'firefox_firefox\|thunderbird_thunderbird' "$R/etc/xdg" "$R/usr/share/kubuntu-default-settings/kf5-settings" \
+  && bad "snap desktop ids still referenced" || ok "default browser/mail point at Flatpak ids"
+[ -s "$R/usr/share/wallpapers/WildWired/contents/images/1920x1080.png" ] && ok "WildWired wallpaper installed" || bad "wallpaper missing"
+[ -s "$R/usr/share/wildwired/lockscreen.png" ] && ok "lock screen art installed" || bad "lock screen art missing"
+# GRUB: installed-system menus show our name, grub-install keeps /EFI/ubuntu.
+gi="$(chroot "$R" sh -c '. /etc/default/grub; printf %s "$GRUB_DISTRIBUTOR"')"
+printf '#!/bin/sh\n. /etc/default/grub\nprintf %%s "$GRUB_DISTRIBUTOR"\n' > "$R/tmp/grub-mkconfig"
+gm="$(chroot "$R" sh /tmp/grub-mkconfig)"; rm -f "$R/tmp/grub-mkconfig"
+[ "$gi" = "Ubuntu" ] && ok "grub-install sees GRUB_DISTRIBUTOR=Ubuntu (EFI dir ubuntu)" || bad "grub-install sees '$gi'"
+[ "$gm" = "Wild & Wired OS" ] && ok "grub-mkconfig sees '$gm'" || bad "grub-mkconfig sees '$gm'"
+ird="$(ls -1 "$R"/boot/initrd.img-* | sort -V | tail -1)"
+chroot "$R" lsinitramfs "${ird#$R}" | grep -q 'plymouth/themes/wildwired/' && ok "initrd carries wildwired splash" || bad "initrd splash not ours"
+echo "== general =="
 [ -s "$R/etc/machine-id" ] && bad "machine-id not empty" || ok "machine-id empty"
 ls "$R"/etc/ssh/ssh_host_* >/dev/null 2>&1 && bad "ssh host keys present" || ok "no ssh host keys"
 echo

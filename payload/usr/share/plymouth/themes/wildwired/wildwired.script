@@ -1,0 +1,121 @@
+# Wild & Wired OS Plymouth theme (script plugin).
+# Handoff rules: flat base colour, plated logo, no gradients, no looping
+# animation. The logo fades in once; progress is a rail that fills.
+# Images come from assets/generated/boot via install-art.py.
+
+Window.SetBackgroundTopColor(0.027, 0.243, 0.271);     # #073e45
+Window.SetBackgroundBottomColor(0.027, 0.243, 0.271);  # same: no gradient
+
+W = Window.GetWidth();
+H = Window.GetHeight();
+
+# Background: cover the screen, keep aspect, centre.
+bg_image = Image("plymouth-bg.png");
+scale = Math.Max(W / bg_image.GetWidth(), H / bg_image.GetHeight());
+bg_image = bg_image.Scale(bg_image.GetWidth() * scale, bg_image.GetHeight() * scale);
+bg = Sprite(bg_image);
+bg.SetX(Window.GetX() + (W - bg_image.GetWidth()) / 2);
+bg.SetY(Window.GetY() + (H - bg_image.GetHeight()) / 2);
+bg.SetZ(-100);
+
+# Plated lockup, never wider than 40% of the screen.
+logo_image = Image("plymouth-logo.png");
+if (logo_image.GetWidth() > W * 0.4) {
+  f = (W * 0.4) / logo_image.GetWidth();
+  logo_image = logo_image.Scale(logo_image.GetWidth() * f, logo_image.GetHeight() * f);
+}
+logo = Sprite(logo_image);
+logo.SetX(Window.GetX() + (W - logo_image.GetWidth()) / 2);
+logo.SetY(Window.GetY() + H / 2 - logo_image.GetHeight() / 2 - H * 0.06);
+logo.SetZ(10);
+logo.SetOpacity(0);
+
+# Progress rail under the logo.
+rail_image = Image("plymouth-bar-bg.png");
+fill_source = Image("plymouth-bar-fill.png");
+rail = Sprite(rail_image);
+rail_x = Window.GetX() + (W - rail_image.GetWidth()) / 2;
+rail_y = logo.GetY() + logo_image.GetHeight() + H * 0.05;
+rail.SetX(rail_x);
+rail.SetY(rail_y);
+rail.SetZ(10);
+fill = Sprite();
+fill.SetX(rail_x);
+fill.SetY(rail_y);
+fill.SetZ(11);
+
+fun progress_callback(duration, progress) {
+  w = Math.Int(fill_source.GetWidth() * progress);
+  if (w < 1) {
+    w = 1;
+  }
+  fill.SetImage(fill_source.Scale(w, fill_source.GetHeight()));
+}
+Plymouth.SetBootProgressFunction(progress_callback);
+
+# One-time fade in, about half a second at 50 fps. Stops at full opacity.
+fade = 0;
+fun refresh_callback() {
+  if (fade < 1) {
+    fade = fade + 0.04;
+    if (fade > 1) {
+      fade = 1;
+    }
+    logo.SetOpacity(fade);
+  }
+}
+Plymouth.SetRefreshFunction(refresh_callback);
+
+# Text: prompts and messages in body ink #d6e9e7.
+fun ink(text) {
+  return Image.Text(text, 0.839, 0.914, 0.906, 1, "Sans 14");
+}
+prompt_sprite = Sprite();
+prompt_sprite.SetZ(20);
+bullets_sprite = Sprite();
+bullets_sprite.SetZ(20);
+message_sprite = Sprite();
+message_sprite.SetZ(20);
+
+fun place_below_rail(sprite, image, offset) {
+  sprite.SetImage(image);
+  sprite.SetX(Window.GetX() + (W - image.GetWidth()) / 2);
+  sprite.SetY(rail_y + offset);
+}
+
+# Disk encryption passphrase entry. Without this an encrypted install
+# could not be unlocked with the splash on.
+fun display_password_callback(prompt, bullets) {
+  place_below_rail(prompt_sprite, ink(prompt), H * 0.04);
+  stars = "";
+  i = 0;
+  while (i < bullets) {
+    stars = stars + "*";
+    i = i + 1;
+  }
+  if (stars == "") {
+    stars = " ";
+  }
+  place_below_rail(bullets_sprite, ink(stars), H * 0.04 + 36);
+}
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+
+fun display_question_callback(prompt, entry) {
+  place_below_rail(prompt_sprite, ink(prompt), H * 0.04);
+  if (entry == "") {
+    entry = " ";
+  }
+  place_below_rail(bullets_sprite, ink(entry), H * 0.04 + 36);
+}
+Plymouth.SetDisplayQuestionFunction(display_question_callback);
+
+fun display_normal_callback() {
+  prompt_sprite.SetImage(Image.Text(" ", 0, 0, 0, 0));
+  bullets_sprite.SetImage(Image.Text(" ", 0, 0, 0, 0));
+}
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+
+fun message_callback(text) {
+  place_below_rail(message_sprite, ink(text), H * 0.12);
+}
+Plymouth.SetMessageFunction(message_callback);

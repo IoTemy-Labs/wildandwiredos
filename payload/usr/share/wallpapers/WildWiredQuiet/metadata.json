@@ -1,0 +1,7 @@
+{
+    "KPlugin": {
+        "Authors": [ { "Name": "Wild & Wired WV" } ],
+        "Id": "WildWiredQuiet",
+        "Name": "Wild & Wired quiet strip"
+    }
+}

@@ -1,0 +1,30 @@
+---
+# Wild & Wired OS installer branding. Images and show.qml are generated
+# by scripts/build/install-art.py from assets/generated/.
+componentName: wildwired
+windowExpanding: fullscreen
+
+strings:
+    productName:         "Wild & Wired OS"
+    shortProductName:    "Wild & Wired"
+    version:             "26.11"
+    shortVersion:        "26.11"
+    versionedName:       "Wild & Wired OS 26.11"
+    shortVersionedName:  "Wild & Wired 26.11"
+    bootloaderEntryName: "Wild & Wired OS"
+    productUrl:          "https://wildandwiredwv.com/"
+    supportUrl:          "https://wildandwiredwv.com/"
+
+images:
+    productLogo:         "logo.png"
+    productIcon:         "icon.png"
+    productWelcome:      "welcome.png"
+
+slideshow:               "show.qml"
+slideshowAPI:            1
+
+style:
+   SidebarBackground:        "#03252a"
+   SidebarText:              "#d6e9e7"
+   SidebarTextCurrent:       "#40dfaf"
+   SidebarBackgroundCurrent: "#0a4f58"

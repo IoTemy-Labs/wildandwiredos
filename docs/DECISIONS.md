@@ -2,6 +2,39 @@
 
 Format: date, decision, rationale, alternatives rejected. Newest first.
 
+## 2026-09-25 — Phase 5 step 1: Kubuntu identity removed (build decisions)
+**Decisions (assistant, reversible, flagged for review):**
+1. **Display names change; machine identity stays Ubuntu.** os-release
+   `NAME`/`PRETTY_NAME`, lsb `DISTRIB_DESCRIPTION`, `/etc/issue`, KDE About,
+   Calamares, GRUB menus and the live session all say Wild & Wired OS.
+   `ID=ubuntu`, `VERSION_ID=26.04`, `DISTRIB_ID=Ubuntu` and the `resolute`
+   codenames stay, so `add-apt-repository ppa:`, ubuntu-drivers and apt
+   tooling keep working. `IMAGE_ID`/`IMAGE_VERSION` carry our build.
+2. **Kubuntu's "Try or Install" prompt is skipped.** It is a compiled
+   binary with Kubuntu art baked in. Its session file is diverted away, so
+   casper autologins the live user straight into Plasma. casper's own
+   25adduser already copies the renamed "Install Wild & Wired OS" launcher
+   to the live desktop, matching the handoff's live-session state. Consequence: the
+   OEM install boot entry is dropped (it depended on that session).
+3. **The initrd is regenerated** in the `assets` stage, because the live
+   Plymouth splash and casper's user/host live there. Same kernel, so the
+   signed boot chain is untouched. Live user is `live`, hostname `wildwired`.
+4. **Installed-system GRUB keeps `/EFI/ubuntu`.** grub-install names the
+   EFI directory after the first word of `GRUB_DISTRIBUTOR` ("wild"), but
+   Ubuntu's signed GRUB only boots from `/EFI/ubuntu`. `/etc/default/grub`
+   now sets `Ubuntu` when read by grub-install (`sh -c`) and our name when
+   read by grub-mkconfig; Calamares `keepDistributor: true` preserves it.
+   Verified by simulation and by `check-rootfs.sh`; a real install test on
+   Secure Boot hardware is still owed in QA.
+5. **Package-owned files are replaced via `dpkg-divert`**, so apt upgrades
+   on installed machines cannot restore Kubuntu branding.
+6. **Interim look until later Phase 5 steps:** Breeze Dark colours and
+   Plasma style, stock Breeze SDDM over our generated background, Kubuntu's
+   panel template with our start icon.
+**Also fixed:** Kubuntu's defaults pointed the default browser and mail
+client at snap desktop ids (`firefox_firefox.desktop`) that Option B
+removed; links now open the Flatpak Firefox.
+
 ## 2026-08-21 — AppImage manager: Gear Lever (Flatpak), preinstalled
 **Decision (user):** ship `it.mijorus.gearlever` preinstalled as the
 AppImage integration/update manager and the double-click handler for

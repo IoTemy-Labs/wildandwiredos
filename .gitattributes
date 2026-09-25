@@ -4,3 +4,7 @@
 *.txt text eol=lf
 *.yaml text eol=lf
 *.json text eol=lf
+
+# Rootfs overlay and ISO branding are Linux text files.
+payload/** text=auto eol=lf
+branding/** text=auto eol=lf
