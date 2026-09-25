@@ -2,6 +2,32 @@
 
 Format: date, decision, rationale, alternatives rejected. Newest first.
 
+## 2026-09-25 — Phase 6: Welcome and Field Guide (scope reduced)
+**Decision (user accepted the recommendation to reduce scope):** no
+separate Kirigami apps. The handoff's Welcome and Field Guide are delivered as:
+1. **Welcome = KDE's Welcome Center, customised.** Our intro text and badge
+   replace KDE's (`intro-customization.desktop`: Name is the intro text,
+   Comment the caption, Icon the picture, URL its link; verified in QEMU).
+   2 distro pages load before KDE's closing page: "Start here" and
+   "1-click apps". The second is generated from the `oneclick` lines of
+   `manifests/flatpaks.txt` plus `guides/oneclick-apps.json`; each Get
+   button opens the app in Discover. It runs on first login, live and installed.
+2. **Field Guide = 1 self-contained HTML file** built from
+   `guides/fieldguide/*.md`, opened in Firefox from a desktop icon, the menu
+   (Get Software group and favourites) and the Welcome Center.
+**Rationale:** 3 weeks to the guides freeze with Phase 5 just finished;
+the Welcome Center already runs at first login and follows our colour
+scheme. Firefox is a Flatpak, so it can only open a single local file
+(the document portal hands over that 1 file); multi-page HTML would break.
+**Enforced:** the build lints all guide and 1-click copy against the
+handoff rules (no dashes, no exclamation marks, numerals, banned words).
+**Known limits:** KDE's own Welcome pages keep KDE's copy (including 1
+exclamation mark). Firefox shows its Terms of Use dialog on first launch;
+we do not accept terms on the attendee's behalf. The handoff's hero blocks
+with Rebel Script and Circuit are not used.
+**Rejected:** Kirigami apps (days of work each); a multi-page HTML site
+(breaks in Flatpak Firefox); a local web server (a service to maintain).
+
 ## 2026-09-25 — Phase 5 step 4: login screen and boot menu
 **Built:** a `wildwired` SDDM theme (Qt 6 QML) to the handoff login spec:
 plated lockup, `V26.11`, initials avatar, name, session label, 480x64

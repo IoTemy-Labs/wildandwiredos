@@ -88,6 +88,17 @@ done
 ls "$R"/usr/share/wildwired/grub/*.pf2 >/dev/null 2>&1 && ok "GRUB PF2 fonts built" || bad "GRUB PF2 fonts missing"
 ls "$R"/etc/update-motd.d/10-help-text "$R"/etc/update-motd.d/50-motd-news >/dev/null 2>&1   && bad "Ubuntu console login messages still present" || ok "console login messages clean"
 grep -qi ubuntu "$R/etc/legal" && grep -q "Wild & Wired" "$R/etc/legal" && ok "legal notice is ours" || bad "legal notice not ours"
+echo "== Welcome and Field Guide checks (Phase 6) =="
+[ -s "$R/usr/share/wildwired/fieldguide.html" ] && ok "Field Guide built" || bad "Field Guide missing"
+grep -q '^Exec=xdg-open /usr/share/wildwired/fieldguide.html' "$R/usr/share/applications/wildwired-fieldguide.desktop" && ok "Field Guide launcher" || bad "Field Guide launcher missing"
+[ -x "$R/etc/skel/Desktop/wildwired-fieldguide.desktop" ] && ok "Field Guide desktop icon (trusted)" || bad "Field Guide desktop icon missing or not executable"
+for f in 10-wildwired.qml 20-oneclick.qml; do
+  [ -s "$R/usr/share/plasma/plasma-welcome/extra-pages/$f" ] && ok "Welcome page: $f" || bad "Welcome page missing: $f"
+done
+n=$(grep -c 'appstream' "$R/usr/share/plasma/plasma-welcome/extra-pages/20-oneclick.qml" 2>/dev/null || true)
+m=$(grep -c '^oneclick' "$REPO_ROOT/manifests/flatpaks.txt")
+[ "$(grep -o 'id: "' "$R/usr/share/plasma/plasma-welcome/extra-pages/20-oneclick.qml" | wc -l)" = "$m" ] && ok "1-click page lists all $m manifest apps" || bad "1-click page does not match manifest"
+[ -s "$R/usr/share/plasma/plasma-welcome/intro-customization.desktop" ] && ok "Welcome intro customised" || bad "Welcome intro missing"
 echo "== general =="
 [ -s "$R/etc/machine-id" ] && bad "machine-id not empty" || ok "machine-id empty"
 ls "$R"/etc/ssh/ssh_host_* >/dev/null 2>&1 && bad "ssh host keys present" || ok "no ssh host keys"

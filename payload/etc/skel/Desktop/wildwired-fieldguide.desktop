@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Field Guide
+GenericName=Help for Wild & Wired OS
+Comment=How to try, install, and get the most out of Wild & Wired OS
+Exec=xdg-open /usr/share/wildwired/fieldguide.html
+Icon=wildwired-logo
+Terminal=false
+Categories=Documentation;Utility;
+Keywords=help;guide;manual;howto;

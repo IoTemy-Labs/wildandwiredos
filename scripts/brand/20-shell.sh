@@ -49,6 +49,10 @@ if [ -e "$A" ] && ! dpkg-divert --list "$A" | grep -q .; then
   dpkg-divert --quiet --local --rename --divert "/usr/share/wildwired/diverted$A" --add "$A"
 fi
 
+# --- Field Guide on every new user's desktop --------------------------------
+# Plasma only trusts desktop-file launchers on the desktop when executable.
+chmod 0755 /etc/skel/Desktop/wildwired-fieldguide.desktop
+
 # --- Fonts --------------------------------------------------------------------
 fc-cache -f /usr/share/fonts/truetype/wildwired
 for fam in "Archivo" "Source Sans 3" "JetBrains Mono"; do

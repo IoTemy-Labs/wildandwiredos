@@ -1,0 +1,10 @@
+# Welcome Center intro customisation (read by plasma-welcome with the
+# standard desktop-file readers): Name = intro text, Icon = picture,
+# Comment = caption under the picture, URL = where the picture links.
+# (Verified in QEMU 2026-09-25.)
+[Desktop Entry]
+Type=Link
+Name=Wild & Wired OS is the Linux system made for Wild & Wired West Virginia, November 14, 2026 in Charleston. It is yours to keep, copy, and share. The next pages show how it works, then where to go next.
+Comment=Made in West Virginia for Wild & Wired 2026.
+Icon=file:///usr/share/wildwired/logo-plated-256.png
+URL=https://wildandwiredwv.com/
