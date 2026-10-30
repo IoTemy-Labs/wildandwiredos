@@ -1,10 +1,7 @@
 {
   "_comment": "User-facing names and 1-line descriptions for every 'oneclick' app in manifests/flatpaks.txt. The build fails if an app is missing here. Copy rules apply: second person, no em dashes, no exclamation marks.",
-  "org.gimp.GIMP": ["GIMP", "Edit photos and images."],
-  "org.inkscape.Inkscape": ["Inkscape", "Draw logos, posters, and anything made of lines."],
   "org.kde.krita": ["Krita", "Paint and sketch, with or without a drawing tablet."],
   "org.kde.kdenlive": ["Kdenlive", "Cut and edit video."],
-  "org.audacityteam.Audacity": ["Audacity", "Record and edit audio."],
   "com.obsproject.Studio": ["OBS Studio", "Record your screen or stream it live."],
   "org.kde.digikam": ["digiKam", "Sort, tag, and back up a big photo library."],
   "org.mozilla.Thunderbird": ["Thunderbird", "Read your email, calendars, and news feeds."],
@@ -12,7 +9,6 @@
   "com.bitwarden.desktop": ["Bitwarden", "A password manager that syncs across your devices."],
   "org.onionshare.OnionShare": ["OnionShare", "Share files over Tor with no company in the middle."],
   "com.nextcloud.desktopclient.nextcloud": ["Nextcloud", "Sync files with a Nextcloud server you or your group run."],
-  "com.github.tchx84.Flatseal": ["Flatseal", "See and change what each Flatpak app may touch."],
   "com.vscodium.codium": ["VSCodium", "A code editor without the telemetry."],
   "io.podman_desktop.PodmanDesktop": ["Podman Desktop", "Run containers from a point-and-click window."],
   "net.supertuxkart.SuperTuxKart": ["SuperTuxKart", "Kart racing with Tux and friends."],

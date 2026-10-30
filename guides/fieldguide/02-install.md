@@ -14,11 +14,12 @@ Installing copies Wild & Wired OS onto your computer's disk, so it starts withou
 
 1. Double-click **Install Wild & Wired OS** on the desktop.
 2. Choose your language, time zone, and keyboard.
-3. Choose where to install:
+3. Keep **Normal Installation** selected.
+4. Choose where to install:
    - **Erase disk** replaces everything on the disk with Wild & Wired OS.
-   - **Install alongside** keeps Windows and lets you pick a system each time the computer starts.
-4. Create your user name and password. You type this password to install apps and change settings.
-5. Wait for the installer to finish, then restart and remove the USB stick when asked.
+   - **Install alongside** keeps Windows and lets you pick a system each time the computer starts. It appears when the disk already has a system on it.
+5. Create your user name and password. You type this password to install apps and change settings.
+6. Wait for the installer to finish, then restart and remove the USB stick when asked.
 
 ## Secure Boot
 

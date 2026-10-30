@@ -45,18 +45,25 @@ grep -q 'USERNAME="live"' "$R/etc/casper.conf" && grep -q '^export FLAVOUR=' "$R
 [ "$(readlink "$R/etc/alternatives/default.plymouth")" = /usr/share/plymouth/themes/wildwired/wildwired.plymouth ] \
   && ok "Plymouth default is wildwired" || bad "Plymouth default is $(readlink "$R/etc/alternatives/default.plymouth")"
 grep -q '^branding: wildwired' "$R/etc/calamares/settings.conf" && ok "Calamares branding" || bad "Calamares branding not ours"
-grep -q '^keepDistributor: true' "$R/etc/calamares/modules/grubcfg.conf" && ok "Calamares keeps GRUB_DISTRIBUTOR" || bad "grubcfg keepDistributor"
+grep -q '^keep_distributor: true' "$R/etc/calamares/modules/grubcfg.conf" && ok "Calamares keeps GRUB_DISTRIBUTOR" || bad "grubcfg keep_distributor"
+grep -q '^GRUB_DISTRIBUTOR=Ubuntu$' "$R/etc/default/grub" && ok "plain GRUB_DISTRIBUTOR line" || bad "/etc/default/grub distributor line"
+grep -qi kubuntu "$R/etc/calamares/modules/partition.conf" && bad "partition label still Kubuntu" || ok "partition labels ours"
+grep -q '^showSupportUrl: false' "$R/etc/calamares/modules/welcome.conf" && ok "installer Support button hidden" || bad "installer Support button shown"
+chroot "$R" dpkg-divert --list /usr/share/applications/kubuntu-calamares.desktop | grep -q . \
+  && bad "installer launcher diverted (survives install)" || ok "installer launcher removed with Calamares"
+[ -e "$R/usr/share/applications/org.kubuntu.restore-desktop-links.desktop" ] && bad "Kubuntu link tool in menu" || ok "no Kubuntu link tool in menu"
 grep -q '^Name=Install Wild & Wired OS' "$R/usr/share/applications/kubuntu-calamares.desktop" \
   && ok "installer launcher renamed" || bad "installer launcher still Kubuntu"
 ls "$R"/etc/skel/Desktop/*kubuntu* "$R"/etc/skel/Desktop/*kfocus* >/dev/null 2>&1 \
   && bad "Kubuntu links in /etc/skel/Desktop" || ok "no Kubuntu links in skel"
 grep -rqs --exclude='*.distrib' 'firefox_firefox\|thunderbird_thunderbird' "$R/etc/xdg" "$R/usr/share/kubuntu-default-settings/kf5-settings" \
-  && bad "snap desktop ids still referenced" || ok "default browser/mail point at Flatpak ids"
+  && bad "snap desktop ids still referenced" || ok "default browser points at the Flatpak id"
+grep -qs "^x-scheme-handler/mailto=" "$R/usr/share/kubuntu-default-settings/kf5-settings/mimeapps.list" \n  && bad "default mail handler set to an app that is not installed" || ok "no dangling default mail handler"
 [ -s "$R/usr/share/wallpapers/WildWired/contents/images/1920x1080.png" ] && ok "WildWired wallpaper installed" || bad "wallpaper missing"
 [ -s "$R/usr/share/wildwired/lockscreen.png" ] && ok "lock screen art installed" || bad "lock screen art missing"
 # GRUB: installed-system menus show our name, grub-install keeps /EFI/ubuntu.
-gi="$(chroot "$R" sh -c '. /etc/default/grub; printf %s "$GRUB_DISTRIBUTOR"')"
-printf '#!/bin/sh\n. /etc/default/grub\nprintf %%s "$GRUB_DISTRIBUTOR"\n' > "$R/tmp/grub-mkconfig"
+gi="$(chroot "$R" sh -c '. /etc/default/grub; for x in /etc/default/grub.d/*.cfg; do . "$x"; done; printf %s "$GRUB_DISTRIBUTOR"')"
+printf '#!/bin/sh\n. /etc/default/grub\nfor x in /etc/default/grub.d/*.cfg; do . "$x"; done\nprintf %%s "$GRUB_DISTRIBUTOR"\n' > "$R/tmp/grub-mkconfig"
 gm="$(chroot "$R" sh /tmp/grub-mkconfig)"; rm -f "$R/tmp/grub-mkconfig"
 [ "$gi" = "Ubuntu" ] && ok "grub-install sees GRUB_DISTRIBUTOR=Ubuntu (EFI dir ubuntu)" || bad "grub-install sees '$gi'"
 [ "$gm" = "Wild & Wired OS" ] && ok "grub-mkconfig sees '$gm'" || bad "grub-mkconfig sees '$gm'"

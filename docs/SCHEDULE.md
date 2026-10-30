@@ -1,7 +1,11 @@
-# Schedule gates (PROPOSED — Phase 0, awaiting approval)
+# Schedule gates (APPROVED as written, 2026-10-30)
 
 Worked back from the event: Saturday, November 14, 2026, University of
-Charleston. Once approved these dates hold.
+Charleston. These dates hold.
+
+Status 2026-10-30: approved on the day the QA week closed. The package list
+changed that day, and hardware QA has not run. It must finish before gold
+master on Nov 6.
 
 | Gate | Date | Notes |
 |---|---|---|

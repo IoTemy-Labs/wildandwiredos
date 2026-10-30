@@ -2,6 +2,35 @@
 
 Format: date, decision, rationale, alternatives rejected. Newest first.
 
+## 2026-10-30 — Package list, schedule, and first real install test
+**Decisions (user):** the schedule is approved as written. GIMP, Inkscape,
+Audacity and Flatseal are preinstalled. No default mail handler ships;
+Thunderbird stays a 1-click app and claims mailto when installed.
+**Rationale:** Gear Lever already ships a GNOME runtime, and the project
+assumes venue Wi-Fi is saturated.
+**Estimate miss:** the ISO grew from 3.91 to 4.54 GiB, not the projected 4.2.
+Flathub has moved on, so the image now carries GNOME 50 and 51 plus 2 graphics
+runtimes. Still under the 6 GiB soft target; left as is.
+**First real install (QEMU, Secure Boot, no network):** install and first
+login work, in under 5 minutes on this host's fast disk. It disproved 2 claims
+in the 2026-09-25 entry:
+- `keepDistributor` is ignored; this Calamares reads `keep_distributor`, and
+  it can only preserve a plain line. The scripted line was overridden, so
+  grub-install created `/EFI/wild`.
+- "Ubuntu's signed GRUB only boots from /EFI/ubuntu" is wrong: the VM booted
+  from `/EFI/wild`. We still keep 1 folder so every machine stays on the
+  tested path.
+**Fix:** plain `GRUB_DISTRIBUTOR=Ubuntu`, with the name set for menus only by
+`/etc/default/grub.d/99-wildwired.cfg`. Verified on a fresh install after a
+simulated GRUB update: only `/EFI/ubuntu` exists, the menu reads "Wild & Wired
+OS GNU/Linux", and the disk boots again under Secure Boot.
+**Known cosmetic:** the firmware boot list shows 1 entry named "Ubuntu". A hook
+could rename it, but the next grub-install would add "Ubuntu" back, so it
+stays. Attendees only see it in the F12 menu.
+**Also fixed:** the diverted installer launcher survived on installed systems
+as a dead menu entry; partition label `kubuntu_2604`; a "Wild  Wired Support"
+button with its ampersand eaten; 2 Kubuntu menu leftovers.
+
 ## 2026-09-25 — Phase 6: Welcome and Field Guide (scope reduced)
 **Decision (user accepted the recommendation to reduce scope):** no
 separate Kirigami apps. The handoff's Welcome and Field Guide are delivered as:

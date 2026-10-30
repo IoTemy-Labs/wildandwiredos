@@ -126,59 +126,60 @@ for f in /etc/skel/Desktop/org.kubuntu.web.home.desktop \
   divert_away "$f"
 done
 
-# --- Default browser and mail: Kubuntu points at snap ids we purged. ------
+# --- Default browser: Kubuntu points at the snap id we purged. No default
+# mail handler ships: Thunderbird is a 1-click app and claims mailto itself
+# once installed (DECISIONS.md 2026-10-30). ------------------------------
 K=/usr/share/kubuntu-default-settings/kf5-settings
 for f in "$K/kdeglobals" "$K/mimeapps.list"; do
   divert_edit "$f"
   sed -i -e 's/firefox_firefox\.desktop/org.mozilla.firefox.desktop/g' \
-         -e 's/thunderbird_thunderbird\.desktop/org.mozilla.Thunderbird.desktop/g' "$f"
+         -e '/^x-scheme-handler\/mailto=/d' "$f"
 done
 
 # --- GRUB on installed systems ---------------------------------------------
-# grub-install derives the EFI directory from the first word of
-# GRUB_DISTRIBUTOR ("Wild ..." would give /EFI/wild), but Ubuntu's signed
-# GRUB only boots from /EFI/ubuntu. grub-install reads this file through
-# `sh -c` ($0 = sh); grub-mkconfig sources it from its own script. So menus
-# show our name while every grub-install keeps /EFI/ubuntu.
-if ! grep -q 'wildwired-efi-id' /etc/default/grub; then
-  cp /etc/default/grub /etc/default/grub.wwwv
-  awk '
-    /^GRUB_DISTRIBUTOR=/ {
-      print "# wildwired-efi-id: menus show the OS name; grub-install keeps /EFI/ubuntu."
-      print "case \"$0\" in *grub-mkconfig*) GRUB_DISTRIBUTOR=\"$( . /etc/os-release && echo \"$NAME\" )\" ;; *) GRUB_DISTRIBUTOR=Ubuntu ;; esac"
-      next
-    }
-    { print }' /etc/default/grub.wwwv > /etc/default/grub
-  rm /etc/default/grub.wwwv
-fi
+# grub-install names the EFI folder after the first word of GRUB_DISTRIBUTOR,
+# so "Wild & Wired OS" would create /EFI/wild beside the installer's
+# /EFI/ubuntu. Keep the plain value here; Calamares only preserves a simple
+# GRUB_DISTRIBUTOR= line. Menus get our name from the drop-in
+# /etc/default/grub.d/99-wildwired.cfg, which only grub-mkconfig acts on.
+sed -i 's/^GRUB_DISTRIBUTOR=.*/GRUB_DISTRIBUTOR=Ubuntu/' /etc/default/grub
 
 # --- Installer (Calamares) --------------------------------------------------
 divert_edit /etc/calamares/settings.conf
 sed -i 's/^branding:.*/branding: wildwired/' /etc/calamares/settings.conf
 
-# Keep our GRUB_DISTRIBUTOR logic; Calamares would otherwise overwrite it
-# with bootloaderEntryName.
+# Keep GRUB_DISTRIBUTOR=Ubuntu; Calamares would otherwise overwrite it with
+# bootloaderEntryName. This build reads keep_distributor, not the upstream
+# keepDistributor spelling.
 G=/etc/calamares/modules/grubcfg.conf
 divert_edit "$G"
-if grep -q '^keepDistributor:' "$G"; then
-  sed -i 's/^keepDistributor:.*/keepDistributor: true/' "$G"
-else
-  printf 'keepDistributor: true\n' >> "$G"
-fi
+sed -i '/^keepDistributor:/d; /^keep_distributor:/d' "$G"
+printf 'keep_distributor: true\n' >> "$G"
 
 W=/etc/calamares/modules/welcome.conf
 divert_edit "$W"
 sed -i -e 's|^showDonateUrl:.*|showDonateUrl: false|' \
        -e 's|^showKnownIssuesUrl:.*|showKnownIssuesUrl: false|' \
-       -e 's|^showReleaseNotesUrl:.*|showReleaseNotesUrl: false|' "$W"
+       -e 's|^showReleaseNotesUrl:.*|showReleaseNotesUrl: false|' \
+       -e 's|^showSupportUrl:.*|showSupportUrl: false|' "$W"
 
+# The new partition's label is visible in the installer and in file managers.
+P=/etc/calamares/modules/partition.conf
+divert_edit "$P"
+sed -i -e 's/kubuntu_boot/wildwired_boot/' -e 's/kubuntu_2604/wildwired_2611/' "$P"
+
+# Edited in place, not diverted: Calamares removes itself from the installed
+# system, and dpkg would leave a diverted launcher behind as a dead menu entry.
 D=/usr/share/applications/kubuntu-calamares.desktop
-divert_edit "$D"
 sed -i -e '/^\(Name\|GenericName\|Comment\|Keywords\)\[/d' \
        -e "s/^Name=.*/Name=Install ${DISTRO_NAME//&/\\&}/" \
        -e "s/Kubuntu [0-9.]*/${DISTRO_NAME//&/\\&}/g; s/Kubuntu/${DISTRO_NAME//&/\\&}/g" \
        -e "s/^GenericName=.*/GenericName=System installer/" \
        -e "s/^Comment=.*/Comment=Copy ${DISTRO_NAME//&/\\&} onto this computer's disk/" "$D"
+
+# OEM mode was dropped, and this link tool restores Kubuntu's web links.
+divert_away /usr/share/applications/calamares-launch-oem.desktop
+divert_away /usr/share/applications/org.kubuntu.restore-desktop-links.desktop
 
 # --- Boot splash --------------------------------------------------------------
 T=/usr/share/plymouth/themes

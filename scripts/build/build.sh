@@ -136,6 +136,13 @@ run_chroot_scripts() {
 }
 
 stage_chroot() {
+  # A dead resolver otherwise surfaces as a wall of "Unable to locate package".
+  # (2026-10-30: NetBird on the Proxmox host rewrote the DNS this CT inherits;
+  # CT 211 now pins nameserver 192.168.8.1 with `pct set`.)
+  local h
+  for h in archive.ubuntu.com dl.flathub.org; do
+    getent hosts "$h" >/dev/null || die "Cannot resolve $h from the build host. Check /etc/resolv.conf."
+  done
   run_chroot_scripts "$REPO_ROOT/scripts/chroot" chroot
 }
 
