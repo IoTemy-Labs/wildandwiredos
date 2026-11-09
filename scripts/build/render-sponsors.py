@@ -29,9 +29,13 @@ except ImportError as e:
 REPO = Path(__file__).resolve().parent.parent.parent
 BRAND = json.loads((REPO / "assets/brand/brand.json").read_text(encoding="utf-8"))
 FONTS = REPO / "assets/fonts"
-TIERS = ["presenting", "gold", "silver", "community", "in-kind"]
-TIER_LABEL = {"presenting": "presenting", "gold": "gold", "silver": "silver",
-              "community": "community", "in-kind": "in-kind support"}
+TIERS = ["presenting", "gold", "silver", "community", "in-kind", "media-partner", "special-thanks"]
+# Paying tiers; the login band is labelled "sponsors" and has room for one row.
+SPONSOR_TIERS = TIERS[:5]
+# Data keys stay generic; labels use the event's own tier names (sponsors page).
+TIER_LABEL = {"presenting": "root sponsor", "gold": "sudo sponsors", "silver": "package maintainers",
+              "community": "community contributors", "in-kind": "in-kind support",
+              "media-partner": "media partners", "special-thanks": "special thanks"}
 MAXIMA = BRAND["sponsor_board"]["tier_maxima"]
 
 def C(name, alpha=None):
@@ -276,9 +280,10 @@ def sponsor_board(sponsors, thanks, bw, k=1.0, min_bh=0):
     if thanks:
         tx = bw - pad - thanks_w + int(32 * k)
         ty = int(24 * k) + lock.height + int(28 * k)
-        d.line([(bw - pad - thanks_w, ty - int(8 * k)), (bw - pad - thanks_w, bh - int(80 * k))],
-               fill=C("border_subtle"), width=1)
-        tracked(d, (tx, ty), "special thanks", font("mono", int(13 * k), 500), C("ink_muted"))
+        # Inset into the thanks gutter: rails, counts and plates end at main_w.
+        dx = bw - pad - thanks_w + int(16 * k)
+        d.line([(dx, ty - int(8 * k)), (dx, bh - int(80 * k))], fill=C("border_subtle"), width=1)
+        tracked(d, (tx, ty), "thank you", font("mono", int(13 * k), 500), C("ink_muted"))
         ty += int(36 * k)
         tf = font("ui", int(19 * k), 400)
         for name in thanks:
@@ -355,21 +360,32 @@ def login_background(size, sponsors):
     k = min(w / 1920, h / 1080)
     img = flat_bg(w, h, "base")
     d = ImageDraw.Draw(img)
+    sponsors = [s for s in sponsors if s["tier"] in SPONSOR_TIERS]
     if sponsors:
         y0 = int(880 * k)
-        x0, x1 = int(64 * k), w - int(64 * k)
+        # SDDM and the lock screen fill the screen and crop the sides, so on a
+        # 16:10 or 3:2 laptop a 16:9 image loses up to 150 px a side. Keep the
+        # band inside the 3:2 centre (seen cut off at 1280x800, 2026-11-09).
+        safe = max(int(64 * k), (w - int(h * 1.5)) // 2 + int(32 * k))
+        x0, x1 = safe, w - safe
         f = font("mono", int(13 * k), 500)
         tw = tracked(d, (x0, y0), "sponsors", f, C("mint"))
         d.line([(x0 + tw + int(16 * k), y0 + int(8 * k)), (x1, y0 + int(8 * k))],
                fill=C("structure"), width=1)
         sizes = BRAND["sponsor_board"]["plate_sizes_login"]
-        y = y0 + int(28 * k)
-        x = x0
         gap = int(20 * k)
+        row, used = [], 0
         for sp in sponsors:
             pw, ph = (int(v * k) for v in sizes[sp["tier"]])
-            if x + pw > x1:
+            if used + pw > x1 - x0:
+                print(f"  warning: login band full, {len(sponsors) - len(row)} sponsor(s) left off",
+                      file=sys.stderr)
                 break
+            row.append((sp, pw, ph))
+            used += pw + gap
+        x = (w - (used - gap)) // 2
+        y = y0 + int(28 * k)
+        for sp, pw, ph in row:
             img.alpha_composite(sponsor_plate(sp, (pw, ph)), (x, y))
             x += pw + gap
     return img
@@ -397,7 +413,7 @@ def slides(sponsors, thanks):
     if thanks:
         s3 = flat_bg(w, h, "base", "scanline")
         d = ImageDraw.Draw(s3)
-        tracked(d, (w // 2, 60), "special thanks", font("mono", 16, 500), C("mint"), anchor="ma")
+        tracked(d, (w // 2, 60), "thank you", font("mono", 16, 500), C("mint"), anchor="ma")
         d.line([(w // 4, 100), (w * 3 // 4, 100)], fill=C("structure"), width=1)
         y = 150
         for name in thanks:
@@ -414,7 +430,7 @@ def print_sheet(sponsors, thanks):
     lock = plated_lockup(900, pad_scale=1.6)
     img.alpha_composite(lock, ((w - lock.width) // 2, 170))
     d.text((w // 2, 800), "Thank you", font=font("display", 130, 700), fill=C("light_body"), anchor="ma")
-    d.text((w // 2, 980), "This operating system exists because these people paid for it to.",
+    d.text((w // 2, 980), "This operating system exists because of these people.",
            font=font("ui", 46, 400), fill=C("light_muted"), anchor="ma")
     y = 1150
     sizes = BRAND["sponsor_board"]["plate_sizes_board"]

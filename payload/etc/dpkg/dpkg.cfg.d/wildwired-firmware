@@ -1,0 +1,20 @@
+# Wild & Wired OS: firmware no amd64 laptop or desktop loads, left out so
+# the ISO fits a single-layer DVD-R (DECISIONS.md 2026-11-09). The packages
+# stay installed, since the linux-firmware metapackage depends on them; dpkg
+# just skips these files, now and on every update. build.sh stage_clean
+# removes the copies installed before this file existed, from this list.
+
+# Server and switch hardware: Mellanox Spectrum and Marvell Prestera switch
+# ASICs, Netronome SmartNICs, QLogic Fibre Channel and FastLinQ adapters.
+path-exclude=/usr/lib/firmware/mellanox/*
+path-exclude=/usr/lib/firmware/mrvl/prestera/*
+path-exclude=/usr/lib/firmware/netronome/*
+path-exclude=/usr/lib/firmware/qed/*
+path-exclude=/usr/lib/firmware/qlogic/*
+path-exclude=/usr/lib/firmware/ql2*_fw.bin*
+
+# Qualcomm Snapdragon SoC firmware (Adreno GPU, video, DSPs) and the Cloud
+# AI 100 accelerator: ARM machines and servers only. Kept: the sdx* PCIe
+# 5G modems some x86 laptops carry.
+path-exclude=/usr/lib/firmware/qcom/*
+path-include=/usr/lib/firmware/qcom/sdx*

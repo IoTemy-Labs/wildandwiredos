@@ -6,7 +6,7 @@
 
 preinstall org.mozilla.firefox               # the browser; proves Flatpak works offline on day one
 preinstall it.mijorus.gearlever              # AppImage manager (DECISIONS.md Phase 4); brings GNOME 50 runtime
-preinstall org.gimp.GIMP                     # image editing; shares Gear Lever's GNOME 50 runtime (DECISIONS.md 2026-10-30)
+preinstall org.gimp.GIMP                     # image editing; on GNOME 51 since Flathub moved it, so it brings its own runtime (DECISIONS.md 2026-10-30, 2026-11-09)
 preinstall org.inkscape.Inkscape             # vector design; shares the GNOME 50 runtime
 preinstall org.audacityteam.Audacity         # audio editing; shares the GNOME 50 runtime
 preinstall com.github.tchx84.Flatseal        # Flatpak permission manager, teaches sandboxing; guides reference it

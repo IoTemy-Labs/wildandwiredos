@@ -192,9 +192,37 @@ stage_clean() {
   rm -f "$ROOTFS"/etc/ssh/ssh_host_*
   find "$ROOTFS/var/log" -type f -exec truncate -s 0 {} +
   rm -f "$ROOTFS"/root/.bash_history "$ROOTFS"/home/*/.bash_history
+  # Apply the firmware path-excludes to files installed before they existed.
+  # Same patterns as dpkg: '*' spans '/', the last matching rule wins.
+  local cfg="$ROOTFS/etc/dpkg/dpkg.cfg.d/wildwired-firmware" before
+  [ -f "$cfg" ] || die "clean: $cfg missing (payload overlay not applied?)"
+  before="$(du -sm "$ROOTFS/usr/lib/firmware" | cut -f1)"
+  ( cd "$ROOTFS" && find usr/lib/firmware \( -type f -o -type l \) -print0 ) |
+    python3 -c '
+import fnmatch, sys
+rules = [l.strip().split("=", 1) for l in open(sys.argv[1])
+         if l.startswith(("path-exclude=", "path-include="))]
+for p in sys.stdin.buffer.read().decode().split("\0"):
+    if not p:
+        continue
+    keep = True
+    for kind, pat in rules:
+        if fnmatch.fnmatchcase("/" + p, pat):
+            keep = kind == "path-include"
+    if not keep:
+        print(p)' "$cfg" | while IFS= read -r f; do rm -f "$ROOTFS/$f"; done
+  find "$ROOTFS/usr/lib/firmware" -mindepth 1 -type d -empty -delete
+  log "clean: firmware excludes ${before} MB -> $(du -sm "$ROOTFS/usr/lib/firmware" | cut -f1) MB"
 }
 
 stage_metadata() {
+  # The base ISO's offline NVIDIA driver set (~500 MB). No installer step
+  # installs it (DECISIONS.md 2026-11-09); dropping it is what fits a DVD-R.
+  # The signed pool index is left as is: editing it would break the cdrom
+  # source's signature, which the GRUB step reads. GRUB, shim and
+  # broadcom-sta stay in the pool.
+  find "$ISO_TREE/pool" -name '*nvidia*.deb' -delete
+  find "$ISO_TREE/pool" -mindepth 1 -type d -empty -delete
   mkdir -p "$ISO_TREE/.disk"
   printf '%s %s "%s" (build %s.%s) - Based on Ubuntu 26.04 LTS - amd64\n' \
     "$DISTRO_NAME" "$DISTRO_VERSION" "$DISTRO_CODENAME" "$DISTRO_BUILD" "$BUILD_SERIAL" \
@@ -248,6 +276,11 @@ stage_verify() {
   label="$(xorriso -indev "$OUT_ISO" -pvd_info 2>/dev/null | awk -F': *' '/^Volume Id/{print $2}')"
   log "verify: label='$label' size=$(printf '%.2f' "$gib") GiB"
   [ "$label" = "$ISO_VOLID" ] || die "Volume label mismatch: got '$label' want '$ISO_VOLID'"
+  # Single-layer DVD-R: 2,295,104 sectors of 2048 bytes. The event presses
+  # this image to DVD-R, so a bigger ISO is a failed build, not a warning.
+  local dvd=4700372992
+  [ "$bytes" -le "$dvd" ] || die "ISO is $bytes bytes, over the DVD-R limit of $dvd by $((bytes - dvd))."
+  log "verify: fits DVD-R with $(( (dvd - bytes) / 1000000 )) MB to spare"
   # grub.cfg must not reference a label we no longer carry.
   if grep -rqs "Kubuntu 26.04 amd64" "$ISO_TREE/boot/grub"; then
     die "grub.cfg still references the base volume label — fix before shipping."

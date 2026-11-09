@@ -97,9 +97,9 @@
     "min_px": 96
   },
   "sponsor_board": {
-    "plate_sizes_board": {"presenting": [640, 132], "gold": [420, 104], "silver": [260, 74], "community": [170, 56], "in-kind": [170, 56]},
-    "plate_sizes_login": {"presenting": [300, 88], "gold": [200, 72], "silver": [140, 56], "community": [120, 48], "in-kind": [120, 48]},
-    "tier_maxima": {"presenting": 1, "gold": 3, "silver": 6, "community": 8, "in-kind": 8},
+    "plate_sizes_board": {"presenting": [640, 132], "gold": [420, 104], "silver": [260, 74], "community": [170, 56], "in-kind": [170, 56], "media-partner": [170, 56], "special-thanks": [170, 56]},
+    "plate_sizes_login": {"presenting": [300, 88], "gold": [200, 72], "silver": [140, 56], "community": [120, 48], "in-kind": [120, 48], "media-partner": [120, 48], "special-thanks": [120, 48]},
+    "tier_maxima": {"presenting": 1, "gold": 3, "silver": 6, "community": 8, "in-kind": 8, "media-partner": 8, "special-thanks": 8},
     "reflow": "Past a tier maximum the generator drops to the quiet strip layout and logs a warning."
   },
   "radii": {"badge": 2, "control": 4, "card": 6, "dialog": 10},

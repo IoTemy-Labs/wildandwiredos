@@ -2,6 +2,38 @@
 
 Format: date, decision, rationale, alternatives rejected. Newest first.
 
+## 2026-11-09 — Fit a single-layer DVD-R; sponsor list from the site
+**Decision (user):** the ISO must fit a single-layer DVD-R (4,700,372,992
+bytes); it was 4,874,592,256. Three cuts, chosen from a measured list:
+A. the base ISO's offline NVIDIA driver set leaves the disc pool (497 MB);
+B. server and switch firmware (Mellanox, Marvell Prestera, Netronome,
+QLogic) and D. Snapdragon SoC firmware leave the rootfs through
+`payload/etc/dpkg/dpkg.cfg.d/wildwired-firmware`. `stage_verify` now fails
+any ISO over the DVD-R limit.
+**Rationale:** no Calamares module installs from the NVIDIA set (the
+"third-party" option fetches online; the cdrom source is read only for
+GRUB and shim, already installed). The firmware is for hardware no amd64
+laptop has. The pool's signed index is left untouched, so the cdrom
+source still verifies. Branding, the live session, installer options,
+preinstalled apps and the offline Flathub catalog are unchanged.
+**Rejected:** xz squashfs (saves 310 MB, kept as fallback: slower live
+boot and install from USB); Flatpak locales cut to English (up to 250 MB,
+but non-English installs lose app translations); dropping the Flathub
+catalog (offline Discover); re-signing the pool index (risks the GRUB
+install step); GIMP to one-click (was the user's 2026-10-30 call).
+**Data:** sponsors.yaml now mirrors wildandwiredwv.com as of 2026-11-09:
+3 Package Maintainer, 6 Community Contributor, 1 Media Partner, 4 Special
+Thanks, plus Apollo Automation in Special Thanks next to Open Home Foundation
+at the organiser's request (not on the site yet; logo is the 1000x290
+Apollo_Logo_Stacked.png from apolloautomation.com, colour, used as is). 12 of the 14 logos are white for dark pages and ship as generated
+`-onlight` copies (logo-onlight.py,
+`--from-x` keeps an icon on the left untouched).
+**Result:** ISO 4,096,583,680 bytes (603 MB under the DVD-R limit). Both live
+boots and the scripted Secure Boot install pass, so the GRUB step still
+reads the trimmed cdrom pool. The install test caught the login sponsor band
+cut off on the left at 1280x800: SDDM fills and crops a 16:9 image on 16:10
+and 3:2 screens. The band is now centred inside the 3:2 middle.
+
 ## 2026-10-30 — Package list, schedule, and first real install test
 **Decisions (user):** the schedule is approved as written. GIMP, Inkscape,
 Audacity and Flatseal are preinstalled. No default mail handler ships;

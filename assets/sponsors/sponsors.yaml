@@ -3,13 +3,98 @@
 # art. Edit this, run render-sponsors.py, repack with build.sh --from-stage
 # assets. See docs/ART-FREEZE.md for the freeze date.
 #
-# tier: presenting | gold | silver | community | in-kind
+# tier: presenting | gold | silver | community | in-kind | media-partner | special-thanks
+#   = the event's Root | Sudo | Package Maintainer | Community Contributor | in kind,
+#     then Media Partner and Special Thanks (logos; plain names go in thanks: below)
 # logo: path to PNG/SVG-exported-PNG, transparent background preferred,
-#       >= 400 px on the long edge. Omit to have the name typeset instead.
+#       >= 640 px wide (>= 1000 for silver and up). Logos are never enlarged,
+#       so a smaller file shows smaller than its neighbours on the 4K
+#       wallpaper and the print sheet. Omit to have the name typeset instead.
 # display_name_override: use when the legal name shouldn't be the shown name.
 # sort_order: lower sorts first within a tier (default 100).
 
-sponsors: []
+# Taken from wildandwiredwv.com 2026-11-09 (homepage and /sponsors/ agree),
+# in the site's order. Logos are the site's web copies; swap in originals
+# when available.
+# *-onlight.png are dark versions of white logos, from logo-onlight.py.
+sponsors:
+  - name: "Huntington Analytics"
+    tier: silver
+    logo: assets/sponsors/logos/huntington-analytics-onlight.png
+    url: huntington-analytics.com
+    sort_order: 10
+  - name: "BizSolutions.Tech"
+    tier: silver
+    logo: assets/sponsors/logos/bizsolutions-tech-onlight.png
+    url: bizsolutions.tech
+    sort_order: 20
+  - name: "University of Charleston"
+    tier: silver
+    logo: assets/sponsors/logos/university-of-charleston-onlight.png
+    url: ucwv.edu
+    sort_order: 30
+  - name: "KDE Technology"
+    tier: community
+    logo: assets/sponsors/logos/kde-technology.png
+    url: kde.technology
+    sort_order: 10
+  - name: "Quinn Technology"
+    tier: community
+    logo: assets/sponsors/logos/quinn-technology-onlight.png
+    url: quinntechnology.com
+    sort_order: 20
+  - name: "IoTemy Labs"
+    tier: community
+    logo: assets/sponsors/logos/iotemy-labs-onlight.png
+    url: iotemylabs.com
+    sort_order: 30
+  - name: "Mountaineer Creative Works"
+    tier: community
+    logo: assets/sponsors/logos/mountaineer-creative-works-onlight.png
+    url: mountaineercreativeworks.io
+    sort_order: 40
+  - name: "Providence Insurance Agency, LLC"
+    tier: community
+    logo: assets/sponsors/logos/providence-insurance.png
+    url: providenceinsurancellc.com
+    sort_order: 50
+  - name: "Thunder Entertainment"
+    tier: community
+    logo: assets/sponsors/logos/thunder-entertainment-onlight.png
+    url: thunderent.com
+    sort_order: 60
+  - name: "Linux Professional Institute"
+    tier: media-partner
+    logo: assets/sponsors/logos/linux-professional-institute-onlight.png
+    url: lpi.org
+    sort_order: 10
+  - name: "Charleston Area Alliance"
+    tier: special-thanks
+    logo: assets/sponsors/logos/charleston-area-alliance-onlight.png
+    url: charlestonareaalliance.org
+    sort_order: 10
+  - name: "iFixit"
+    tier: special-thanks
+    logo: assets/sponsors/logos/ifixit-onlight.png
+    url: ifixit.com
+    sort_order: 20
+  - name: "Open Home Foundation"
+    tier: special-thanks
+    logo: assets/sponsors/logos/open-home-foundation-onlight.png
+    url: openhomefoundation.org
+    sort_order: 30
+  # Added 2026-11-09 at the organiser's request (not yet on the event site).
+  # Logo: Apollo_Logo_Stacked.png, 1000x290, from the apolloautomation.com header.
+  - name: "Apollo Automation"
+    tier: special-thanks
+    logo: assets/sponsors/logos/apollo-automation.png
+    url: apolloautomation.com
+    sort_order: 35
+  - name: "SecureNet"
+    tier: special-thanks
+    logo: assets/sponsors/logos/securenet-onlight.png
+    url: securenetfiber.com
+    sort_order: 40
 # Example:
 #  - name: "Example Fiber Cooperative"
 #    tier: gold
